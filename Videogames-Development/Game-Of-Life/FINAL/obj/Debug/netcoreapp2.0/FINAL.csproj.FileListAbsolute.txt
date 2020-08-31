@@ -1,0 +1,34 @@
+D:\---FACULTAD---\VisualStudio\1° Cuatrimestre\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.deps.json
+D:\---FACULTAD---\VisualStudio\1° Cuatrimestre\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.runtimeconfig.json
+D:\---FACULTAD---\VisualStudio\1° Cuatrimestre\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.runtimeconfig.dev.json
+D:\---FACULTAD---\VisualStudio\1° Cuatrimestre\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.dll
+D:\---FACULTAD---\VisualStudio\1° Cuatrimestre\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.pdb
+D:\---FACULTAD---\VisualStudio\1° Cuatrimestre\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.csprojResolveAssemblyReference.cache
+D:\---FACULTAD---\VisualStudio\1° Cuatrimestre\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.csproj.CoreCompileInputs.cache
+D:\---FACULTAD---\VisualStudio\1° Cuatrimestre\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.AssemblyInfoInputs.cache
+D:\---FACULTAD---\VisualStudio\1° Cuatrimestre\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.AssemblyInfo.cs
+D:\---FACULTAD---\VisualStudio\1° Cuatrimestre\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.dll
+D:\---FACULTAD---\VisualStudio\1° Cuatrimestre\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.pdb
+C:\Users\Guido\Desktop\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.deps.json
+C:\Users\Guido\Desktop\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.runtimeconfig.json
+C:\Users\Guido\Desktop\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.runtimeconfig.dev.json
+C:\Users\Guido\Desktop\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.dll
+C:\Users\Guido\Desktop\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.pdb
+C:\Users\Guido\Desktop\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.csprojResolveAssemblyReference.cache
+C:\Users\Guido\Desktop\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.csproj.CoreCompileInputs.cache
+C:\Users\Guido\Desktop\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.AssemblyInfoInputs.cache
+C:\Users\Guido\Desktop\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.AssemblyInfo.cs
+C:\Users\Guido\Desktop\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.dll
+C:\Users\Guido\Desktop\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.pdb
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.deps.json
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.runtimeconfig.json
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.runtimeconfig.dev.json
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.dll
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\bin\Debug\netcoreapp2.0\FINAL.pdb
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.csprojAssemblyReference.cache
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.csproj.CoreCompileInputs.cache
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.AssemblyInfoInputs.cache
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.AssemblyInfo.cs
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.dll
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.pdb
+D:\---FACULTAD---\1° AÑO\1° CUATRIMESTRE\Programacion 1\FINAL\FP1_PONCE\FINAL\FINAL\obj\Debug\netcoreapp2.0\FINAL.genruntimeconfig.cache

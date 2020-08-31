@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/Head') %>
+    <body>
+        <%- include('./partials/Header') %>
+        <div class="container-fluid">
+            
+            <div class="busquedaContainer">
+                <!--/product/listadoDeProductos/busquedaAvanzada?-->
+                <form action="/product/listadoDeProductos/busquedaAvanzada?" method="GET" class="busqueda row">
+                    <input class="inputDeBusqueda inputStyle col-10" placeholder="Escriba el producto que desea buscar" type="text" id="busquedaAvanzada" name="busquedaAvanzada">
+                </form>
+
+                <% if(typeof usuario == 'undefined') { %>                    
+                    <button class="boton-agregar-producto botonStyle d-none" type="button">
+                        <a href="/product/formularioProductos">Agregar producto</a>
+                    </button>
+                <% } else { %>
+                    <% if(user.rol != 1){ %>
+                        <button class="boton-agregar-producto botonStyle" type="button">
+                            <a href="/product/formularioProductos">Agregar producto</a>
+                        </button>
+                    <% }%>
+                <% } %>
+
+                <nav class="mb-2 phoneFilter">
+
+                    
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#filter">
+                        <i class="fas fa-filter"></i>Categoria
+                    </button>
+
+                    <form action="/product/listadoDeProductos/filtrar?" method="GET" class="collapse col-12" id="filter">
+                        
+                        <% for(i=0; i<categorias.length; i++) { %>
+                            <button type="submit" name="filtroDeCategoria" value=<%= categorias[i].id %> class="col-7 botonStyle botonFiltro"><%=categorias[i].nombre%></button>
+                        <% } %>
+
+                    </form>
+
+                    <br>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#orderBy">
+                        <i class="fas fa-chevron-circle-down"></i> Ordenar por 
+                    </button>
+                    <form action="/product/listadoDeProductos/ordenar?" class="collapse col-12 row" id="orderBy">
+                        <button type="submit" name="ordenar" value="menor" class="col-7 botonStyle botonFiltro">Menor precio</button>
+                        <button type="submit" name="ordenar" value="mayor" class="col-7 botonStyle botonFiltro">Mayor precio</button>
+                    </form>
+                </nav>
+                <div class="pcFilterContainer">
+                    <div class="filtrosPC row">
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contenedorDeFiltros">
+                            <i class="fas fa-filter"></i>Filtrar
+                        </button>
+
+                        <div class="collapse col-12" id="contenedorDeFiltros">
+                            <button class="collapseFiltros botonStyle col-2" type="button" data-toggle="collapse" data-target="#collapseFiltro">
+                                Categoria
+                            </button>
+                            <form action="/product/listadoDeProductos/filtrar?" method="GET" class="collapse col-12" id="collapseFiltro">
+                                
+                                <% for(i=0; i<categorias.length; i++) { %>
+                                    <button type="submit" name="filtroDeCategoria" value=<%= categorias[i].id %> class="col-2 botonStyle botonFiltro"><%=categorias[i].nombre%></button>
+                                <% } %>
+    
+                            </form>
+                            
+                            <div class="col-12"></div>
+    
+    
+                            <button class="collapseFiltros botonStyle col-2" type="button" data-toggle="collapse" data-target="#collapseOrdenar">
+                                Ordenar por 
+                            </button>
+                            <form action="/product/listadoDeProductos/ordenar?" class="collapse col-12 row" id="collapseOrdenar">
+                                <button type="submit" name="ordenar" value="menor" class="col-2 botonStyle botonFiltro">Menor precio</button>
+                                <button type="submit" name="ordenar" value="mayor" class="col-2 botonStyle botonFiltro">Mayor precio</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="productosDeBusqueda col-12 col-md-12 col-lg-12">
+                    <% for(let i = 0; i < productos.length; i++) { %>
+                        
+                        <div class="producto col-10 col-sm-6 col-lg-4 row">
+                            
+                            <a href="/product/detail/<%= productos[i].id %>">
+                            <div>
+                                <img class="col-12" src="/images/productos/<%= (typeof productos[i].imagenes[0] == 'undefined') ? '' : productos[i].imagenes[0].nombre %>" alt="">
+                            </div>
+                            <div class="productInfo col-12">
+                                <h4><%= productos[i].nombre %></h4>
+
+                                <h5 class="product-price"><%= productos[i].precio %></h5>
+                                <% if(productos[i].descuento != " "){ %>
+                                    <h6 class="product-discount"> <%= productos[i].descuento %> </h6>
+                                <% }%>
+                            </div>
+                            </a>
+                        </div>   
+                        
+                    <% } %>                     
+                </div>
+                
+            </div>
+
+        </div>
+        <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/scripts.ejs') %> 
+    </body>
+</html>

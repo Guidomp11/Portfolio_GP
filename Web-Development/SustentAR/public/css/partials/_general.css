@@ -1,0 +1,28 @@
+/* =================================
+            -.GENERAL.-
+================================= */
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
+html {
+    font-size: 15px;
+}
+
+.container-fluid {
+    min-height: 380px;
+    margin: 0 auto;
+    background-color: #dddbd1;
+    border: 2px solid  #dddbd1;
+}
+
+body{
+    height: 100vh;
+}

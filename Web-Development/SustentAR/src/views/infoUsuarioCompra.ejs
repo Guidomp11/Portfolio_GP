@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/Head') %>
+
+    <body>
+        <%- include('./partials/Header') %>
+        <div class="container-fluid">
+            <div class="container">
+                <!--INFORMACION-->
+                <div class="registrodeUsuario">
+                    <h2>SustentAR</h2><br>
+                    <h5 class="ml-2">Ingrese sus datos</h5>
+                    <form class="formulario-editar-cuenta  row" action="" method="POST" id="content">
+    
+                        <div class="col-7 col-sm-6 form-div row"  nombre>
+                            <label class="etiqueta col-12" id="label nombre"  for="nombre">Nombre</label>
+                            <input class="campo col-10 inputStyle" type="text" name="nombre"  value="<%= usuario.nombre %>">
+                           
+                        </div>
+    
+                        <div class="col-7 col-sm-6 form-div row" >
+                            <label class="etiqueta col-12" id="label apellido"  for="apellido">Apellido</label>
+                            <input class="campo col-10"inputStyle 
+                            type="text" name="apellido"  value="<%=usuario.apellido%>"> 
+                        </div>
+    
+                        <div class="col-12 col-sm-12 form-div row email">
+                            <label class="etiqueta col-12" for="email" >Email</label>
+                            <input class="campo col-10"inputStyle type="email" name="email" value="<%=usuario.email%>">
+                        </div>
+    
+    
+                        <div class="col-7 col-sm-6 form-div row">
+                            <label class="etiqueta col-12" for="dni">DNI</label>
+                            <input id="dni" class="campo col-10"inputStyle type="text" name="dni"  value="<%=(usuario.dni != null) ? usuario.dni : '' %>">
+                        </div>
+                        
+                        <div class="col-12 col-sm-12 form-div row">
+                            <label class="etiqueta col-12" for="direccion">Dirección</label>
+                            <input id="direccion" class="campo col-10"inputStyle type="text" name="direccion" value="<%=(usuario.domicilio != '') ? usuario.domicilio : ''%>">
+                        </div>
+                        
+                        <div class="form-div col-7 col-sm-6 row">
+                            <label class="etiqueta col-12" for="cp">C.P.</label>
+                            <input id="cp" class="campo col-10"inputStyle type="text" name="cp"  value="<%= (usuario.codigo_postal != null) ? usuario.codigo_postal : '' %>">
+                        </div>
+    
+                        <div class="col-7 col-sm-6 form-div row">
+                            <label class="etiqueta col-12" for="entreCalles">Entre Calles</label>
+                            <input id="entreCalles" class="campo col-10"inputStyle type="text" name="entreCalles" value="<%=(usuario.entre_calles != '') ? usuario.entre_calles : '' %>">
+                        </div>
+                        
+                        <div class="col-7 col-sm-6 form-div row">
+                            <label class="etiqueta col-12" for="depto">Departamento, piso, etc</label>
+                            <input id="depto" class="campo col-10"inputStyle type="text" name="depto"  value="<%=(usuario.departamento != '') ? usuario.departamento : ''%>">
+                        </div>
+    
+                        <div class="col-7 col-sm-6 form-div row">
+                            <label class="etiqueta col-12" for="telefono">Teléfono 
+                            </label>
+                            <input id="telefono" class="campo col-10"inputStyle type="text" name="telefono" value="<%= (usuario.telefono != null) ? usuario.telefono : '' %>">
+                        </div>
+                        
+                        <div class="btnDivVolverCarrito col-6">
+                            <button type="button" class="btnVolverCarrito botonStyle"><a href="/carrito">Volver a Carrito</a></button>
+                        </div>
+        
+                        <div class="btnDiv col-6">
+                            <button id="btnConfirmar" type="submit" class="continuar botonStyle"><a href="modoDePago">Confirmar</a></button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <%- include('./partials/footer.ejs') %>
+        <%- include('./partials/scripts.ejs') %>
+        <script src="/js/validarInfoUsuarioCompra.js"></script> 
+
+    </body>
+</html>

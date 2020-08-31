@@ -1,0 +1,340 @@
+/*----------HOME--------------*/
+
+.vidContainer{
+    width: 100%;
+    margin-bottom: 0;
+}
+
+video{
+    width: 100%;
+    height: 200px;/*pc 400*/
+    object-fit: cover;
+}
+
+div.homeMedia{
+    margin-top: 0;
+    width: 100%;
+    height: 200px;/*pc 400*/
+    padding: 0 0;
+}
+
+div.homeImg img{
+    margin-top: 0;
+    width: 100%;
+    height: 200px;/*pc 500*/
+    padding: 0 0;
+    opacity: 0.7;
+}
+
+div.homeMedia h3{
+    text-align: center;
+    margin: 145px;
+    z-index: 10;
+}
+/*----------FIN HOME--------------*/
+
+
+/* -----------GUIA DE USUARIO------------- */
+
+/* .guide-div{
+    opacity: 0.5;
+} */
+
+
+/*-------------BOTON CON FLECHAS------------------*/
+button.arrowBtn{
+    background-color: var(--btn-bg-color);
+    width: 60px;
+    height: 60px;
+
+    position: absolute;
+    top: 125%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    border: none;
+    border-radius: 360px;
+}
+
+.arrow{
+    position: absolute;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    border-right: none;
+    border-top: none;
+}
+.arrow span{
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    transform: rotate(45deg);
+    margin: -10px;
+    margin-left: 0;
+    animation: animate 2s infinite;
+}
+.arrow span:nth-child(2){
+    animation-delay: -0.2s;
+}
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+/*-------------FIN BOTON CON FLECHAS------------------*/
+
+/*---------DIV DE AYUDA----------------*/
+div.help{
+    margin-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.help h3{
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+div.help button{
+    background-color: var(--btn-bg-color);
+    border: var(--btn-border);
+    height: 40px;
+    padding: 5px 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+div.help button i{
+    position: relative;
+    top: 2px;
+}
+
+div.help .optionsContainer{
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.help .orderList{
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    height: 0;
+    transition: height 0.4s ease;
+    border-top: 2px solid black;
+}
+
+div.help .orderList button{
+    background-color: var(--btn-bg-color-hover);
+    border: var(--btn-border-hover);
+    height: 40px;
+    padding: 0 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+div.help .orderListOpen{
+    height: 190px;
+    transition: height 0.4s ease;
+}
+
+div.help .orderList{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.help h6{
+    text-align: center;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.sendBtnContainer{
+    width: 99%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    margin-bottom: 8px;
+}
+
+
+textarea{
+    width: 100%;
+}
+
+/*---------FIN DIV DE AYUDA----------------*/
+
+
+/*POP UP AYUDA*/
+.pop-up-background{
+    display: flex;
+    justify-content: center;
+
+    
+    height: 0%;
+    width: 0%;
+    transition: width 1s ease;
+}
+
+.pop-up-background .pop-up{
+    background-color: var(--body-bg-color);
+    position: fixed;
+    top: 80px;
+
+    height: 0%;
+    width: 0%;/*a 90*/
+    transition: max-height 1s ease;
+
+    z-index: 500;
+    padding: 5px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    border: 2px solid black;
+
+}
+
+.pop-up-background .pop-up.show{
+    width: 90%;/*a 90*/
+    transition: width 1s ease;
+}
+.pop-up-background .pop-up.show.showHeight{
+    height: 80vh;/*a 90*/
+    transition: height 1s ease;
+}
+
+
+.pop-up-background.open{
+    height: fit-content;
+    width: 60%;
+    transition: width 1s ease;
+}
+
+.pop-up-background.close{
+    display: none;
+    visibility: hidden;
+
+}
+
+div.pop-up h3{
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+div.pop-up button{
+    background-color: var(--btn-bg-color);
+    border: var(--btn-border);
+    height: 40px;
+    padding: 5px 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+div.pop-up button i{
+    position: relative;
+    top: 2px;
+}
+
+div.pop-up .optionsContainer{
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.pop-up .orderListv2{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    height: 0;
+    transition: height 0.4s ease;
+    border-top: 2px solid black;
+}
+
+div.pop-up .orderListv2 button{
+    background-color: var(--btn-bg-color-hover);
+    border: var(--btn-border-hover);
+    height: 40px;
+    padding: 0 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+div.pop-up .orderListOpen{
+    height: 190px;
+    transition: height 0.4s ease;
+}
+
+
+div.pop-up h6{
+    text-align: center;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.pop-up .sendBtnContainer{
+    width: 99%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+div.pop-up button.quit-btn{
+    padding: 0;
+    width: 60px;
+    height: 60px;
+}
+
+.quit-btn-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+/*FIN POP UP AYUDA*/

@@ -1,0 +1,195 @@
+.container-meet{
+    background-color: whitesmoke;
+}
+#slider {
+    /* mediaquery para pc  */
+    /* width: 50%; */
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+    
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}
+    
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
+
+.div-filter{
+    padding: 3px;
+    width: 100vh;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    position: fixed;
+    z-index: 70;
+}
+
+.arrow {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    position: fixed;
+    top: 25px;
+    left: 25px;
+  }
+
+  .arrow-left {
+    transform: rotate(-135deg);
+  }
+
+.div-filter a {
+    text-decoration: none;
+    color: black;
+}
+
+.div-filter a p{
+    margin: 25px;
+}
+
+.div-filter a p.universidad{
+    margin-top: 65px;
+}
+
+.div-filter div label {
+    font-size: 13px;
+    text-align: start;
+    margin: 5px;
+}
+
+.div-filter div input{
+    margin: 2px;
+}
+
+.div-filter div div {
+    width: 90%;
+}
+
+.estudiante{
+    background-color: white;
+    border-radius: 3px;
+    margin: 15px;
+}
+
+.estudiante img {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    top: -25px;
+    right: -15px;
+    margin: 5px;
+}
+
+.estudiante h3{
+    margin-top: 30px;
+}
+.estudiante{
+    text-align: center;
+}
+.estudiante button{
+    padding: 5px;
+    margin: 10px;
+    border: 2px solid rgb(244, 118, 1);
+    background-color: rgb(246, 145, 1);
+    border-radius: 2px;
+}
+.estudiante button:hover{
+    background-color: rgb(255, 188, 126);
+    border: 2px solid rgb(246, 145, 1);
+}
+.estudiante button:focus{
+    outline: none;
+    background-color: rgba(218, 105, 0, 0.74);
+    border: 2px solid rgb(246, 145, 1);
+}
+
+.hid{
+    display: none;
+}
+.btn-filter{
+    background-color: rgba(255, 196, 86, 0.918);
+    border: 2px solid rgb(238, 206, 147);
+    border-radius: 3px;
+    margin: 5px;
+    padding: 5px;
+}
+.btn-filter:hover{
+    background-color: rgb(255, 213, 136);
+    border: 2px solid rgb(238, 206, 147);
+}
+.btn-filter:focus{
+    background-color: rgba(236, 157, 9, 0.966);
+    border: 2px solid rgb(238, 206, 147);
+    outline: none;
+}
+
+#meet-title{
+    text-align: center;
+    padding: 15px;
+}
+
+
+.sleep-background{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 600;
+}
+
+
+.sleep-background:before {
+    content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+    right:0;
+    background-color: rgb(155, 155, 155);
+    opacity: 0.7;
+}
+
+.sleep-background h3 {
+    padding: 10px;
+    background-color: white;
+    opacity: 1;
+    z-index: 700;
+    border-radius: 5px;
+}
+
+.sleep-background img{
+    border-radius: 5px;
+    height: 300px;
+    width: 300px;
+    opacity: 1;
+    z-index: 700;
+}

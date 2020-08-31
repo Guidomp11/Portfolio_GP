@@ -1,0 +1,96 @@
+/*=================================
+            DETAIL
+=================================*/
+
+
+
+
+/*=================================
+            TITLE
+=================================*/
+.wrapper-title {
+    margin-top: 15px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-title{
+    display: flex;
+    align-items: center;
+}
+
+.profile-detail-title {
+    text-align: center;
+    display:flex;
+    justify-content: center;
+}
+
+.main-title h2 {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 5px;
+}
+
+.main-title img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin: 5px;
+}
+  
+.wrapper-title p {
+    display: inline;
+    text-align: center;
+    border: solid 1px #435A64;
+    background-color: #FFFFFF;
+    padding: 4px;
+}
+
+.wrapper-title p i {
+    font-weight: bold;
+    color: #4FCE5D;
+}
+
+
+
+/*=================================
+        DETAIL
+=================================*/
+
+.wrapper-detail-profile {
+    margin: 0;
+    margin-top: 10px;
+}
+
+.profile-experiences h4.uni {
+    text-align: left;
+    background-color: rgb(180, 243, 180);
+    max-width: 450px;
+}
+
+.profile-experiences h4.course {
+    text-align: left;
+    background-color: rgb(253, 253, 152);
+    max-width: 450px;
+}
+
+.profile-interests {
+    width: fit-content;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-interests ul.interests {
+    margin-bottom: 5px;
+}
+
+.profile-interests ul.interests li {
+    list-style: none;
+    margin: 5px;
+    background-color: var(--btn-bg-color-scnd);
+    border: var(--btn-border-scnd);
+}

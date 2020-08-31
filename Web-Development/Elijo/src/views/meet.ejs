@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %> 
+<link rel="stylesheet" href="/css/partials/meet.css">
+<body>
+    <%- include('./partials/header') %>  
+
+                <div class="div-filter" id="slider">
+                    <span class="arrow arrow-left"></span>
+
+                    <a href="#universidad" data-toggle="collapse" ><p class="universidad">Universidad</p></a>
+                        <div class="collapse" id="universidad">
+                            <div class="card">
+                                <label for=""><input type="checkbox" name="" id="">Ditella</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">UBA</label>
+                                
+                            </div>
+                        </div>
+
+                    <a href="#carrera" data-toggle="collapse" ><p>Carrera</p></a>
+                        <div class="collapse" id="carrera">
+                            <div class="card">
+                                <label for=""><input type="checkbox" name="" id="">Ciencias Sociales</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">Economia</label>
+                                
+                            </div>
+                        </div>
+
+                    <a href="#cursos" data-toggle="collapse" ><p>Cursos</p></a>
+                        <div class="collapse" id="cursos">
+                            <div class="card">
+                                <label for=""><input type="checkbox" name="" id="">Programacion</label>
+                                                                
+                                <label for=""><input type="checkbox" name="" id="">Fotografia</label>
+
+                            </div>
+                        </div>
+                    
+                    
+                    <a href="#intereses" data-toggle="collapse" ><p>Intereses</p></a>
+                        <div class="collapse" id="intereses">
+                            <div class="card">
+                                <label for=""><input type="checkbox" name="" id="">Futbol</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">Cine</label>
+                                
+                            </div>
+                        </div>
+
+                    <a href="#region" data-toggle="collapse" ><p>Region</p></a>
+                        <div class="collapse" id="region">
+                            <div class="card">
+                                <label for=""><input type="checkbox" name="" id="">Buenos Aires</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">Cordoba</label>
+                                
+                            </div>
+                        </div>
+
+                    <a href="#anio" data-toggle="collapse" ><p>Año de Universidad</p></a>
+                        <div class="collapse" id="anio">
+                            <div class="card">
+                                <label for=""><input type="checkbox" name="" id="">1</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">2</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">3</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">4</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">5</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">6</label>
+                                
+                            </div>
+                        </div>
+                    <a href="#genero" data-toggle="collapse" ><p>Genero</p></a>
+                        <div class="collapse" id="genero">
+                            <div class="card">
+                                <label for=""><input type="checkbox" name="" id="">Femenino</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">Masculino</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">Otro</label>
+                                
+                            </div>
+                        </div>
+                    <a href="#edad" data-toggle="collapse" ><p>Edad</p></a>
+                        <div class="collapse" id="edad">
+                            <div class="card">
+                                <label for=""><input type="checkbox" name="" id="">18-23</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">24-29</label>
+                                
+                                <label for=""><input type="checkbox" name="" id="">30-35</label>
+
+                                <label for=""><input type="checkbox" name="" id="">35+</label>
+                            </div>
+                        </div>
+                    
+                
+                </div>
+
+    <div class="sleep-background d-none">
+        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, iure.</h3>
+        <img src="/images/meetGuide.jpeg" alt="">
+    </div>
+
+    
+    
+    <div class="container container-meet">
+        <h1 id="meet-title">¡Conocé más estudiantes! </h1>
+        <button class="btn-filter" id="toggle">Filtrar</button>
+            <div class="row d-flex justify-content-center">
+                <div class="col-5 col-md-3 estudiante">
+                    <img src="/images/otros/avatar.png" alt="">
+                    <h3>Julia</h3>
+                    <p>UTDT</p>
+                    <p>Ciencias Sociales</p>
+                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
+                </div>
+                <div class="col-5 col-md-3 estudiante">
+                    <img src="/images/otros/avatar.png" alt="">
+                    <h3>Felipe</h3>
+                    <p>UDESA</p>
+                    <p>Administracion</p>
+                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
+                </div>
+                <div class="col-5 col-md-3 estudiante">
+                    <img src="/images/otros/avatar.png" alt="">
+                    <h3>Micaela</h3>
+                    <p>UBA</p>
+                    <p>Comunicacion</p>
+                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
+                </div>
+                <div class="col-5 col-md-3 estudiante">
+                    <img src="/images/otros/avatar.png" alt="">
+                    <h3>Martin</h3>
+                    <p>ITBA</p>
+                    <p>Ingenieria</p>
+                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
+                </div>
+                <div class="col-5 col-md-3 estudiante">
+                    <img src="/images/otros/avatar.png" alt="">
+                    <h3>Cala</h3>
+                    <p>UTDT</p>
+                    <p>Arquitectura</p>
+                    <button> Ver Perfil</button>
+                </div>
+                <div class="col-5 col-md-3 estudiante">
+                    <img src="/images/otros/avatar.png" alt="">
+                    <h3>Felipe</h3>
+                    <p>UDESA</p>
+                    <p>Administracion</p>
+                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
+                </div>
+                <div class="col-5 col-md-3 estudiante">
+                    <img src="/images/otros/avatar.png" alt="">
+                    <h3>Micaela</h3>
+                    <p>UBA</p>
+                    <p>Comunicacion</p>
+                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
+                </div>
+                <div class="col-5 col-md-3 estudiante">
+                    <img src="/images/otros/avatar.png" alt="">
+                    <h3>Martin</h3>
+                    <p>ITBA</p>
+                    <p>Ingenieria</p>
+                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
+                </div>
+                
+            </div>
+
+    </div>
+
+    
+
+
+
+    <%- include('./partials/scripts') %>
+    <script src="/js/meet.js"></script>
+    <%- include('./partials/footer') %>
+</body>
+</html>

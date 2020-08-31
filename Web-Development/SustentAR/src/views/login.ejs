@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/Head') %> 
+<body>
+    <%- include('./partials/Header') %> 
+    <div class="container-fluid">
+    <div class="container">
+        <div class="login-container row">
+            <div class="formulario-registro-container col-10 col-lg-8 d-inline-flex justify-content-center">
+                
+                <form action="" method="POST" class="row d-inline-flex justify-content-center">
+                    <h3 class="col-12">Iniciar Sesión</h3>
+
+                    <div class="col-12">
+                        <div class="row">
+                            <label class="col-12" for="">Email</label>
+                            <div class="col-12 col-md-8">
+                                <input class="inputStyle" type="email" name="email">
+                            </div>
+                            <div class="col-12 col-md-8" role="alert">
+                                <% if(typeof errores != 'undefined'){ %>
+                                    <% for(let i = 0; i < errores.errors.length; i++){ %>
+                                        <% if(errores.errors[i].param == 'email'){ %>
+                                            <small class="text-danger"> <%= errores.errors[i].msg%>  </small>
+                                        <% } %> 
+                                    <% } %>
+                                        
+                                <% } %> 
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-12">
+                        <div class="row">
+                            <label class="col-12" for="">Contraseña</label>
+                            <div class="col-12 col-md-8">
+                                <input class="inputStyle" type="password" name="contrasenia">
+                            </div>
+                            <div class="col-12 col-md-8" role="alert">
+                                <% if(typeof errores != 'undefined'){ %>
+                                    <% for(let i = 0; i < errores.errors.length; i++){ %>
+                                        <% if(errores.errors[i].param == 'contrasenia'){ %>
+                                            <small class="text-danger"> <%= errores.errors[i].msg%>  </small>
+                                        <% } %> 
+                                    <% } %>
+                                        
+                                <% } %> 
+                                        
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-8 col-lg-10  container-recordar">
+                           <p class="recordar"><input type="checkbox" name="recordame">Recordame</p>
+                    </div>
+                    <div class="col-8 col-lg-10  ">
+                        <p>¿No tenés cuenta? <a href="/user/registro"><b>Registrate acá</b></a></p>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="botonStyle">OK</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+
+       
+    </div>
+    </div>
+    <%- include('./partials/footer') %> 
+    <%- include('./partials/scripts') %> 
+</body>
+</html>

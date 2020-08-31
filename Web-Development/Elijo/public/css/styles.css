@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+@import 'partials/variables.css';
+@import 'partials/general.css';
+@import 'partials/header.css';
+@import 'partials/generic.css';
+@import 'partials/meet.css';
+@import 'partials/carousel.css';
+@import 'partials/_login-register.css';
+@import 'partials/home.css';
+@import 'partials/posta.css';
+@import 'partials/_detail.css';
+@import 'partials/account.css';
+
+
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+    background-color: var(--body-bg-color);
+}
+
+.guide-div{
+    opacity: 0.3;
+    background-color: rgb(131, 131, 131);
+}
+
+/*ESTE IMPORT VA AL FINAL*/
+@media (min-width: 768px) {
+    header{
+        height: 120px; 
+        transition: height 0.4s ease;
+    }
+    video{
+        width: 100%;
+        height: 400px;/*pc 400*/
+        object-fit: cover;
+    }
+    div.homeMedia{
+        margin-top: 0;
+        width: 100%;
+        height: 400px;/*pc 400*/
+        padding: 0 0;
+    }
+    div.homeImg img{
+        margin-top: 0;
+        width: 100%;
+        height: 500px;/*pc 500*/
+        padding: 0 0;
+    }
+    button.arrowBtn{
+        background-color: var(--btn-bg-color);
+        width: 60px;
+        height: 60px;
+    
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    
+        border: none;
+        border-radius: 360px;
+    }
+    .pcMenu{
+        display: initial;
+    }
+    .phoneMenu{
+        display: none;
+        visibility: hidden;
+    }
+    div.help .orderListOpen{
+        height: 100px;
+        transition: height 0.4s ease;
+    }
+    .pcDropDown{
+        width: 50%;
+    }
+    .tips-container{
+        display: initial;
+    }
+    .tipsPhoneBtn {
+        display: none;
+    }
+}
+
+@media (min-width: 430px) {
+    div.help .orderList button{
+        height: 40px;
+        padding: 5px 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+    
+}
+@import 'partials/mediaQuerys.css';

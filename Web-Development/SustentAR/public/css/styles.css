@@ -1,0 +1,823 @@
+/* ==========================================================================
+                        \\\---*STYLE.CSS*---///
+   ========================================================================== */
+
+/* =================================
+            -.IMPORTS.-
+================================= */
+
+
+/* =================================
+            -.FONTS.-
+================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* =================================
+            -.PARTIALS.-
+================================= */
+@import 'partials/_general.css';
+@import 'partials/_header.css';
+@import 'partials/_footer.css';
+
+
+/* =================================
+            -.PAGES.-
+================================= */
+@import 'pages/_home.css';
+@import 'pages/_detalleDelProducto.css';
+@import 'partials/_mediaQueries.css';
+
+/* =================================
+            -./IMPORTS.-
+================================= */
+
+div.container-fluid{
+    /*208 102 60vh;*/
+    
+    min-height: calc((100vh - 208px) - 230px);
+}
+
+
+
+/*========EDITAR CUENTA==========*/
+
+.avatar-usuario {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: 15px;
+    margin-left: 30px;
+    border: solid 4px rgba(175, 160, 160, 0.712);
+}
+
+
+.container-edit {
+    background-color: #c4c1ba;
+    border: 2px solid #c4c1ba;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.container-saludo, .form-article {
+    background-color: #dddbd1;
+    border: 2px solid  #dddbd1;
+    width: 65%;
+    box-sizing: border-box;
+    padding: 10px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.form-article{
+    display: flex;
+    flex-wrap: wrap;
+    /* box-sizing: border-box; */
+}
+
+
+
+/*SALUDO--------------------------*/
+
+.container-saludo {
+   margin-top: 15px; 
+}
+
+.saludo {
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}
+
+/*INFO USUARIO--------------------------*/
+
+.info-usuario{
+    margin-top: 12px;
+}
+
+/*FORMULARIO----------------------*/
+
+.formulario-editar-cuenta {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.etiqueta{
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.campo {
+    height: 20px;
+}
+
+.boton-editar {
+    display: block;
+    margin-top: 5%;
+    margin-left: 60%;
+    background-color: #e0d1c6;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #baaa9e;
+    transition: transform .7s ease;
+}
+
+.boton-editar:hover, .boton-guardar:hover{
+    background: #ffebdd;
+    transform: scale(1.1);
+}
+
+.boton-guardar {
+    margin-top: 5%;
+    margin-bottom: 10px;
+    background-color: #e0d1c6;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #baaa9e;
+    transition: transform .7s ease;
+    font-size: 13px;
+}
+
+.boton-editar:focus, .boton-guardar:focus{
+    background: #ffebdd;
+    text-decoration: none;
+    outline: none;
+    border: 2px solid rgb(189, 138, 138);
+}
+
+.img-editar-cuenta{
+    height: 100px;
+    width: 100px;
+}
+
+
+
+/*=============SECCION DE CARRITO==================*/
+
+
+
+.btnDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.btnDivVolverCarrito{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 25px;
+}
+
+.btnVolverCarrito{
+    background-color: #e0d1c6;
+    border-color: #baaa9e;
+}
+
+.btnVolverCarrito:hover{
+    background: #ffebdd;
+    transform: scale(1.1);
+}
+
+.btnVolverCarrito:focus{
+    background: #ffebdd;
+    text-decoration: none;
+    outline: none;
+    border: 2px solid rgb(189, 138, 138);
+}
+
+.botonStyle a{
+    text-decoration: none;
+    color: black;
+}
+
+
+/*=======CARRITO===========*/
+
+.carrito{
+    background-color: #c4c1ba;
+    border: 2px solid #c4c1ba;
+    margin: 1px;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.carrito .infoPrincipalDelProducto{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+.carrito .infoPrincipalDelProducto p{
+    padding-top: 10px;
+    padding-right: 5px;
+    height: 30px;
+}
+
+.carrito .infoPrincipalDelProducto .deleteButton{
+    text-align: right;
+}
+
+.dataContainer{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.carrito .infoPrincipalDelProducto .dataContainer button{
+    
+    margin-bottom: 10px;
+}
+
+button.colorBoton{
+    background-color: #e0d1c6;
+    border-color: #baaa9e;
+}
+
+button.continuar{
+    background-color:#c9d6a3;
+    border-color: #7fa08c;
+}
+
+.cupon{
+    margin-top: 5px;
+    margin: 5px auto;
+    padding: 0 auto;
+    /*margin-left: 7%;*/
+    justify-content: space-between;
+}
+
+.separacion div{
+    border-bottom: black 1px solid;
+    font-weight: bold;
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*=======INFORMACION===========*/
+.registrodeUsuario{
+    background-color: #c4c1ba;
+    border: 2px solid #c4c1ba;
+    margin: 1px;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.registrodeUsuario h2{
+    text-align: center;
+}
+
+.formularioDeInformacion{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0 auto;
+    justify-content: space-between;
+}
+
+/*.formularioDeInformacion input{
+    border-radius: 10px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+}*/
+
+/*==========MODO DE PAGO=============*/
+
+.modoDePago{
+    background-color: #c4c1ba;
+    border: 2px solid #c4c1ba;
+    margin: 1px;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.modoDePago .botonesDePago{
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: space-between; 
+}
+.modoDePago .botonesDePago button{
+    width: 20%;
+}
+
+.modoDePago .tarjetaForm{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 auto;
+    padding: 0 auto;
+    /*justify-content: space-between;*/
+    /*agregar un margin*/
+}
+
+.modoDePago .tarjetaForm input{
+    
+    margin-bottom: 8px;
+}
+
+
+/*==============VISTA DE COMPRAS===================*/
+.busquedaContainer{
+    position: relative;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
+.collapseFiltros{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.filtrosPC{
+    width: 0;
+    height: 0;
+    
+    margin: 1px;
+    margin-left: 15px;
+    padding-left: 5px;
+    visibility: collapse;
+}
+
+.filtrosPC .botonDeFiltrar{
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.filtrosPC .tituloFiltro{
+    margin-bottom: 0px;
+    margin-top: 3px;
+    font-weight: 700;
+}
+
+.filtrosPC .checkboxFilter{
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+input.minMax{
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.botonFiltro {
+    margin-left: 15px;
+}
+
+.productosDeBusqueda{
+    background-color: #c4c1ba;
+    border: 2px solid #c4c1ba;
+    border-radius: 10px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.productosDeBusqueda .producto{
+    margin-bottom: 10px;    
+}
+
+.boton-agregar-producto{
+    position: relative;
+}
+
+#botonSeleccionarImg{
+    height: 30px;
+}
+
+#imgDeProducto{
+    padding: 0;
+    width: 120px;
+    height: 90px;
+}
+
+/*
+.productosDeBusqueda .producto:after{
+    content:"";
+    position: absolute;
+    left: 170px;
+    height: 100px;
+    border-right: 1px solid #b1b1b1;
+
+}*/
+
+.productosDeBusqueda .producto a:hover{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.685);
+}
+
+.productosDeBusqueda .producto img {
+    transition: all 1s ease; 
+}
+
+.productosDeBusqueda .producto img:hover {
+    transform: scale(1.02);
+    transition: all 1s ease; 
+}
+
+.busqueda{
+    background-color: #c4c1ba;
+    border: 2px solid #c4c1ba;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 17px;
+}
+
+.checkboxFilter{
+    margin-bottom: 0px;
+    margin-left: 20px;
+}
+
+
+/*===================MIS COMPRAS===========================*/
+.misCompras{
+    background-color: #c4c1ba;
+    border: 2px solid #c4c1ba;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.misCompras h4{
+    margin-left: 15px;
+}
+
+.misCompras h6{
+    margin-left: 15px;
+}
+
+.misCompras .productoComprado{
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/*
+=====================
+FORMULARIO DE PRODUCTOS =====================
+*/
+
+#form-categoria div p {
+    font-size: 13px;
+}
+
+::placeholder{
+    font-size: 12px;
+}
+
+.titulo-articulo {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.titulo-imagenes{
+    text-align: center;
+    margin: 5px;
+}
+
+.imagenes input{
+    margin: 10px;
+}
+
+
+/*
+CONTAINER CATEGORIA =====================
+*/
+
+.categoria-container, .datos-container{
+    background-color: #dddbd1;
+    box-sizing: border-box;
+}
+
+.categoria-container{
+    margin-bottom: 15px;
+}
+
+.formulario-productos-container{
+    background-color: #c4c1ba;
+}
+
+/*
+CONTAINER DATOS =====================
+*/
+
+.datos-container div form{
+    box-sizing: border-box;
+  
+}
+
+.datos-container div form div{
+    margin: 10px;
+    padding: 0;
+    justify-content: space-evenly;
+}
+
+.datos-container div form div button {
+    background-color: #e0d1c6;
+    border-style: solid;
+    border-color: #baaa9e;
+}
+
+.datos-productos-container form div label{
+   font-size: 12px;
+   padding-top: 5px;
+}
+
+
+
+.datos-productos-container div{
+    margin: 5px;
+}
+
+.datos-productos-container form div select{
+    font-size: 12px;
+}
+
+.datos-productos-container form div input, textarea, select{
+    margin: 9px;
+}
+
+input[type='radio'], input[type='checkbox']{
+    margin: 10px;
+}
+
+input[type='file'] {
+    font-size: 12px;  
+    border: none;
+}
+
+input[type='file']:focus{
+    outline: none;
+    box-shadow: 0 0 12px 0px #0000008c, 0 0 5px #7e7f80cc;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a :hover{
+    text-decoration: none;
+    color: black;
+}
+
+@media(min-width: 584px){
+    .datos-productos-container form div p{
+        font-size: 11px;
+    }
+}
+
+@media(min-width: 992px){
+    .datos-productos-container form{
+        padding: 29px;
+    }
+
+    .formulario-productos-container{
+        padding: 70px;
+        padding-top: 20px;
+        }
+
+}
+
+/*==========================
+        LOGIN
+==========================*/
+
+
+@keyframes slide {
+        0%   { transform: translate(0px,0px); }
+        100% { transform: translate(0px,10px); }
+      }
+.formulario-registro-container form, .container-saludo, .form-article{
+       animation-name: slide;
+       animation-duration: 3s; 
+       animation-fill-mode: forwards;   
+}
+.container-recordar{
+    margin-bottom: 18px;
+}
+
+.recordar{
+    font-size: 10px;
+    height: 15px;
+    margin: 0;
+}
+
+.boton-recordar{
+    margin:0
+}
+
+.formulario-registro-container form div p {
+    font-size: 12px;
+}
+
+.formulario-registro-container form div p a{
+    text-decoration: none;
+    color: #3d4627;
+}
+
+.formulario-registro-container form div p a:hover{
+    text-decoration: none;
+    color: #595e4ba4;
+}
+
+
+/*==========================
+        REGISTRO
+==========================*/
+
+
+.registro-container{  
+    background-color: #aeb895;
+}
+
+.formulario-registro-container{
+      background-color: #c9d6a3;
+}
+
+.formulario-registro-container form h3{
+    text-align: center;
+    margin: 15px;
+}
+
+.formulario-registro-container form div{
+    text-align: center;
+}
+
+.formulario-registro-container form div button{
+    margin: 30px;
+    background-color: #b8c497e8;
+    border: 1px solid #7e836f;
+}
+
+
+/*===============ESTILOS GENERICOS==========================*/
+
+.botonStyle{
+    border-radius: 10px;
+    margin-bottom: 5px;
+    transition: transform .7s ease-in-out;
+}
+
+.botonStyle:hover{
+    transform: scale(1.1);
+}
+
+.botonStyle:focus{
+    text-decoration: none;
+    outline: none;
+    box-shadow: 0 0 12px 0px #0000008c, 0 0 5px #7e7f80cc;
+}
+
+.inputStyle{
+    border:1px solid rgb(118, 118, 118);
+    border-radius: 1px;
+    margin-bottom: 5px;
+}
+
+.inputStyle:focus{
+    outline: none;
+    box-shadow: 0 0 12px 0px #0000008c, 0 0 5px #7e7f80cc;
+}
+
+.inputSeleccionarArchivo {
+    display: none;
+}
+
+#botonSeleccionarImg {
+    height: fit-content;
+}
+
+/* -----------------ERROR------------------- */
+.errImgDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.errImgDiv img{
+    width: 270px;
+    height: 180px;
+    border-radius: 15px;
+    border: 3px solid #e0d1c6;
+}
+
+.errTexto h2,h3{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.errTexto a {
+    text-decoration: underline;
+    text-underline-position: below;   
+    transition: transform .7s ease-in-out; 
+}
+
+.errTexto a:hover {
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    transform: font-size;
+}
+
+@media (min-width: 768px) {
+    div.container-fluid{
+        /*208 102 60vh;*/
+        min-height: calc((100vh - 200px) - 100px);
+    }
+    .busquedaContainer{
+        position: relative;
+        background-color: #dddbd1;
+        border: 2px solid  #dddbd1;
+        width: 80%;
+    }
+    .phoneFilter{
+        width: 0;
+        height: 0;
+        visibility: collapse;
+    }
+
+    .filtrosPC{
+        width: 100%;
+        height: 60%;
+        margin: 1px;
+        margin-left: 15px;
+        padding-left: 5px;
+        visibility: visible;
+    }
+
+    .productosDeBusqueda .producto:after{
+        content:"";
+        position: static;
+        right: 0;
+        height: 0;
+        border-right: 0;
+    }
+
+    .toLeft{
+        margin-left: -10px;
+    }
+    
+    .toRight{
+        margin-right: -10px;
+    }
+    
+    .cuentaCollapseAbs{
+        position: absolute;
+        z-index: 5;
+    }
+    
+    .card{
+        background-color: #7fa08c;
+    }
+    
+    .boton-agregar-producto{
+        position: absolute;
+<<<<<<< HEAD
+        right:11.5%;
+        top:31%;
+=======
+        right:0;
+        top:87px;
+>>>>>>> 98ab91e24ee24d6b1cb476e9d468889d384f5529
+    }
+
+    .img-editar-cuenta{
+        height: 150px;
+        width: 150px;
+    }
+}

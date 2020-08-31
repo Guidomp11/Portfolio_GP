@@ -1,0 +1,12 @@
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\bin\Debug\netcoreapp2.0\GameOfLife.deps.json
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\bin\Debug\netcoreapp2.0\GameOfLife.runtimeconfig.json
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\bin\Debug\netcoreapp2.0\GameOfLife.runtimeconfig.dev.json
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\bin\Debug\netcoreapp2.0\GameOfLife.dll
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\bin\Debug\netcoreapp2.0\GameOfLife.pdb
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\obj\Debug\netcoreapp2.0\GameOfLife.csprojAssemblyReference.cache
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\obj\Debug\netcoreapp2.0\GameOfLife.csproj.CoreCompileInputs.cache
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\obj\Debug\netcoreapp2.0\GameOfLife.AssemblyInfoInputs.cache
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\obj\Debug\netcoreapp2.0\GameOfLife.AssemblyInfo.cs
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\obj\Debug\netcoreapp2.0\GameOfLife.dll
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\obj\Debug\netcoreapp2.0\GameOfLife.pdb
+D:\---PROYECTOS PROPIOS----\--PORTFOLIO--\Portfolio_GP\Videogames-Development\Game-Of-Life\FINAL\obj\Debug\netcoreapp2.0\GameOfLife.genruntimeconfig.cache

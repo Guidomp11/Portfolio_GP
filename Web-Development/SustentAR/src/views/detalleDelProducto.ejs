@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        
+        <%- include('./partials/Header') %>
+        
+        <div id="contenedor-detalle-producto" class="container-fluid">
+
+            <h4><%= producto.nombre %></h4>
+            
+            
+            
+            <div class="row">
+                
+                <div id="carouselProductIndicators" class="carousel slide" data-ride="carousel">
+                    
+                    <div class="carousel-inner">
+                        <% for(let i = 0; i < producto.imagenes.length; i++){ %>
+                            <div class="carousel-item <%= (i == 0) ? 'active' : '' %>">
+                                <img class="d-block w-100" src="/images/productos/<%=producto.imagenes[i].nombre%>" alt="<%= i+1 %> slide">
+                            </div>
+                        <% } %>
+                        
+                        
+                    </div>
+                    <ol class="carousel-indicators">
+                        <% for(let i = 0 ; i < producto.imagenes.length ; i++){ %> 
+                            <img data-target="#carouselProductIndicators" data-slide-to=<%=i%> class="active" src="/images/productos/<%=producto.imagenes[i].nombre%>" alt="">
+                        <% } %>
+                    </ol>
+                    <a class="carousel-control-prev" href="#carouselProductIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselProductIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                
+                <div class="col-8 col-sm-9 product-detail-container">
+                    
+                    <div>
+                        
+                            
+                        <h3 class="product-price">$<%= producto.precio %> </h3>
+                        <% if(producto.descuento != " "){ %>
+                            <h6 class="product-discount"> <%= producto.descuento %> </h6>
+                        <% }%>
+                        <p class="product-description"><%= producto.descripcion %></p>
+                    </div>
+                    <form action="/carrito" method="POST" class="row">
+                        <div class="col-12">
+                            <label for="">Cantidad</label>
+                            <select name="cantidad" id="cantidad" class="inputStyle">
+                                <% if(producto.stock > 0) { %>
+                                    <% for (let i = 1; i < producto.stock && i <= 5; i++) { %> 
+                                        <option value="<%=i%>"><%=i%></option>
+                                    <% } %> 
+                                <% }else{ %>
+                                    <option value="sinStock">Sin Stock</option>
+                                <% } %>
+                                
+                            </select>
+
+                            <label for="">Colores disponibles</label>
+                            <select name="color" id="color" class="inputStyle">
+                                <% for (let i = 0; i < producto.colores.length; i++) { %> 
+                                    <option value="<%=producto.colores[i].id%>"><%=producto.colores[i].nombre%></option>
+                                <% } %> 
+                            </select>
+
+                            <ul>
+                                <h5>Sustentabilidad</h5>
+                                <% if(producto.sustentabilidad.length == 1) { %>
+                                    <li> <%= producto.sustentabilidad.nombre %> </li>
+                                <% } %>
+                                <% for (let i = 0; i < producto.sustentabilidad.length; i++) { %> 
+                                    <li><i class="fas fa-check"></i> <%= producto.sustentabilidad[i].nombre %> </li>
+                                <% } %>
+                            </ul>
+
+                        </div>
+                        <% if(typeof user != 'undefined') {%>
+                            <% if(user.rol != 1) {%> 
+                                <button name="idProductoAgregado" id="aCarrito" value=<%=producto.id%> method="POST" type="submit" class="botonStyle botonFiltro col-12 col-sm-4 d-none">Agregar al carrito</button>
+                            <% } else {%> 
+                                <% if(producto.stock > 0){ %> 
+                                    <button name="idProductoAgregado" id="aCarrito" value=<%=producto.id%> method="POST" type="submit" class="botonStyle botonFiltro col-12 col-sm-4">Agregar al carrito</button>
+                                <% } else { %> 
+                                    <div class="alert alert-danger" role="alert">
+                                        Producto sin stock
+                                    </div>
+                                <% } %> 
+                            <% } %> 
+                        <% } else {%>
+                            <% if(producto.stock > 0){ %> 
+                                <button name="idProductoAgregado" id="aCarrito" value=<%=producto.id%> method="POST" type="submit" class="botonStyle botonFiltro col-12 col-sm-4">Agregar al carrito</button>
+                                <% } else { %> 
+                                    <div class="alert alert-danger" role="alert">
+                                        Producto sin stock
+                                    </div>
+                                <% } %> 
+                        <% } %> 
+                    </form>
+                    <% if(typeof usuarioLogueado == 'undefined'){ %> 
+                        <div class="row d-flex justify-content-center d-none">
+                            <button type="button" class="ml-3 mt-4 col-6 boton-editar botonStyle d-none"><a href="/product/editarProducto/<%=producto.id%>">Editar Producto</a></button>
+                            <form class="col-6" action="/product/borrar/<%=producto.id%>?_method=DELETE" method="POST">
+                                <button type="submit" class="ml-1 mt-4 col-12 boton-editar botonStyle d-none">Eliminar Producto</button>
+                            </form>
+                        </div>
+                    <% } else {%> 
+                        <% if(user.rol != 1) {%> 
+                            <div class="row d-flex justify-content-center">
+                                <button type="button" class="ml-3 mt-4 col-6 boton-editar botonStyle"><a href="/product/editarProducto/<%=producto.id%>">Editar Producto</a></button>
+                                <form class="col-6" action="/product/borrar/<%=producto.id%>?_method=DELETE" method="POST">
+                                    <button type="submit" class="ml-1 mt-4 col-12 boton-editar botonStyle">Eliminar Producto</button>
+                                </form>
+                            </div>
+                        <% } %> 
+                    <% } %> 
+                </div> 
+                
+            </div>
+            
+            <div class="interesar container-fluid">
+                <h3 class="mas-productos">Productos que te pueden interesar...</h3>
+                <div class="scroll container" >
+                    
+                    <% for(let i = 0 ; i < productos.length ; i++){ %> 
+                    <a href="/product/detail/<%= productos[i].id %> ">
+                    <img src="/images/productos/<%= productos[i].imagenes[0].nombre %> " alt="">
+                    <p><%= productos[i].nombre %> </p>
+                    <p><button>Ver</button></p>
+                    </a>
+                    <% } %> 
+                </div>
+            </div>
+            
+        </div>
+        
+        <%- include('./partials/footer') %>
+        
+        <%- include('./partials/scripts') %> 
+        <script src="/js/detalleDeProducto.js"></script>
+    </body>
+</html>

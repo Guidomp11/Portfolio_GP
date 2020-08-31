@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/Head') %>
+
+    <body>
+        <%- include('./partials/Header') %>
+        <div class="container-fluid">
+            <div class="container">
+                <!--INFO FINAL DEL PRODUCTO-->
+                <div class="seguirComprando">
+                    <button type="button" class="colorBoton botonStyle"><a href="/carrito/modoDePago">Volver a metodo de pago</a></button>
+                </div>
+                <div class="carrito row">
+                    
+                    <% for(let i = 0; i < productos.length; i++){ %>
+                        <div class="col-10">
+                            <div class="row">
+                                <img class="col-12 col-md-3" src="/images/productos/<%=productos[i].imagenes[0].nombre%>" alt="">
+                                <div class="col-12 col-md-8">
+                                    <h4><%=productos[i].nombre%></h5>
+                                    <h6>Cantidad: <%=cantidad[i].cantidad_productos%></h6>
+                                    <h6>Color Seleccionado: <%=productos[i].colores[0].nombre%></h6>
+                                    <h6>Precio: $<%=Number(productos[i].precio)%> X <%=Number(cantidad[i].cantidad_productos)%> = $<%=Number(productos[i].precio * cantidad[i].cantidad_productos)%></h6>
+                                </div>
+                                <div class="separacion col-12">
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+    
+                    <div class="separacion col-12">
+                        <div>
+                        </div>
+                    </div>
+    
+                    <div class="cupon col-12 row">
+                        <input type="text" placeholder="Cupón de Descuento" class="col-sm-7 col-lg-4 inputStyle">
+                        <button type="button" class="col-sm-4 col-lg-3 botonStyle colorBoton">Aplicar</button>
+                    </div>
+    
+                    <div class="separacion col-12">
+                        <div>
+                        </div>
+                    </div>
+    
+                    <div class="total col-12">
+                        <div class="row">
+                            <h3 class="col-6 col-md-10">Total producto</h3>
+                            <h3 class="col-2">$<%=Number(productos[i].precio * cantidad[i].cantidad_productos)%></h3>
+                        </div>
+                    </div>
+                    <% } %>
+    
+                    <div class="btnDiv col-12">
+                        <button type="button" class="continuar botonStyle"><a href="/carrito/compraRealizada">Confirmar Compra</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <%- include('./partials/footer.ejs') %>
+        <%- include('./partials/scripts.ejs') %> 
+    </body>
+</html>

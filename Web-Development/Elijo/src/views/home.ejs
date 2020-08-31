@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body class="">
+        <%- include('./partials/header') %> 
+        <div class="container-fluid">
+            
+            <div class="pop-up-background open">
+                
+                <div class="pop-up help">
+                    <div class="quit-btn-container pop-up-child d-none">
+                        <button class="quit-btn"><i class="far fa-times-circle fa-3x"></i></button>
+                    </div>
+                    
+                    <h3 class="pop-up-child d-none">¿En que te puedo ayudar?</h3>
+                    <div class="optionsContainer pop-up-child d-none">
+                        <button id="helpBtn1v2">Qué carrera elijo</button>
+                        <button id="helpBtn2v2">Dónde estudiar</button>
+                        <button id="helpBtn3v2">Hablar con un estudiante</button>
+                        <button id="helpBtn4v2">¿Qué cursos hacer?</button>
+                    </div>
+                
+                    <div class="orderListv2 pop-up-child d-none">
+                    </div>
+
+                    <div class="pop-up-child d-none">
+                        <h6>¿Tenés alguna otra pregunta que pensas que nosotros te podemos ayudar?</h6>
+                        <textarea name="opinion" id="opinion" cols="60" rows="5"></textarea>
+                        <div class="sendBtnContainer">
+                            <button class="pop-up-send-btn">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mainHomeContainer">
+                <div class="col-12 vidContainer homeMedia">
+                    <video autoplay muted loop>
+                        <source src="/videos/Elijo-video.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="col-12 col-sm-6 homeImg homeMedia">
+                    <!-- <img class="" src="/images/home/home-meet.jpg" alt=""> -->
+                    <h3>Conocer Estudiantes</h3>
+                    <a href="/meet">
+                        <button class="arrowBtn">
+                            <div class="arrow">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-12 col-sm-6 homeImg homeMedia">
+                    <!-- <img class="" src="/images/home/home-posta.jpg" alt=""> -->
+                    <h3>La Posta</h3>
+                    <a href="/posta">
+                        <button class="arrowBtn">
+                            <div class="arrow">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="instituteCarousel">
+                <section class="customer-logos slider">
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
+                </section>
+            </div>
+
+            <div class="help">
+                <h3>¿En que te puedo ayudar?</h3>
+                <div class="optionsContainer">
+                    <button id="helpBtn1">Qué carrera elijo</button>
+                    <button id="helpBtn2">Dónde estudiar</button>
+                    <button id="helpBtn3">Hablar con un estudiante</button>
+                    <button id="helpBtn4">¿Qué cursos hacer?</button>
+                </div>
+                
+                <div class="orderList">
+                </div>
+
+                <div>
+                    <h6>¿Tenés alguna otra pregunta que pensas que nosotros te podemos ayudar?</h6>
+                    <textarea name="opinion" id="opinion" cols="60" rows="5"></textarea>
+                    <div class="sendBtnContainer">
+                        <button class="sendBtn">Enviar</button>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <%- include('./partials/scripts.ejs') %> 
+        <script src="/js/instituteCarousel.js"></script>
+        <script src="/js/help.js"></script>
+        <script src="/js/home.js"></script>
+        <script src="/js/welcome.js"></script>
+        <script src="/js/helpPopUp.js"></script>
+        <%- include('./partials/footer') %>
+    </body>
+</html>

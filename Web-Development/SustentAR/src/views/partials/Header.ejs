@@ -1,0 +1,54 @@
+<header>
+    <div class="container">
+        <div class="logoContainer col-12">
+            <a href="/" class="logo"><img src="/images/LogoPaginaWeb.png" alt="Logo"></a>
+            <h1>sustentAR</h1>
+        </div>
+        
+        <nav class="navbar navbar-expand-md mb-0">
+            <button class="navbar-toggler burger" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <ul class="navbar-nav toLeft">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/product/listadoDeProductos">Comprar</a></li>
+                    
+                </ul>
+                <ul class="navbar-nav toRight">
+                    <li><a href="/carrito">Carrito</a></li>
+                    <li>
+                        <a href="" class="cuentaToggler" type="" data-toggle="collapse" data-target="#cuentaCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            Cuenta <i class="fas fa-chevron-down"></i> 
+                        </a>
+                        <div class="collapse cuentaCollapseAbs" id="cuentaCollapse">
+                            <% if(typeof usuarioLogueado == 'undefined') { %>
+                                <div class="card card-body">
+                                    <a href="/user/login">Ingresar</a>
+                                    <a href="/user/registro">Registrarse</a>
+                                </div>
+                            <% } else{ %>
+                                <div class="card card-body">
+                                    <a href="/user/misCompras/<%=usuarioLogueado.id%>">Historial</a>
+                                    <a href="/user/cuenta/<%=usuarioLogueado.id%>">Editar</a>
+                                    <a href="/user/logout">Salir</a>
+                                </div>
+                            <% } %>
+                            
+                        </div>
+                    </li>
+                </ul>
+                
+                
+            </div>
+
+            
+        </nav>
+
+        
+        
+    </div>
+    
+</header>

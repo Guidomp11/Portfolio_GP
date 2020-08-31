@@ -1,0 +1,1 @@
+El Juego de la vida es un autómata celular diseñado por el matemático británico John Horton Conway en 1970. Hizo su primera aparición pública en el número de octubre de 1970 de la revista Scientific American, en la columna de juegos matemáticos de Martin Gardner.

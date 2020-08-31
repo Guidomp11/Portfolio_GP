@@ -1,0 +1,38 @@
+/*===============================
+            LOGIN
+===============================*/
+
+/* BOTONES LOGIN */
+#btn-max-width {
+    max-width: 400px;
+}
+
+/*===============================
+            REGISTER
+===============================*/
+
+.register-container, .login-container  {
+    max-width: 600px;
+    background-color: aliceblue;
+}
+
+
+/*===============================
+            ALL BTNS
+===============================*/
+
+.btn-log-reg {
+    background-color: var(--btn-bg-color);
+    border: var(--btn-border);
+}
+
+.btn-log-reg:hover {
+    background-color: var(--btn-bg-color-hover);
+    border: var(--btn-border-hover);
+    color: black;
+}
+
+.btn-log-reg:focus {
+    background-color: var(--btn-bg-color-focus);
+    border: var(--btn-border-focus);
+}

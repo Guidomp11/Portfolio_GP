@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "KvJDU4ghCuEMhGq/s6qM0B/MLX/fZHBtWNUMm1KTk+gBh28nrdoH+Ix1JaiyWRTfwq20GHQ6+7sby57Gpra/iw==",
+  "success": true,
+  "projectFilePath": "D:\\---PROYECTOS PROPIOS----\\--PORTFOLIO--\\Portfolio_GP\\Videogames-Development\\Game-Of-Life\\FINAL\\GameOfLife.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Guido\\.nuget\\packages\\microsoft.netcore.app\\2.0.0\\microsoft.netcore.app.2.0.0.nupkg.sha512",
+    "C:\\Users\\Guido\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.0.0\\microsoft.netcore.dotnetapphost.2.0.0.nupkg.sha512",
+    "C:\\Users\\Guido\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.0.0\\microsoft.netcore.dotnethostpolicy.2.0.0.nupkg.sha512",
+    "C:\\Users\\Guido\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.0.0\\microsoft.netcore.dotnethostresolver.2.0.0.nupkg.sha512",
+    "C:\\Users\\Guido\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\Guido\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

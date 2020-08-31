@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %> 
+
+        <div class="container">
+            <h1>Hola, <b>Juan</b></h1>
+            
+            <div class="main-info row">
+                <div class="img-container col-6 col-md-4">
+                    <img class="" src="/images/otros/avatar.png" alt="Avatar">
+                    <button class="edit-photo-btn"><i class="fas fa-camera fa-3x"></i></button>
+                </div>
+                
+                
+                <div class="col-12 col-md-8">
+                    <h4>Nombre: Juan</h4>
+                    <h4>Apellido: Kotlin</h4>
+                    <h5>Whatsapp: +54 11 4578-1231</h5>
+                    <h5>E-mail: mi@mail.com</h5>
+                </div>
+            </div>
+
+            <div class="extra-info">
+                <form class="row" action="">
+                    <div class="col-12">
+                        <label class="col-12" for="">Genero:</label>
+                        <select name="genero" id="genero">
+                            <option value="female">Femenino</option>
+                            <option value="male">Masculino</option>
+                            <option value="other">Otro</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="col-12" for="age">Edad:</label>
+                        <input id="age" name="age" type="text">
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <label class="col-12" for="university">Universidad:</label>
+                        <input id="university" type="text">
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <label class="col-12" for="carrer">Carrera:</label>
+                        <input id="carrer" type="text">
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <label class="col-12" for="startDate">Año de inicio:</label>
+                        <input type="text" name="startDate" id="startDate">
+                    </div>
+
+                    <div class="col-12">
+                        <label class="col-12" for="courseDate">Curso (fechas):</label>
+                        <input type="text" name="courseDate" id="courseDate">
+                    </div>
+
+
+                    <div class="col-12">
+                        <label class="col-12" for="interests">Intereses:</label>
+                        <textarea name="interests" id="interests" cols="40" rows="5"></textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="col-12" for="experiences">Experiencias:</label>
+                        <textarea name="experiences" id="experiences" cols="40" rows="5"></textarea>
+                    </div>
+                    <div class="btn-container col-12">
+                        <button type="submit">Guardar información</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+        <%- include('./partials/footer') %>
+    </body>
+</html>

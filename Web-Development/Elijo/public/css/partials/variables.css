@@ -1,0 +1,31 @@
+:root {
+
+    /*BODY*/
+    --body-bg-color: whitesmoke;
+    
+    /*======
+    BUTTONS
+    =======*/
+
+    /*BTN PRIMARY*/
+    --btn-bg-color: rgb(246, 145, 1);
+    --btn-border: 2px solid rgb(244, 118, 1);
+
+    --btn-bg-color-hover: rgb(255, 188, 126);
+    --btn-border-hover: 2px solid rgb(246, 145, 1);
+
+    --btn-bg-color-focus: rgba(218, 105, 0, 0.74);
+    --btn-border-focus: border: 2px solid rgb(246, 145, 1);
+
+    /*BTN SECUNDARY*/
+    --btn-bg-color-scnd:rgba(255, 196, 86, 0.918);
+    --btn-border-scnd:2px solid rgb(238, 206, 147);
+
+    --btn-bg-color-scnd-hover : rgb(255, 213, 136);
+    --btn-border-scnd-hover : 2px solid rgb(238, 206, 147);
+
+    --btn-bg-color-scnd-focus: rgba(236, 157, 9, 0.966);
+    --btn-bg-border-scnd-focus: 2px solid rgb(238, 206, 147);
+
+
+}
