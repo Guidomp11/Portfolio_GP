@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %> 
+    <body>
+        <%- include('./partials/header') %> 
+        <div class="container-fluid">
+            <button id="homeBtn"><i class="fas fa-arrow-left"></i>HOME</button>
+            <div class="container">
+
+                
+
+                <img id="gif1" class="gif" src="" alt="">
+                <h1 hidden><%=tag%></h1>
+
+                <div class="cronometer">
+                    <div class="timeContainer">
+                        <h3 class="hours"><%= time.hours %></h3>
+                    </div>
+                    <div class="timeContainer">
+                        <h3 class="minutes"><%= time.minutes %></h3>
+                    </div>
+                    <div class="timeContainer">
+                        <h3 class="seconds"><%= time.seconds %></h3>
+                    </div>
+                </div>
+
+                <div class="btnContainer">
+                    <button id="resume">RESUME</button>
+                    <button id="stop">STOP</button>
+                </div>
+            </div>
+        </div>
+        
+        <script src="/js/cronometer.js"></script>
+        <%- include('./partials/scripts') %>
+        <script src="/js/api.js"></script>
+    </body>
+</html>

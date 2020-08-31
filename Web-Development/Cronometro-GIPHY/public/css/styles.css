@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600&display=swap');
+
+@import 'partials/variables.css';
+@import 'partials/menu.css';
+@import 'partials/cronometer.css';
+
+*{
+    font-family: 'Roboto Mono', monospace, Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(136, 255, 156, 0.418);
+}
+

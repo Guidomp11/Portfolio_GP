@@ -1,0 +1,67 @@
+.menuContainer{
+    height: 100vh;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menuContainer h1{
+    text-align: center;
+    width: 100%;
+}
+
+.menuContainer form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menuContainer form label{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.menuContainer form div.inputContainer{
+    display: flex;
+}
+
+.menuContainer form div.inputDiv input{
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 50px;
+}
+
+.menuContainer form div.inputDiv{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menuContainer div.apiSelection{
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: center;
+}
+
+.menuContainer div.apiSelection input{
+    width: 80%;
+    height: 40px;
+}
+
+.menuContainer button{
+    width: 80%;
+    height: 40px;
+    border: none;
+    color: white;
+    background-color: green;
+}

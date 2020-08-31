@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %> 
+    <body>
+        <%- include('./partials/header') %> 
+        
+        <div class="container">
+            <div class="menuContainer">
+                <h1>Bienvenido al Cronometro de GIPHY</h1>
+                <div>
+                    <form action="/cronometer" method="POST">
+                        <label for="">Indica el tiempo</label>
+                        <div class="inputContainer">
+                            <div class="inputDiv">
+                                <input id="hoursInput" type="text" name="hours" maxlength="2">
+                                <label for="">Horas</label>
+                            </div>
+                            <div class="inputDiv">
+                                <input id="minutesInput" type="text" name="minutes" maxlength="2">
+                                <label for="">Minutos</label>
+    
+                            </div>
+                            <div class="inputDiv">
+                                <input id="secondsInput" type="text" name="seconds" maxlength="2">
+                                <label for="">Segundos</label>
+                            </div>
+                        </div>
+                        
+
+                        <div class="apiSelection">
+                            <input type="text" name="tag" id="tag" placeholder="(opcional)">
+                            <label for="tag">¿Queres una tipo de Gif en especifico? (Batman, fail, autos, etc.)</label>
+                        </div>
+
+                        <button id="submitBtn" type="submit">Correr Cronometro</button>
+                    </form>
+                </div>
+                
+                
+            </div>
+            
+            
+        </div>
+
+        <%- include('./partials/scripts') %>
+    </body>
+</html>

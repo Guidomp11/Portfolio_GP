@@ -1,0 +1,90 @@
+/*CRONOMETER*/
+.cronometer{
+    max-height: 100vh;
+    max-width: 100vw;
+    position: relative;
+    z-index: 200;
+    padding-top: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cronometer h3{
+    z-index: 200;
+    font-size: 200px;
+    font-weight: 600;
+}
+
+.cronometer h3::after{
+    content: ":";
+}
+
+.cronometer h3.seconds::after{
+    content: "";
+}
+
+.imageContainer{
+    position: absolute;
+}
+
+
+#gif1{
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#gif1.makeAppear{
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.btnContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 200;
+}
+
+.btnContainer button{
+    color: white;
+    width: fit-content;
+    height: 50px;
+    border-radius: 10px;
+
+    padding: 10px;
+    margin: 5px;
+    z-index: 200;
+
+}
+
+#stop{
+    background-color: red;
+    border: red;
+}
+
+#resume{
+    background-color: green;
+    border: green;
+}
+
+
+#homeBtn{
+    position: absolute;
+    padding: 5px;
+    width: fit-content;
+    background-color: red;
+    border: red;
+    color: white;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 12px;
+}
+
+#homeBtn i{
+    padding: 5px;
+}
+/*END CRONOMETER*/
