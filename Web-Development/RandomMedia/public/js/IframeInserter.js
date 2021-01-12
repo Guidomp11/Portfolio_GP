@@ -1,6 +1,7 @@
 window.addEventListener('load', function() {
     let videosContainer = document.querySelector('#video-container');
     let videosOl = document.querySelector('#videos-ol');
+	let container = document.querySelector('#carouselExampleIndicators');
 
     fetch('/endpoints/iframes')
     .then(response => {
@@ -18,6 +19,10 @@ window.addEventListener('load', function() {
             }
             
         }
+		
+		if(iframes.length <= 0){
+			container.innerHTML = '<h2>Todavía no se han subido videos</h2>'
+		}
     })
     .catch(error => {
         return error;

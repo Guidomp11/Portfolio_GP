@@ -186,6 +186,16 @@ div .random{
     height: 600px;
     width: 100%;
 }
+.carousel{
+	min-height:360px!important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+}
+#carouselExampleIndicators h2{
+	text-align: center;
+}
 
 
 @media (min-width: 768px) {
