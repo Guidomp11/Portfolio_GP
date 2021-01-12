@@ -1,0 +1,55 @@
+form{
+    width: 100%;
+}
+
+.infoContainer{
+    padding-bottom: 15px;
+}
+
+.btnContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid black;
+}
+
+.btnContainer button{
+    width: 20%;
+    font-family: 'Montserrat';
+}
+
+.userInfoAccount h3{
+    height: 50px;
+}
+
+.userInfoAccount h5{
+    height: 50px;
+}
+
+.imgContainer img{
+    width: 100%;
+}
+
+.imgContainer{
+    position: relative;
+}
+
+.imgContainer button{
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+    width: 64px;
+    height: 64px;
+}
+
+.changePassword{
+    width: 30%;
+}
+
+.changePassword a{
+    color: white;
+    padding: 5px;
+}
+.changePassword a:hover{
+    color: white;
+}

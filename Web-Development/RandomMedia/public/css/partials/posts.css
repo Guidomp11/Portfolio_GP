@@ -1,0 +1,102 @@
+a.lastPost{
+    position: relative;
+    z-index: 0;
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+a.lastPost img{
+    width: 85%;
+    max-height: 350px;
+    min-height: 250px;
+    object-fit: cover;
+}
+
+article.principalArticle{
+    position: absolute;
+    bottom: 0;
+    width: 85%;
+    background-color: rgba(189, 255, 8, 0.212);
+}
+
+article.principalArticle span{
+    max-width: 125ch;
+}
+article.principalArticle span::after{
+    content: '[ver más]';
+}
+
+section.lastestPosts{
+    border-top: 2px solid black;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+section.lastestPosts a img{
+    max-height: 300px;
+}
+
+h2.noContent{
+    text-align: center;
+    padding-top: 70px;
+}
+
+
+h1#arte{
+    color: var(--btn-art-color);
+}
+
+h1#bienestar{
+    color: var(--btn-wellness-color);
+}
+
+h1#genero{
+    color: var(--btn-genre-color);
+}
+
+h1#medioambiente{
+    color: var(--btn-enviroment-color);
+}
+
+h1#politica{
+    color: var(--btn-politics-color-hover);
+}
+
+h1#random{
+    color: var(--btn-random-color);
+}
+
+h1#deporte{
+    color: var(--btn-sport-color);
+}
+
+h1#jovenesHaciendo{
+    color: var(--btn-yDoing-color);
+}
+
+.paginationContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.paginationContainer button{
+    margin-top: 10px;
+    background-color:  #96007e;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: white;
+    border: none;
+    min-width: 10%;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.text-limiter{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

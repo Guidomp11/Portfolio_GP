@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="container">
+            <div class="infoContainer mt-5 row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="imgContainer col-12 col-md-3">
+                            <img class="userImg" src="/images/users/<%=user.image%>" alt="">
+                            <button id="visualBtn"><i class="fas fa-camera fa-3x"></i></button>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <h3 ><%=user.name + " " + user.lastname%>  </h3>
+                            <h5 ><%=user.email%></h5>
+                            <!--<button class="changePassword"> <a href="/user/changeP"> Cambiar contraseña </a></button>-->
+                            <button class="changePassword btn register-title btn-block my-4 btn-log-reg" type="submit" id="btn-max-width"><a href="/user/changeP"> Cambiar contraseña </a></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="userInfoAccount col-12">
+                    <form  action="/user/account/edit/<%=user.id%>" method="POST" enctype="multipart/form-data">
+                        <h4 for="categorias" id="categorias">Categorias</h4>
+                        <div class="row">
+                            <% categories.forEach(function(category){%>
+                                <div class="col-12 col-md-3 ml-4">
+                                    <input type="checkbox" id="category-<%=category.nombre%>" name="category"  value=<%= category.id %>
+                                        <% user.categories.forEach(function(user_category) { %>
+                                            <%= (user_category.user_categories.category_id == category.id) ? 'checked' : '' %>
+                                        <% }) %>
+                                    >  
+                                    <label for="category-<%=category.name%>"><%=category.name%></label> 
+                                </div>
+                            <% }) %>
+                        </div>
+                        <input onchange="previewImg()" id="inputFile" class="inputSeleccionarArchivo" type="file" name="image" hidden>
+                        
+                        <div class="btnContainer">
+                            <button class="btn register-title btn-block my-4 btn-log-reg" type="submit" id="btn-max-width">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            
+        </div>
+
+        <script src="/js/userEdit.js"></script>
+        <%- include('./partials/footer') %> 
+        <%- include('./partials/scripts') %>
+    </body>
+    
+</html>

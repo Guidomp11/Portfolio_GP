@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="headerContent">
+            <div class="imageContainer">
+                <img class="coverImg" src="/images/articles/<%=article.cover_image%>" alt="">
+            </div>
+        </div>
+
+        <div class="container">
+            <h1 class="title"><%= article.title %></h1>
+
+            <code class="content">
+                <p hidden><%= article.content %></p>
+            </code>
+
+            <div class="article-tags">
+                
+                <% for(let i = 0; i < article.article_tag.length; i++){ %>
+                    <button class="article-tag"><a href="/searchArticleByTag?articleTag=<%=article.article_tag[i].tag%>"> <i class="fas fa-hashtag"></i> <%= article.article_tag[i].tag %></a></button>
+                <% } %>
+                    
+            </div>
+            
+            <div class="commentsContainer">
+                <% if(typeof userLoggedIn == 'undefined') { %>
+                    <p class="commentSession mb-3"> <a class="commentSession" href="/user/register">Registrate</a> o <a class="commentSession" href="/user/login">Ingresa a tu cuenta</a> para comentar.</p>
+                <% }else{ %>
+                    <h5 class="comments">Comentarios</h5>
+                    <form id="commentForm" action="/news/comment/<%=article.id%>" method="POST">
+                        <img id="userImg" src="/images/users/<%=user.image%>" alt="">
+                        <textarea name="newComment" id="newComment" cols="75" rows="3" placeholder="Escribí tu comentario..."></textarea>
+                        <div class="submitBtnContainer">
+                            <button type="submit">Comentar</button>
+                        </div>
+                        
+                    </form>
+                <% } %> 
+                <div class="comments">
+                    <% for(let i = 0; i < comments.length; i++){ %> 
+                        <div class="commentContainer">
+                            <img src="/images/users/<%=comments[i].user.image%>" alt="">
+                            <p><%=comments[i].comment%></p>
+                        </div>
+                        
+                    <% } %> 
+                </div>
+            </div>
+            
+            <% if(typeof userLoggedIn != 'undefined') { %>
+                <% if(userLoggedIn.rol == 1) { %>
+                    <form action="/admin/article/delete/<%=article.id%>?_method=DELETE" method="POST">
+                        <div class="btnContainer">
+                            <button type="submit" class="hangePassword btn register-title btn-block my-4 btn-log-reg btnDelete">Eliminar articulo</button>
+                        </div>
+                    </form>
+                <% } %>
+            <% } %>
+
+            <div id="last-subcategory-articles" class="row mt-5">
+                <h2 class="text-left col-12">Los mas vistos</h2>
+                <% for(let i = 0; i < topArticles.length; i++){ %> 
+                    <a class="col-12 col-md-4" href="/news/article/<%= topArticles[i].id %>">
+                        <article class="row">
+                            <img class="col-12 top-post-art" src="/images/articles/<%=topArticles[i].cover_image%>" alt="">
+                            <div class="col-12">
+                                <h3 class="text-left"> <%= topArticles[i].title  %> </h3>
+                            </div>
+                        </article>
+                    </a>
+                <% } %> 
+            </div>
+
+        </div>
+
+
+        <!--<script async src="//www.instagram.com/embed.js"></script>-->
+        
+        <script src="/js/contentInterpreter.js"></script>
+        <script src="/js/socialMediaInterpeter.js"></script>
+
+        <%- include('./partials/footer') %> 
+        <%- include('./partials/scripts') %>
+    </body>
+</html>

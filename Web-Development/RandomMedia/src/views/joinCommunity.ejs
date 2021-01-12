@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        
+        <div class="login-container container">
+            <% if(typeof message != 'undefined') { %>
+                <% if(message.value == true) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%=message.msg%>
+                    </div>
+                <% }else{ %>
+                    <div class="alert alert-danger" role="alert">
+                        <%=message.msg%>
+                    </div>
+                <% } %>
+            <% } %>
+            <form class="text-center justify-content-center p-5" action="/user/joinCommunity" method="POST">
+                
+                <h4 class="mb-4 register-title text-left">¿Quieres sumarte a la comunidad Random?</h4>
+                <h6 class="mb-4 register-title text-left">
+                    Cuéntanos un poco de qué manera te gustaría colaborar. Puede ser generando contenido, ofreciendo workshops o contándonos acerca de tu proyecto para darle difusión. 
+                    Completa el formulario a continuación y nos comunicaremos pronto. 
+                </h6>
+                
+                <div id="btn-max-width">
+                    <input name="name" type="text" id="defaultLoginFormName" class="form-control mb-4" placeholder="Nombre" id="btn-max-width" required>
+                    <input name="email" type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" id="btn-max-width" required>
+                    <textarea class="form-control mb-4" name="proposal" id="message" cols="30" rows="5"  placeholder="Propuesta" required></textarea>
+                </div>
+                
+                <div id="btn-max-width">
+                    <button class="btn register-title btn-block my-4 btn-log-reg" type="submit" id="btn-max-width">Enviar</button>
+                </div>
+                
+                
+            </form>
+        </div>
+        <%- include('./partials/footer') %> 
+        <%- include('./partials/scripts') %>
+    </body>
+    
+
+</html>

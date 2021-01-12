@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="container">
+            <h1>Nombre y email de usuarios registrados:</h1>
+            <% for(let i = 0; i < users.length; i++){ %> 
+                <div class="userInfo">
+                    <h5> <%=users[i].name%> </h6>
+                    <h5> <%=users[i].email%> </h6>
+                    <% for(let j = 0; j < users[i].categories.length; j++){ %> 
+                        <h5> | <%=users[i].categories[j].name%> | </h6>
+                    <% } %> 
+
+                </div>
+            <% } %> 
+                         
+        </div>
+        <%- include('./partials/footer') %> 
+        <%- include('./partials/scripts') %>
+    </body>
+    
+</html>

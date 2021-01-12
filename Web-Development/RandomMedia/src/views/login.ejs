@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="login-container container">
+            <% if(typeof errors != 'undefined') { %>
+                <small class="text-danger"> El E-mail o la contraseña no son válidos </small>
+            <% } %>
+            
+            <form class="text-center justify-content-center p-5" action="/user/login" method="POST">
+                
+                <h6 class="h4 mb-4 register-title text-left">Ingresar</h6>
+                
+                <div id="btn-max-width">
+                    <input name="email" type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" id="btn-max-width">
+                    <input name="password" type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Contraseña" id="btn-max-width">
+                </div>
+        
+                <div class="d-flex justify-content-around" id="btn-max-width">
+                    <div>
+                        <div class="custom-control custom-checkbox">
+                            <input name="remember" type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                            <label class="custom-control-label" for="defaultLoginFormRemember">Recordarme</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="btn-max-width">
+                    <button class="btn register-title btn-block my-4 btn-log-reg" type="submit" id="btn-max-width">Ingresar</button>
+                </div>
+                
+                <p class="text-center">¿Has olvidado tu contraseña?
+                    <a class="link" href="/user/recoverPass">Recuperar contraseña</a>
+                </p>
+                <p class="text-center">¿No estás registrado?
+                    <a class="link" href="/user/register">Regístrate aquí</a>
+                </p>
+                
+                
+            </form>
+        </div>
+        <%- include('./partials/footer') %> 
+        <%- include('./partials/scripts') %>
+    </body>
+    
+
+</html>

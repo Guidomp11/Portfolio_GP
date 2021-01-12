@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="login-container container">
+            <% if(typeof errors != 'undefined') { %>
+                <div class="alert alert-danger mt-5" role="alert">
+                    <% for(let i = 0; i < errors.length; i++){ %>    
+                        <small class="text-danger"> <%= errors[i].msg%> </small>
+                    <% } %>    
+                </div>
+            <% } %>
+            <form class="text-center p-5" action="/user/recoverPass" method="POST">
+                
+                <h3 class="mb-4 register-title">Recuperar contraseña</h3>
+                
+                <div id="btn-max-width">
+                    <input name="email" type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" id="btn-max-width" required>
+                </div>
+                
+                <div id="btn-max-width">
+                    <button class="btn btn-info btn-block my-4 btn-log-reg" type="submit" id="btn-max-width">Recuperar</button>
+                </div>                
+                
+            </form>
+        </div>
+        <%- include('./partials/footer') %> 
+        <%- include('./partials/scripts') %>
+    </body>
+    
+
+</html>

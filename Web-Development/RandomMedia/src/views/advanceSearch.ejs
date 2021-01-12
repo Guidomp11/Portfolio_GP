@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="container">
+            <% if(typeof articles != 'undefined'){ %>
+                <h2 class="text-left pb-5 pt-5">Resultados:</h2>
+                <% for(let i = 0; i < articles.length; i++){ %>
+                    <a class="" href="news/article/<%= articles[i].id %>">
+                        <article class="row">
+                            <img class="col-12 col-md-3" src="/images/articles/<%=articles[i].cover_image%>" alt="">
+                            <div class="col-12 col-md-9">
+                                <h3 class="text-left"> <%= articles[i].title  %> </h3>
+                                <p> <%= articles[i].synopsis  %> </p>
+                            </div>
+                        </article>
+                    </a>
+                <% } %>
+            <% }else{ %>        
+                <h2 class="text-center pt-5">Lo sentimos! No encontramos ningún artículo con ese título</h2>
+            <% } %>        
+        </div>
+        <%- include('./partials/footer') %> 
+        <%- include('./partials/scripts') %>
+    </body>
+    
+</html>

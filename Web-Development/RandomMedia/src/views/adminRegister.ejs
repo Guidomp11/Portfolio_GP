@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+
+        <div class="container register-container">
+            <% if(typeof errors != 'undefined') { %>
+                <% for(let i = 0; i < errors; i++){ %> 
+                    <small class="text-danger"> <%= errors[i].msg %> </small>
+                <% } %> 
+            <% } %>
+            <div class="alert alert-danger" role="alert" hidden>
+                
+            </div>
+            <!-- Default form register -->
+            <form id="form" class="text-center p-5" action="/admin/addAdmin" method="POST" enctype="multipart/form-data">
+            
+                <p class="h4 mb-4 register-title">Añadir Administrador</p>
+                
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <input name="name" type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nombre" required>
+                    </div>
+                    <div class="col">
+                        <input name="lastname" type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Apellido" required>
+                    </div>
+                </div>
+
+                <!-- E-mail -->
+                <input name="email" type="email" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="E-mail" required>
+                
+                <!-- Password -->
+                <input name="password" type="password" id="password" class="form-control" placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
+                <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                    La contraseña debe contener al menos 8 cáracteres, una mayúscula, una minúscula y un número.
+                </small>
+                <input name="rePassword" type="password" id="rePassword" class="form-control" placeholder="Confirmar contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
+
+                <label class="mt-2" for=""><p>Agrega una foto</p></label>
+                <input type="file" name="image">
+
+                <h6 class="mt-2"><u>¿Te gustaría recibir notificaciones de alguna categoría?</u></h6>
+                <div class="row">
+                    <% for(let i = 0; i < categories.length; i++){ %>
+                        <div class="col-6 col-md4">
+                            <input type="checkbox" id="category-<%=categories[i].nombre%>" name="category"  value=<%= categories[i].id%>>  
+                            <label for="category-<%=categories[i].name%>"><%=categories[i].name%></label> 
+                        </div> 
+                    <% } %> 
+                </div>
+                
+
+                <!-- Sign up button -->
+                <button class="btn btn-info my-4 btn-block btn-log-reg" type="submit">Registrarme</button>
+            
+            </form>
+            <!-- Default form register -->
+            
+        </div>
+
+        <script src="/js/validateRegister.js"></script>
+        <%- include('./partials/footer') %> 
+        <%- include('./partials/scripts') %>
+    </body>
+</html>

@@ -1,0 +1,189 @@
+.content{
+    max-width: 100%;
+}
+code{
+    color: black;
+}
+
+code p{
+    text-align: justify;
+}
+
+code iframe{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% !important;
+    height: 350px;
+}
+
+code .min-width-c{
+    width: 50% !important;
+}
+
+code .min-height-c{
+    height: 900px !important;
+}
+
+code img{
+    width: 100% !important;
+    height: auto !important;
+}
+
+div.headerContent{
+    position: relative;
+    z-index: -1;
+}
+
+h1.title{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.imageContainer{
+    width: 100%;
+    height: 350px;
+    margin-top: 0;
+}
+.imageContainer img.coverImg{
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*=================================COMMENTS SECTION===============================================*/
+h5.comments{
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+h5.commentSession{
+    padding-top: 5px;
+}
+a.commentSession:hover{
+    font-weight: 600;
+}
+
+#commentForm{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.submitBtnContainer{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.submitBtnContainer button{
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 8px;
+}
+
+.btnDelete{
+    width: 100%!important;
+}
+
+#newComment{
+    width: calc(100% - 74px);
+}
+
+#userImg{
+    margin-right: 10px;
+    width: 64px;
+    height: 64px;
+}
+
+div.commentContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /*border-top: 1px solid black;*/
+    margin-top: 4px;
+    padding-top: 3px;
+}
+div.commentContainer img{
+    margin-right: 10px;
+    width: 64px;
+    height: 64px;
+}
+div.commentContainer p{
+    width: calc(100% - 74px);
+}
+
+
+/*===============ASIDE=====================*/
+#last-subcategory-articles{
+    
+}
+
+/*AUTHOR*/
+.author{
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+
+code > *{
+    max-width: 100vw !important;
+}
+
+
+blockquote.instagram-media{
+    height: fit-content;
+    color: #5c4c40;
+    text-align: center; 
+    background:#a7a7a7;
+}
+
+.top-post-art{
+    height: 200px;
+    object-fit: cover;
+}
+
+
+
+@media(min-width: 764px) {
+    code img{
+        width: 60% !important;
+        height: auto !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+code p:nth-last-child(2) img{
+  width: 100% !important;
+}
+
+code p:nth-last-child(1) img{
+  width: 100% !important;
+}
+
+code p:nth-last-child(1) img{
+  width: 100% !important;
+}
+
+.article-tags{
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.article-tag{
+    background-color: #96007e;
+    border: none;
+    padding: 5px;
+}
+
+.article-tag a{
+    color: white;
+}
+
+.min-height-c-t{
+    min-height: 600px !important;
+}

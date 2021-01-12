@@ -1,0 +1,27 @@
+:root{
+/*POLITICA*/
+    --btn-politics-color: #3c448593;
+    --btn-politics-color-hover: #5360bd93;
+    
+/*BIENESTAR*/
+    --btn-wellness-color: #469fd9;
+    --btn-wellness-color-hover: #6bb6e9;
+/*GENERO*/
+    --btn-genre-color: #850863;
+    --btn-genre-color-hover: #b8579e;
+/*RANDOM*/
+    --btn-random-color: #f4278c;
+    --btn-random-color-hover: #ff70b8;
+/*Art*/
+    --btn-art-color: #de1414;
+    --btn-art-color-hover: #f06060;
+/*YOUNG P DOING*/
+    --btn-yDoing-color: #ff6e01;
+    --btn-yDoing-color-hover: #ee9c5e;
+/*SPORTS*/
+    --btn-sport-color: #ffcc00;
+    --btn-sport-color-hover: #f5dd7d;
+/*ENVIROMENT*/
+    --btn-enviroment-color: #458f06;
+    --btn-enviroment-color-hover: #83bb52;
+}

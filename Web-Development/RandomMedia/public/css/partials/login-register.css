@@ -1,0 +1,42 @@
+/*===============================
+            REGISTER
+===============================*/
+
+p.register-title {
+    margin-bottom: 5px!important;
+}
+
+div #my-signin2 {
+    margin-bottom: 15px;
+}
+
+.register-container, .login-container  {
+    max-width: 600px;
+}
+
+
+/*===============================
+            ALL BTNS
+===============================*/
+
+.btn-log-reg {
+    background-color: black;
+    color: white;
+}
+
+.btn-log-reg:hover {
+    background-color: rgb(70, 70, 70);;
+    color: white;
+}
+
+.login-container p{
+    font-size: 15px;
+}
+
+.login-container a{
+    font-size: 15px;
+}
+
+#message{
+    width: 100%;
+}

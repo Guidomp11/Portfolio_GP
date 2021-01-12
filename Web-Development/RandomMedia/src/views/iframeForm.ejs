@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="login-container container">
+            
+            <form class="text-center justify-content-center p-5" action="/admin/addVideo" method="POST">
+                
+                <h6 class="h4 mb-4 register-title text-left">Ingresa el IFRAME del video</h6>
+                
+                <div id="btn-max-width">
+                    <input name="Iframe" type="Iframe" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Iframe" id="btn-max-width" required>
+                </div>
+                
+                <div id="btn-max-width">
+                    <button class="btn register-title btn-block my-4 btn-log-reg" type="submit" id="btn-max-width">Agregar</button>
+                </div>
+                
+                
+            </form>
+        </div>
+        <%- include('./partials/footer') %> 
+        <%- include('./partials/scripts') %>
+    </body>
+    
+
+</html>

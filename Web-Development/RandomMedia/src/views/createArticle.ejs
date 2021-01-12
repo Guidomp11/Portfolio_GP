@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <script src="//cdn.ckeditor.com/4.15.1/full-all/ckeditor.js"></script>
+    
+    <body>
+        <%- include('./partials/header') %>
+        <div class="container">
+            <div class="alert alert-danger mt-5" role="alert" hidden>
+                Falta agregar uan sub-categoria
+            </div>
+            <form id="editorForm" action="/news/publish" class="mt-5" method="POST" enctype="multipart/form-data">
+                <div class="extra-info row mb-5">
+                    <div class="col-12">
+                        <label class="col-12" for="title">Título</label>
+                        <input name="title" id="title" type="text" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="col-12" for="sub_title">Sub-titulo</label>
+                        <input name="sub_title" id="sub_title" type="text" value="ignorar">
+                    </div>
+                    <div class="col-12">
+                        <label class="col-12" for="synopsis">Sinopsis (50 caracteres maximo)</label>
+                        <textarea maxlength="200" name="synopsis" id="synopsis" cols="50" rows="2" required></textarea>
+                    </div>
+                </div>
+
+                <textarea name="editor" id="editor"></textarea>
+
+                <div class="mb-3 mt-5">
+                    <label for="">Foto de portada:</label><br>
+                    <input name="cover_image" type="file" required>
+                </div>
+                
+                <div class="sub_categories_container">
+                    <div class="row">
+                        
+                        <% for(let i = 0; i < categories.length; i++){ %>
+                            <% for(let j = 0; j < categories[i].sub_category.length; j++){ %>
+                                <div class="col-6 col-md-4">
+                                    <input class="sub_category" type="checkbox" id="category-<%=categories[i].sub_category[j].nombre%>" name="sub_category"  value=<%=categories[i].sub_category[j].id%>>  
+                                    <label for="category-<%=categories[i].sub_category[j].name%>"><%=categories[i].sub_category[j].name%> <%=categories[i].sub_category[j].id%></label> 
+                                </div> 
+                            <% } %> 
+                        <% } %> 
+                    </div>
+                </div>
+
+                <div class="tags-system mt-4 mb-4">
+                    <label for="tags">Tags</label>
+                    <div class="autocomplete">
+                        <input name="tagInput" class="ml-3 an-account-input tag-input" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="tags-results">
+                        </div>
+
+                        <input id="tag-btn" value="Agregar" type="button">
+                    </div>
+                    
+    
+                    <div class="tags-container">
+                    
+                    </div>    
+                </div>
+                
+
+                <div class="d-flex justify-content-center mb-5">
+                    <button class="col-8" id="publishBtn" type="submit">Publicar</button>
+                </div>
+
+            </form>
+
+
+
+
+
+            
+            
+        </div>
+
+        <script src="/js/tagsController.js"></script>
+        <script src="/js/verifyPublish.js"></script>
+
+        <script type="text/javascript">
+            window.onload = function(){
+                CKEDITOR.plugins.addExternal('youtube', '/ckeditor/plugins/youtube/plugin.js');
+                CKEDITOR.plugins.addExternal('dialogui', '/ckeditor/plugins/dialogui/plugin.js');
+                CKEDITOR.plugins.addExternal('dialog', '/ckeditor/plugins/dialog/plugin.js');
+
+                CKEDITOR.plugins.addExternal('notification', '/ckeditor/plugins/notification/plugin.js');
+                CKEDITOR.plugins.addExternal('notificationaggregator', '/ckeditor/plugins/notificationaggregator/plugin.js');
+
+                CKEDITOR.plugins.addExternal('lineutils', '/ckeditor/plugins/lineutils/plugin.js');
+                CKEDITOR.plugins.addExternal('clipboard', '/ckeditor/plugins/clipboard/plugin.js');
+                CKEDITOR.plugins.addExternal('widgetselection', '/ckeditor/plugins/widgetselection/plugin.js');
+                CKEDITOR.plugins.addExternal('widget', '/ckeditor/plugins/widget/plugin.js');
+
+
+
+                CKEDITOR.plugins.addExternal('embedbase', '/ckeditor/plugins/embedbase/plugin.js');
+                CKEDITOR.plugins.addExternal('embed', '/ckeditor/plugins/embed/plugin.js');
+
+                let editor = CKEDITOR.replace( 'editor', {
+                    extraPlugins: 'youtube, dialogui, dialog, notification, notificationaggregator, lineutils, clipboard, widgetselection, widget, embedbase, embed',
+                    embed_provider: '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}'
+                });
+            }           
+        </script>
+        <%- include('./partials/scripts') %>
+    </body>
+</html>

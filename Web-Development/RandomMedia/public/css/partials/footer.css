@@ -1,0 +1,35 @@
+footer{
+    margin-top: 20px;
+}
+
+footer ul{
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+footer ul li{
+    position: relative;
+    display:inline-block;
+    height: 100%;
+}
+
+footer ul li i{
+    padding-top: 10px;
+    color: white;
+}
+footer ul li i:hover{
+    color: rgb(177, 177, 177);
+}
+
+footer p{
+    text-align: center;
+}
+footer h4{
+    color: white;
+}

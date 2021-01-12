@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        
+        <div class="login-container container">
+            <% if(typeof success != 'undefined') { %>
+                <% if(success == true) { %>
+                    <div class="alert alert-success" role="alert">
+                        Gracias por contactarte con nosotros!
+                    </div>
+                <% }else{ %>
+                    <div class="alert alert-danger" role="alert">
+                        Oops! Ocurrió un error, lo sentimos!
+                    </div>
+                <% } %>
+            <% } %>
+            <form class="text-center justify-content-center p-5" action="/contact" method="POST">
+                
+                <h6 class="h4 mb-4 register-title text-left">Contáctanos</h6>
+                
+                <div id="btn-max-width">
+                    <input name="email" type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" id="btn-max-width" required>
+                    <textarea class="form-control mb-4" name="message" id="message" cols="30" rows="5" required></textarea>
+                </div>
+                
+                <div id="btn-max-width">
+                    <button class="btn register-title btn-block my-4 btn-log-reg" type="submit" id="btn-max-width">Enviar</button>
+                </div>
+                
+                
+            </form>
+        </div>
+        <%- include('./partials/footer') %> 
+        <%- include('./partials/scripts') %>
+    </body>
+    
+
+</html>

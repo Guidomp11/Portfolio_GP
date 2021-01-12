@@ -1,0 +1,156 @@
+<header>
+    
+    <div class="container-fluid">
+        
+        <div class="row">
+            
+            <div class="phoneMenu col-12"><!--antes no tenia col-12-->
+                <div class="socialmedia-h">
+                    <ul>
+                        <li> <a href="https://www.facebook.com/randomedios1"> <i class="fab fa-facebook-f"></i> </a></li>
+                        <li> <a href="https://radio.usal.es/programa/random/"> <i class="fas fa-microphone"></i> </a> </li>
+                        <li> <a href="https://www.youtube.com/channel/UCMzcUdEcXR20kWJo9aMl9LQ"> <i class="fab fa-youtube"></i> </a> </li>
+                        <li> <a href="https://www.instagram.com/random_medios/"> <i class="fab fa-instagram"></i> </a> </li>
+                    </ul>
+                </div> 
+                <button class="btnMenu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+                    <svg width="45" height="45" viewBox="0 0 100 100">
+                        <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                        <path class="line line2" d="M 20,50 H 80" />
+                        <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                    </svg>
+                </button>
+    
+                <nav class="sidebar">
+                    <div class="text">
+                        <a href="/"><img class="logo" src="/images/general/Logo_color.png" alt=""></a>
+                    </div>
+                    <div class="categoriesOnSide">
+                        <% if(typeof categories != 'undefined'){ %>
+                            <% for(let i = 0; i < categories.length; i++){ %>
+                                <% if(categories[i].name == 'Deporte' || categories[i].name == 'Jóvenes Haciendo' || categories[i].name == 'Política' || categories[i].name == 'Medioambiente' || categories[i].name == 'Género'){ %> 
+                                    
+                                    <div>
+                                        <button class="btn btnCat" type="button" data-toggle="collapse" data-target="#<%= categories[i].link %>" aria-expanded="false" aria-controls="collapseExample">
+                                            <a class="subCatBtn uniqueCat" href="/news/<%=categories[i].sub_category[0].link%>">
+                                                <h5><%= categories[i].name %></h5>
+                                            </a> 
+                                        </button>
+                                    </div>
+                                    
+                                    
+                                                              
+                                <% }else{ %>
+                                    <div>
+                                        <button class="btn btnCat" type="button" data-toggle="collapse" data-target="#<%= categories[i].link %>" aria-expanded="false" aria-controls="collapseExample">
+                                            <h5><%= categories[i].name %></h5>
+                                        </button>
+                                        <div class="collapse card <%=categories[i].link%>" id="<%= categories[i].link %>">
+                                            <% for(let j = 0; j < categories[i].sub_category.length; j++){ %>
+                                                <a class="dropdown-item subCatBtn" href="/news/<%=categories[i].sub_category[j].link%>"><%= categories[i].sub_category[j].name %> </a>
+                                            <% } %> 
+                                        </div>
+                                    </div>
+                                <% } %>
+                                
+                            <% } %>
+                        <% } %>
+                    </div>
+                    <ul>
+                        <div class="userOptions">
+                            <% if(typeof userLoggedIn == 'undefined'){%>
+                                <li><a href="/user/register">Registrarse</a></li>
+                                <li><a href="/user/login">Ingresar</a></li>
+                            <% }else{ %>
+                                <li><a href="/user/account/<%=userLoggedIn.id%>">Cuenta</a></li>
+                                <li><a href="/user/logout">Salir</a></li>
+                            <% } %>
+                        </div>
+                    </ul>
+                    
+                </nav>
+            </div>
+
+            <div class="pcMenu">
+                <div class="socialmedia-h">
+                    <ul>
+                        <li><a href="https://www.facebook.com/randomedios1">FACEBOOK</a></li>
+                        <li><a href="https://radio.usal.es/programa/random/">RADIO</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCMzcUdEcXR20kWJo9aMl9LQ">YOUTUBE</a></li>
+                        <li><a href="https://www.instagram.com/random_medios/">INSTAGRAM</a></li>
+                    </ul>
+                </div> 
+                <a href="/"><img class="logo" src="/images/general/Logo_color.png" alt=""></a>
+                    <h1 hidden><a href="/"> Random MEDIOS </a></h1>
+                    <div class="user">
+                        <ul>
+                            <li class="dropdown"> 
+                                <button type="button" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                    <i class="far fa-user-circle fa-2x"></i> 
+                                </button> 
+    
+                                <div class="dropdown-menu dropdown-menu-right" id="accountCollapse">
+                                    <% if(typeof userLoggedIn == 'undefined') { %>
+                                        <div class="card card-body">
+                                            <a href="/user/login">Ingresar</a>
+                                            <a href="/user/register">Registrarse</a>
+                                        </div>
+                                    <% } else{ %>
+                                        <div class="card card-body">
+                                            <a href="/user/account/<%=userLoggedIn.id%>">Cuenta</a>
+                                            <% if(userLoggedIn.rol == 1){ %>
+                                                <a href="/news/create">Publicar</a>
+                                                <a href="/admin/">Admin</a>
+                                            <% } %>
+                                            <a href="/user/logout">Salir</a>
+                                        </div>
+                                    <% } %>
+                                    
+                                </div>
+                            </li>
+                            <li> 
+                                <button type="button" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                    <i class="far fa-bell fa-2x"></i> 
+                                </button> 
+                                <div class="dropdown-menu dropdown-menu-right" id="accountCollapse">
+                                    <div class="card card-body">
+                                        <p>Notificaciones deshabilitadas</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <button type="button" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-search fa-2x"></i> </button>
+                                <form action="/searchArticle?" method="GET">
+                                    <input class="form-control dropdown-menu dropdown-menu-right" name="articleTitle" type="text">
+                                </form>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                
+                <nav class="categories">
+                    <% if(typeof categories != 'undefined'){ %>
+                        <% for(let i = 0; i < categories.length; i++){ %>
+                            <% if(categories[i].name == 'Deporte' || categories[i].name == 'Jóvenes Haciendo' || categories[i].name == 'Política' || categories[i].name == 'Medioambiente' || categories[i].name == 'Género'){ %> 
+                                <a id="<%=categories[i].link%>" class="btn" href="/news/<%=categories[i].sub_category[0].link%>">
+                                    <h5><%= categories[i].name %></h5>
+                                </a>                           
+                            <% }else{ %> 
+                                <div class="menuDIv">
+                                    <button id="<%=categories[i].link%>" class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <h5><%= categories[i].name %></h5>
+                                    </button>
+                                    <div class="dropdown-menu dropsbg" aria-labelledby="dropdownMenuButton"> 
+                                        <% for(let j = 0; j < categories[i].sub_category.length; j++){ %>
+                                            <a id="sub-cat" class="dropdown-item" href="/news/<%=categories[i].sub_category[j].link%>"><%= categories[i].sub_category[j].name %> </a>
+                                        <% } %> 
+                                    </div>
+                                </div>
+                            <% } %> 
+                        <% } %>
+                    <% } %>
+                </nav>
+            </div>
+        </div>        
+    </div>
+</header>

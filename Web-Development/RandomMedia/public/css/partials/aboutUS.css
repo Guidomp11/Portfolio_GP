@@ -1,0 +1,36 @@
+div.aboutUScontainer h1.aboutUsH{
+    color: var(--btn-genre-color);
+}
+div.aboutUScontainer h2.aboutUsH{
+    color: var(--btn-genre-color);
+}
+div.aboutUScontainer h3.aboutUsH{
+    color: var(--btn-genre-color);
+}
+div.aboutUScontainer h4.aboutUsH{
+    color: var(--btn-genre-color);
+}
+div.aboutUScontainer h5.aboutUsH{
+    color: var(--btn-genre-color);
+}
+div.aboutUScontainer h6.aboutUsH{
+    color: var(--btn-genre-color);
+}
+
+.aboutUScontainer strong{
+    background-color: transparent;
+    color: var(--btn-genre-color);
+}
+
+img.journalist{
+    border-radius: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+    width: 128px;
+    height: 128px;
+}
+h4.journalist{
+    text-transform: uppercase;
+}

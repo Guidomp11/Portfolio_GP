@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="cont">
+            <div class="lastest">
+                <% if(typeof lastestArticles != 'undefined' && lastestArticles.length > 0){ %>
+                    <div class="half-article">
+                        <a class="" href="news/article/<%= lastestArticles[0].id %>">
+                            <article class="article-structure">
+                                <img class="" src="/images/articles/<%=lastestArticles[0].cover_image%>" alt="">
+                                <h3> <%= lastestArticles[0].title  %> </h3>
+                            </article>
+                        </a>
+                    </div>
+
+                    <div class="structure">
+                        <% for(let i = 1; i < lastestArticles.length; i++){ %> 
+                            <a class="" href="news/article/<%= lastestArticles[i].id %>">
+                                <article class="article-structure">
+                                    <img class="" src="/images/articles/<%=lastestArticles[i].cover_image%>" alt="">
+                                    <h3> <%= lastestArticles[i].title  %> </h3>
+                                </article>
+                            </a>
+                        <% } %> 
+                    </div>
+                <% } %> 
+            </div>
+
+            <div class="roulette">
+                <h2 id="categoryName">¿No sabes qué elegir?</h2>
+                <button id="rotateBtn">¡Toca aquí!</button>
+            </div>
+            <div class="container">
+                <div class="theMostSeen">
+                    <h2 class="text-left">Los más vistos</h2>
+                    <% if(typeof topArticles != 'undefined' && topArticles.length > 0){ %>
+                        <% for(let i = 0; i < topArticles.length; i++){ %> 
+                            <a class="" href="news/article/<%= topArticles[i].id %>">
+                                <article class="row">
+                                    <img class="col-12 col-md-3" src="/images/articles/<%=topArticles[i].cover_image%>" alt="">
+                                    <div class="col-12 col-md-9">
+                                        <h3 class="text-left"> <%= topArticles[i].title  %> </h3>
+                                        <p> <%= topArticles[i].synopsis  %> </p>
+                                    </div>
+                                </article>
+                            </a>
+                        <% } %> 
+                    <% } %> 
+                </div>
+            </div>
+            
+
+            
+        </div>
+
+        <div class="aboutUs">
+            <a href="/user/joinCommunity">
+                <img src="/images/general/SUMATE-A-LA-COMUNIDAD.png" alt="">
+                <h4 class="text-center">Súmate a la comunidad</h4>
+            </a>
+            <a href="/aboutUS">
+                <img src="/images/general/QUIENES-SOMOS.png" alt="">
+                <h4 class="text-center">¿Quiénes somos?</h4>
+            </a>
+            <a href="/user/register">
+                <img src="/images/general/SUSCRIBETE-AL-NEWSLETTER.png" alt="">
+                <h4 class="text-center">Suscríbete al Newsletter</h4>
+            </a>
+        </div>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators" id="videos-ol">
+                
+            </ol>
+            <div class="carousel-inner" id="video-container">
+                
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        
+        <%- include('./partials/footer') %> 
+        <script src="/js/newsRoulette.js"></script>
+        <script src="/js/IframeInserter.js"></script>
+        <%- include('./partials/scripts') %>
+    </body>
+    
+    
+</html>

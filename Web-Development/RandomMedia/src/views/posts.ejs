@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="container">
+            
+            <% if(typeof posts != 'undefined'){ %> 
+                <h1 class="mt-5" id="<%=posts[0].category.link%>"><%=posts[0].name%></h1>
+                <section>
+                    <a class="lastPost" href="article/<%= posts[0].subcategories_article[posts[0].subcategories_article.length-1].id %>">
+                        <img src="/images/articles/<%=posts[0].subcategories_article[posts[0].subcategories_article.length-1].cover_image%>" alt="">
+                        <article class="principalArticle">
+                            <h3> <%= posts[0].subcategories_article[posts[0].subcategories_article.length-1].title  %> </h3>
+                            <span class="text-limiter"> <%= posts[0].subcategories_article[posts[0].subcategories_article.length-1].synopsis  %> </span>
+                        </article>
+                    </a>
+                </section>
+                <section class="lastestPosts">
+                    
+                </section>
+                <div class="paginationContainer">
+                    
+                </div>
+            <% }else{ %> 
+                <h2 class="noContent">Todavía no hay publicaciones</h2>
+            <% } %> 
+                         
+        </div>
+        <%- include('./partials/footer') %> 
+        <%- include('./partials/scripts') %>
+        <script src="/js/addPosts.js"></script>
+    </body>
+    
+</html>

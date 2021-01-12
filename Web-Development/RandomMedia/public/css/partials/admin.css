@@ -1,0 +1,33 @@
+.userInfo{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+h5{
+    width: fit-content;
+}
+
+.admin button.home{
+    width: fit-content;
+    height: fit-content;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 15px;
+    margin-top: 15px;
+}
+.adminHome{
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#inputButton{
+    width: 100%;
+    border: none;
+    border-bottom: black;
+}

@@ -1,0 +1,20 @@
+id,name,category_id,link
+1,Cine,1,cine
+2,"Arte visual",1,arteVisual
+3,Literatura,1,literatura
+4,Música,1,musica
+5,"Jovenes haciendo",8,jovenesHaciendo
+6,Astrología,2,astrologia
+7,Sexología,2,sexologia
+8,Espiritualidad,2,espiritualidad
+9,Psicología,2,pscicologia
+10,Gastronomía,2,gastronomia
+11,"Feminismo e Igualdad",3,feminismoEigualdad
+12,"Medio ambiente y Ecología",4,mAmbienteEcologia
+13,"Política actual e Historia",5,politicaActualHistoria
+14,"Política y Economía",5,politicaEconomia
+15,Entretenimiento,6,entretenimiento
+16,Noticias,6,noticias
+17,Actualidad,6,actualidad
+18,Ciencia,6,ciencia
+19,Deporte,7,deporte
