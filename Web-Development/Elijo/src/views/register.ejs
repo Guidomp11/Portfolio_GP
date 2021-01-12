@@ -1,63 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head') %>
-<body>
-    <%- include('./partials/header') %>
-    
-    <div class="container register-container">
-        
-        <!-- Default form register -->
-        <form class="text-center border border-light p-5" action="">
-            
-            <p class="h4 mb-4">Súmate a ELIJO</p>
-            
-            <div class="form-row mb-4">
-                <div class="col">
-                    <!-- First name -->
-                    <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nombre">
+<!-- GOOGLE META-->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="766227939545-9nbdf2c7dth14uvafhsppf9oj46ok5l1.apps.googleusercontent.com">
+<!-- /GOOGLE META-->
+    <body>
+        <%- include('./partials/header') %>
+            <div class="container register-container">
+                <div class="alert alert-danger d-none" role="alert" id="google-error">
+                    Error en el registro!
                 </div>
-                <div class="col">
-                    <!-- Last name -->
-                    <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Apellido">
+                <!-- Default form register -->
+                <form class="text-center border border-light p-5 sign-up-form" action="/user/register" method="POST">
+                
+                <p class="h4 mb-4 register-title">Súmate a ELIJO</p>
+                <!-- GOOGLE DIV-->
+                <div class="g-signin2 mb-4 mt-3" data-onsuccess="onSignIn"></div>
+                <!-- /GOOGLE DIV-->
+                
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- First name -->
+                        <input type="text" id="defaultRegisterFormFirstName" class="form-control name" name="name" placeholder="Nombre">
+                        <small class="text-danger erName"></small>
+                        <% if(typeof errors != 'undefined') {%>
+                            <% for(let i = 0 ; i < errors.length ; i++){ %> 
+                                <% if(errors[i].param == 'name'){ %> 
+                                    <small class="text-danger"><%= errors[i].msg %> </small>
+                                <% } %>      
+                            <% } %>  
+                        <% } %>  
+                    </div>
+                    <div class="col">
+                        <!-- Last name -->
+                        <input type="text" id="defaultRegisterFormLastName" class="form-control last_name" name="last_name" placeholder="Apellido">
+                        <small class="text-danger erLastName"></small>
+                        <% if(typeof errors != 'undefined') {%>
+                            <% for(let i = 0 ; i < errors.length ; i++){ %> 
+                                <% if(errors[i].param == 'last_name'){ %> 
+                                    <small class="text-danger"><%= errors[i].msg %> </small>
+                                <% } %>      
+                            <% } %>  
+                        <% } %>  
+                    </div>
                 </div>
+                
+                <!-- E-mail -->
+                <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4 email" placeholder="E-mail" name="email">
+                <small class="text-danger erEmail"></small>
+                <% if(typeof errors != 'undefined') {%>
+                    <% for(let i = 0 ; i < errors.length ; i++){ %> 
+                        <% if(errors[i].param == 'email'){ %> 
+                            <small class="text-danger"><%= errors[i].msg %> </small>
+                        <% } %>      
+                    <% } %>  
+                <% } %>  
+       
+                
+                <!-- Password -->
+                <input type="password" id="defaultRegisterFormPassword" class="form-control password" placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock" name="password">
+                <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                    La contraseña debe contener al menos 8 cáracteres.
+                </small>
+                <small class="text-danger erPassword"></small>
+                <% if(typeof errors != 'undefined') {%>
+                    <% for(let i = 0 ; i < errors.length ; i++){ %> 
+                        <% if(errors[i].param == 'password'){ %> 
+                            <small class="text-danger"><%= errors[i].msg %> </small>
+                        <% } %>      
+                    <% } %>  
+                <% } %>  
+                
+                <!-- Phone number -->
+                <input type="text" id="defaultRegisterPhonePassword" class="form-control telephone" placeholder="Telefono +5491122334455" aria-describedby="defaultRegisterFormPhoneHelpBlock" name="telephone">
+                <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                    Preferentemente celular con whatsapp, para comunicarnos mejor
+                </small>
+                <small class="text-danger erTelephone"></small>
+                <% if(typeof errors != 'undefined') {%>
+                    <% for(let i = 0 ; i < errors.length ; i++){ %> 
+                        <% if(errors[i].param == 'telephone'){ %> 
+                            <div class="row">
+                                <small class="text-danger col-12"><%= errors[i].msg %> </small>
+                            </div>
+                        <% } %>      
+                    <% } %>  
+                <% } %>  
+
+                <!-- Rol -->
+                <label for="opt1" class="radio">
+                    <input type="radio" id="opt1" value="2" name="rol" class="hidden rol"/>
+                    <span class="label"></span>Actual Estudiante
+                </label>                            
+                <label for="opt2" class="radio">
+                    <input type="radio" id="opt2" value="3" name="rol" class="hidden rol"/>
+                    <span class="label"></span>Futuro Estudiante
+                </label>    
+                <small class="text-danger erRol"></small>
+                <% if(typeof errors != 'undefined') {%>
+                    <% for(let i = 0 ; i < errors.length ; i++){ %> 
+                        <% if(errors[i].param == 'rol'){ %> 
+                            <div class="row">
+                                <small class="text-danger col-12"><%= errors[i].msg %> </small>
+                            </div>
+                        <% } %>      
+                    <% } %>  
+                <% } %>                          
+                
+                <!-- Sign up button -->
+                <button class="btn btn-info my-4 btn-block btn-log-reg submitBtn" type="submit">Registrarme</button>
+                
+                <!-- Terms of service -->
+                <p>Al hacer click en
+                    <em>Registrarse</em> aceptas nuestros
+                    <a href="" target="_blank">términos de servicio</a>
+                    
+                </form>
+                <!-- Default form register -->
+                
             </div>
             
-            <!-- E-mail -->
-            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-            
-            <!-- Password -->
-            <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-            <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                La contraseña debe contener al menos 8 cáracteres.
-            </small>
-            
-            <!-- Phone number -->
-            <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Telefono" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-            <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                Preferentemente celular con whatsapp, para comunicarnos mejor
-            </small>
-            
-            <!-- Sign up button -->
-            <button class="btn btn-info my-4 btn-block btn-log-reg" type="submit">Registrarme</button>
-            
-            <!-- Social register -->
-            <p>o ingresa con:</p>
-            
-            <a href="#" class="mx-2" role="button"><i class="fab fa-google light-blue-text"></i></a>
+            <!-- GOOGLE SCRIPTS -->
+            <script>
+                function onSignIn(googleUser) {
+                    var profile = googleUser.getBasicProfile();
+                    //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                    //console.log('Name: ' + profile.getName());
+                    //console.log('Image URL: ' + profile.getImageUrl());
+                    //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+                    var id_token = googleUser.getAuthResponse().id_token;
 
-            <hr>
+                    let registerData = {
+                        user_id: id_token,
+                        name: profile.getName(),
+                        photo: profile.getImageUrl(),
+                        email: profile.getEmail()
+                    }
+
+                    fetch('/user/googleregister',{
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({registerData})
+                    })
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(newUser => {
+                        console.log(newUser.errors == undefined);
+                        if(newUser.errors != undefined){
+                            signOut();
+                            let googleError = document.querySelector('#google-error');
+                            googleError.classList.remove('d-none');
+                            return;
+                        }
+                        signOut();
+                        window.location.href= '/user/googleregister/completeregister/'+newUser.id;
+                    })
+
+                }
+
+                function signOut() {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                  console.log('User signed out.');
+                });
+              }
+            </script>  
+
+            <!-- /GOOGLE SCRIPTS -->
             
-            <!-- Terms of service -->
-            <p>Al hacer click en
-                <em>Registrarse</em> aceptas nuestros
-                <a href="" target="_blank">términos de servicio</a>
-                
-            </form>
-            <!-- Default form register -->
             
-        </div>
-        
-        <%- include('./partials/scripts.ejs') %>
-        <%- include('./partials/footer') %>  
+            <script src="/js/register.js"></script>
+            <%- include('./partials/scripts.ejs') %>
+            <%- include('./partials/footer') %>  
     </body>
-    </html>
+</html>

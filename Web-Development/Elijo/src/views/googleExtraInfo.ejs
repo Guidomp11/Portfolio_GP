@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+            <div class="container register-container">
+
+                <!-- Default form register -->
+                <form class="text-center border border-light p-5 sign-up-form" action="/user/googleregister/completeregister" method="POST">
+                
+                <p class="h4 mb-4 register-title">Completá tus datos</p>
+
+                <!-- Phone number -->
+                <input type="text" id="defaultRegisterPhonePassword" class="form-control telephone" placeholder="Telefono +5491122334455" aria-describedby="defaultRegisterFormPhoneHelpBlock" name="telephone">
+                <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                    Preferentemente celular con whatsapp, para comunicarnos mejor
+                </small>
+                <small class="text-danger erTelephone"></small>
+                <% if(typeof errors != 'undefined') {%>
+                    <% for(let i = 0 ; i < errors.length ; i++){ %> 
+                        <% if(errors[i].param == 'telephone'){ %> 
+                            <div class="row">
+                                <small class="text-danger col-12"><%= errors[i].msg %> </small>
+                            </div>
+                        <% } %>      
+                    <% } %>  
+                <% } %>  
+
+                <!-- Rol -->
+                <label for="opt1" class="radio">
+                    <input type="radio" id="opt1" value="2" name="rol" class="hidden rol"/>
+                    <span class="label"></span>Actual Estudiante
+                </label>                            
+                <label for="opt2" class="radio">
+                    <input type="radio" id="opt2" value="3" name="rol" class="hidden rol"/>
+                    <span class="label"></span>Futuro Estudiante
+                </label>    
+                <small class="text-danger erRol"></small>
+                <% if(typeof errors != 'undefined') {%>
+                    <% for(let i = 0 ; i < errors.length ; i++){ %> 
+                        <% if(errors[i].param == 'rol'){ %> 
+                            <div class="row">
+                                <small class="text-danger col-12"><%= errors[i].msg %> </small>
+                            </div>
+                        <% } %>      
+                    <% } %>  
+                <% } %>                          
+                
+                <!-- Sign up button -->
+                <button class="btn btn-info my-4 btn-block btn-log-reg submitBtn" type="submit">Guardar</button>
+                    
+                </form>
+                
+                
+            </div>
+            <%- include('./partials/scripts.ejs') %>
+            <%- include('./partials/footer') %>  
+    </body>
+</html>

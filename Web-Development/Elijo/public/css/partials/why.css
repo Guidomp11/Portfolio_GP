@@ -1,5 +1,5 @@
 .why-main-container{
-    background-color: rgb(252, 230, 190);
+    background-color: var(--color-2);
     margin-bottom: 20px;
     border-radius: 5px;
 }
@@ -53,17 +53,17 @@ width: 30px !important;
 } */
 
 #text{
-    background-color: rgb(254, 185, 3);
+    background-color: var(--color-3);
     border-radius: 3px;
 }
 
 #text1{
-    background-color: rgb(254, 137, 3);
+    background-color: var(--color-4);
     border-radius: 3px;
 }
 
 #text2{
-    background-color: rgb(252, 209, 92);
+    background-color: var(--color-5);
     border-radius: 3px;
 }
 

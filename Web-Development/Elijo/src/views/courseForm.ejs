@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <style>
+        input{
+            width: 400px;
+            height: 40px;
+            padding: 3px;
+            margin-left: 10px;
+        }
+        input::placeholder {
+            color: grey;
+        }
+        button{
+            width: 200px;
+            height: 100px;
+            background-color: green;
+        }
+        .new_course{
+            background-color: indianred;
+        }
+        .division{
+            text-align: center;
+            background-color: lawngreen;
+        }
+        #course:nth-child(even){
+            padding: 5px;
+            background-color: lightgrey;
+        }
+    </style>
+    <body>
+        <form action="/population/addCourse/<%=institute.id%>" method="POST" class="ml-5" id="courseForm">
+            
+
+            <h4>Cantidad de cursos en el instituto:</h4>
+            <input required name="courses_amount" type="number" id="amountCourses">
+
+            <div id="courseContainer">
+                
+            </div>
+            <br>
+            
+            <button id="BtnSubmitCourse" type="submit">Siguiente</button>
+        </form>
+
+        <%- include('./partials/scripts.ejs') %>
+        <script src="/js/population/addNewCourse.js"></script>
+    </body>
+</html>

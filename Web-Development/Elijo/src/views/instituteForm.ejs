@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <style>
+        input{
+            width: 400px;
+            height: 40px;
+            padding: 3px;
+            margin-left: 10px;
+        }
+        input::placeholder {
+            color: grey;
+        }
+        button{
+            width: 200px;
+            height: 100px;
+            background-color: green;
+        }
+        .new_course{
+            background-color: indianred;
+        }
+        .division{
+            text-align: center;
+            background-color: lawngreen;
+        }
+        #course:nth-child(even){
+            padding: 5px;
+            background-color: lightgrey;
+        }
+    </style>
+    <body>
+        <form action="/population/institute" method="POST" enctype="multipart/form-data" class="ml-5" id="courseForm">
+            <h4 class="mt-3 ">Nombre:</h4>
+            <input required class="" name="institute_name" type="text" placeholder="Digital House">
+
+            <h4 class="mt-3 ">Link de la pagina:</h4>
+            <input required class="" name="institute_link" type="text" placeholder="www.digitalhouse.edu">
+
+            <h4 class="mt-3 ">Precio:</h4>
+            <input required class="" name="institute_price" type="text" placeholder="10000">
+
+            <h4 class="mt-3">Calificación:</h4>
+            <input required class="" name="institute_calification" type="text" placeholder="De 1 a 10 (stats)">
+
+            <h4 class="mt-3">Dirección:</h4>
+            <input required class="" name="institute_adress" type="text" placeholder="Av. Monroe">
+
+            <h4 class="mt-3">Locación:</h4>
+            <input required class="" name="institute_location" type="text" placeholder="CABA">
+
+            <h4 class="mt-3">Región:</h4>
+            <select required name="institute_region" id="regionSelect">
+                <option value="" hidden>Seleccione una region</option>
+            </select>
+            <script>
+                window.addEventListener('load', () => {
+                    let regionSelect = document.querySelector('#regionSelect');
+    
+                    fetch('https://apis.datos.gob.ar/georef/api/provincias')
+                    .then(response => {
+                        return response.json()
+                    })
+                    .then(provinces => {
+                        provinces.provincias.sort((a, b) => a.nombre < b.nombre ? -1 : a.nombre === b.nombre ? 0 : 1)
+                        for(let i = 0; i < provinces.provincias.length; i++){
+                            regionSelect.innerHTML +=`<option value="${provinces.provincias[i].nombre}">  ${provinces.provincias[i].nombre} </option>`
+                        }
+                    })
+                });
+            </script>
+
+            <h4 class="mt-3 ">Cantidad de estudiantes:</h4>
+            <input required class="" name="institute_amount_students" type="text" placeholder="10000">
+
+            <h4 class="mt-3 ">Nombre del Logo: (sin espacion ni comas. EJ: Digital_house)</h4>
+            <input required name="logoInput" type="text" placeholder="Digital_house">
+            
+            <h4 class="mt-3 ">Logo:</h4>
+            <input required name="image" type="file">
+
+            <br>
+            
+            <button id="BtnSubmitCourse" type="submit">Siguiente</button>
+        </form>
+
+        <%- include('./partials/scripts.ejs') %>
+    </body>
+</html>

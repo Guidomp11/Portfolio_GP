@@ -8,24 +8,58 @@
     =======*/
 
     /*BTN PRIMARY*/
-    --btn-bg-color: rgb(246, 145, 1);
-    --btn-border: 2px solid rgb(244, 118, 1);
+    --btn-bg-color: rgb(123,216,240);
+    --btn-border: 2px solid rgb(14,155,218);
 
-    --btn-bg-color-hover: rgb(255, 188, 126);
-    --btn-border-hover: 2px solid rgb(246, 145, 1);
+    --btn-bg-color-hover: rgb(14,155,218);
+    --btn-border-hover: 2px solid rgb(1,146,203);
 
-    --btn-bg-color-focus: rgba(218, 105, 0, 0.74);
-    --btn-border-focus: border: 2px solid rgb(246, 145, 1);
+    --btn-bg-color-focus: rgba(2, 90, 204, 0.733);
+    --btn-bg-color-focus: border: 2px solid rgb(2,89,204);
 
+    --btn-border-radius: 8px;
     /*BTN SECUNDARY*/
-    --btn-bg-color-scnd:rgba(255, 196, 86, 0.918);
-    --btn-border-scnd:2px solid rgb(238, 206, 147);
+    --btn-bg-color-scnd:rgba(185, 233, 247, 0.897);
+    --btn-border-scnd:2px solid rgb(123,216,240);
 
-    --btn-bg-color-scnd-hover : rgb(255, 213, 136);
-    --btn-border-scnd-hover : 2px solid rgb(238, 206, 147);
+    --btn-bg-color-scnd-hover : rgb(123,216,240);
+    --btn-border-scnd-hover : 2px solid rgb(109,216,254);
 
-    --btn-bg-color-scnd-focus: rgba(236, 157, 9, 0.966);
-    --btn-bg-border-scnd-focus: 2px solid rgb(238, 206, 147);
+    --btn-bg-color-scnd-focus: rgb(14,155,218);
+    --btn-bg-border-scnd-focus: 2px solid rgb(14,155,218);
+
+
+    
+    --color-2 : rgb(246,251,255);
+    --color-3 : rgb(220,243,251);
+    --color-3 : rgb(185,233,247);
+    --color-1 : rgb(123,216,240);
+    --color-4 : rgb(109,216,254);
+    --color-9 : rgb(14,155,218);
+    --color-5 : rgb(14,155,218);
+    --color-6 : rgb(2,89,204);
+    --color-7 : rgb(108,137,194);
+    --color-8 : rgb(124,191,182);
+
+
+
+    /* ==> DETAIL COLORS: <== */
+
+
+    /* UNIVERSITY */
+    --color-10: rgba(108, 137, 194, 0.55);
+
+    /* COURSE */
+    --color-11: rgba(14,155,218, 0.55);
+
+    /* INTEREST */
+    --color-12: rgba(109,216,254, 0.55);
+
+    /* EXPERIENCES */
+    --color-13: rgba(185,233,247, 0.55);
+
+    /* TIPS */
+    --color-14: rgba(124,191,182, 0.55);
 
 
 }

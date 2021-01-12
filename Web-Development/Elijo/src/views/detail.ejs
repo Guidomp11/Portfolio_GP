@@ -6,45 +6,74 @@
     <%- include('./partials/header') %>
     
     
-    <div class="container-fluid">
+    <div class="container">
         
         <div class="wrapper-title">
             <div class="main-title">
-                <img src="/images/otros/avatar.png" alt="">
-                <h2 class="profile-detail-title">Sofia Arancel</h2>
+                <img src="/images/users/<%=user.photo%>" alt="">
+                <h2 class="profile-detail-title"><%= user.name + ' ' + user.last_name %></h2>
             </div>
+               
+            <% if(typeof userLoggedIn != 'undefined') { %>
+                <% if(user.telephone != '' && user.telephone != null) { %>
+                    <a href="https://api.whatsapp.com/send?phone=<%= user.telephone %>" class="d-flex"><p class="conditional-whatsapp"><i class="fab fa-whatsapp"></i></p></a> 
+                <% } %>
+                <p class="text-center"><%=user.email%></p>
+            <% }else{ %>
+                <a href="/user/login">Ingresa para contactarte</a>
+            <% } %>
             
-            <a href="" class="d-flex"><p class="conditional-whatsapp"><i class="fab fa-whatsapp"> +5411-1155-9988</i></p></a>
         </div>
             
         <div class="row">
-            <article class="wrapper-detail-profile col-12 col-md-8">
+            <section class="wrapper-detail-profile col-12 col-md-8">
                     
-                <section class="profile-experiences">
-                    <h4 class="uni">Universidad</h4>
-                    <h4 class="course">Curso</h4>
-                </section>
-                <section class="profile-interests">
-                    <h4>Intereses</h4>
-                    <ul class="interests d-flex">
-                        <li>interes</li>
-                        <li>interes</li>
-                        <li>interes</li>
-                        <li>interes</li>
-                    </ul>
-                    <ul class="interests d-flex">
-                        <li>interes</li>
-                        <li>interes</li>
-                        <li>interes</li>
-                        <li>interes</li>
-                    </ul>
-                </section>
-                    
-            </article>
+                <article class="profile-experiences">
+                    <div class="university-user-wrapper">
+                        <h4 class="uni detail-title-labels">Universidad</h4>
+                        <% for(let i = 0 ; i < university_career.length ; i++){ %> 
+                            <h6 class="user-formation-subtitle"><%= university_career[i].name %></h6>
+                            <% for(let j = 0 ; j < university_career[i].Careers.length ; j++){ %> 
+                                <h6 class="user-formation-subtitle"><i class="fas fa-book-open pr-2"></i><%= university_career[i].Careers[j].name%></h6>
+                            <% } %>
+                        <% } %>
+                    </div>
+                    <div class="course-user-wrapper">
+                        <h4 class="course detail-title-labels">Cursos</h4>
+                        <% for(let i = 0 ; i < institute_courses.length ; i++){ %> 
+                            <h6 class="user-formation-subtitle"><%=institute_courses[i].name%></h6>
+                            <% for(let j = 0 ; j < institute_courses[i].Courses.length; j++){ %> 
+                                <h6 class="user-formation-subtitle"><i class="fas fa-book-open pr-2"></i><%=institute_courses[i].Courses[j].name%></h6>
+                            <% } %>
+
+                        <% } %>
+                    </div>
+                </article>
+                <article class="profile-interests">
+                    <div class="interest-user-wrapper">
+                        <h4 class="interests-title detail-title-labels">Intereses</h4>
+                        <ul class="interests d-flex">
+                            <% for(let i = 0; i < user.Interest.length; i++){ %>
+                                <li><%= user.Interest[i].interest_name %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </article>
+                <article class="profile-interests">
+                    <div class="experiences-user-wrapper">
+                        <h4 class="experiences-title detail-title-labels">Experiencias</h4>
+                        <h6><%= user.experiences %></h6>  
+                    </div>                  
+                </article>
+            </section>
                 
                 <aside class="conditional-question-and-tips col-12 col-md-4">
-                    <h3>Preguntas y tips</h3>
-                    <p>Debe aparecer este aside, si antes contesta alguna pregunta</p>
+                    <div class="tips-user-wrapper">
+                        <h4 class="tips-title detail-title-labels">Tips</h4>
+                        <% for(let i = 0; i < user.User_tips.length; i++){ %>
+                            <p><i class="far fa-check-circle"></i> <%= user.User_tips[i].tip %></p>    
+                        <% } %>
+                    </div>
                 </aside>
         </div>     
             

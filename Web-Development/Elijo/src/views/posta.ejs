@@ -5,205 +5,154 @@
     <%- include('./partials/header') %>
     <div class="container-fluid">
         <h1>La posta sobre...</h1>
+
         <div class="pcDropDown">
 
             <div class="dropdown">
-                <button onclick="myFunction('universities')" class="categoryDropDown universities">
+                <button class="categoryDropDown universities">
                     Universidades <i class="far fa-arrow-alt-circle-down"></i>
                 </button>
                 <div id="universities" class="dropdown-content">
-                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                    <div class="results">
+                    <input class="universityInput" type="text" placeholder="Search.." id="myInput">
+                    <button class="search-btn" type="button">Buscar</button>
+                    <div class="universityResults">
 
                     </div>
                 </div>
+
+                
+
             </div>
-            
+            <!--
             <div class="dropdown">
                 <button onclick="myFunction('carrers')" class="categoryDropDown carrers">
                     Carreras <i class="far fa-arrow-alt-circle-down"></i>
                 </button>
                 <div id="carrers" class="dropdown-content">
-                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                    <input class="careerInput" type="text" placeholder="Search.." id="myInput">
+                    <div class="results">
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="dropdown">
+                <button class="categoryDropDown institute">
+                    Institutos <i class="far fa-arrow-alt-circle-down"></i>
+                </button>
+                <div id="institute" class="dropdown-content">
+                    <input class="instituteInput" type="text" placeholder="Search.." id="myInput">
+                    <button class="search-btn">Buscar</button>
+                    <div class="instituteResults">
+
+                    </div>
                 </div>
             </div>
-
+            <!--
             <div class="dropdown">
                 <button onclick="myFunction('curses')" class="categoryDropDown curses">
                     Cursos <i class="far fa-arrow-alt-circle-down"></i>
                 </button>
                 <div id="curses" class="dropdown-content">
-                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                    <input class="courseInput" type="text" placeholder="Search.." id="myInput">
+                    <div class="results">
+                    </div>
                 </div>
-            </div>
+            </div>-->
 
             <div class="dropdown">
-                <button onclick="myFunction('programs')" class="categoryDropDown programs">
-                    Programas <i class="far fa-arrow-alt-circle-down"></i>
+                <button class="categoryDropDown region" id="regionButton">
+                    Región <i class="far fa-arrow-alt-circle-down"></i>
                 </button>
-                <div id="programs" class="dropdown-content">
-                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                <div id="region" class="dropdown-content">
+                    <div class="regionResults">
+
+                    </div>
                 </div>
             </div>
 
         </div>
         
-        <div class="posta-filter">
-            <h6>xla busqueda</h6>
+        <div class="posta-filter d-none">
+            
         </div>
-        
-        <div class="posta-sections">
-            <input class="posta-search" type="text" placeholder="Buscar...">
+
+        <div class="posta-sections mt-3">
+            
+            <!-- <input class="posta-search" type="text" placeholder="Buscar..."> -->
         
             <div class="postaBtn">
-                <button class="general-btn">General</button>
-                <button class="faqs-tips-btn">Preguntas/Tips</button>
-                <button class="lessons-btn">Clases</button>
+                <button class="general-btn selected">General</button>
+                <button class="faqs-tips-btn">Preguntas</button>          
+                <button class="lessons-btn">Tips</button>
             </div>
             
         </div>
-        
 
-
+        <!-- PREGUNTAS -->
         <div class="row faqs-tips-container d-none">
-
-            <div class="faqs col-12 col-md-8">
-                <h3>Preguntas</h3>
-                <input type="text" placeholder="Buscar...">
-                <div class="question-container">
-                    <h5><img src="/images/otros/avatar.png" alt=""><b>Julia Capa:</b>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde, consectetur.(PREGUNTA)</h5>
-                    <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eum obcaecati ab laudantium quaerat magnam suscipit voluptas repudiandae sunt impedit. Hic autem deserunt nostrum quisquam, voluptate veritatis quae non unde! (RESPUESTA)</h6>
-                </div>
-
-                <div class="question-container">
-                    <h5><img src="/images/otros/avatar.png" alt=""><b>Julia Capa:</b>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde, consectetur.(PREGUNTA)</h5>
-                    <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eum obcaecati ab laudantium quaerat magnam suscipit voluptas repudiandae sunt impedit. Hic autem deserunt nostrum quisquam, voluptate veritatis quae non unde! (RESPUESTA)</h6>
-                </div>
+            <div class="alert alert-success d-none" role="alert" id="question-success">
+                Muchas gracias! Tu opinion nos importa!
             </div>
-
-            <button class="tipsPhoneBtn">
-                <P>TIPS</P>
-            </button>
-            
-            <div class="mobileTips">
-                <button class="mobileTipsCross"><i class="far fa-times-circle fa-2x"></i></button>
-                <h3>Tips</h3>
-                <input type="text" placeholder="Buscar...">
-                <p><img src="/images/otros/avatar.png" alt=""><b>Julia Capa:</b></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis optio amet accusantium, recusandae minus at?</p>
+            <div class="faqs col-12 col-md-10">
+                
             </div>
-
-            <div class="tips-container col-md-4">
-                <h3>Tips</h3>
-                <input type="text" placeholder="Buscar...">
-                <p><img src="/images/otros/avatar.png" alt=""><b>Julia Capa:</b></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis optio amet accusantium, recusandae minus at?</p>
+            <div class="faqs-question-form">
+                <% if(typeof userLoggedIn != 'undefined'){ %>
+                <div id="question-form" class="d-none">
+                    <h4 class="mt-4">Si no encontraste la respuesta que estabas buscando, dejá tu pregunta.<span style="font-size: small;">(maximo 500 caracteres)</span></h4>
+                    <textarea id="textarea-question" name="textarea" rows="3" cols="45" placeholder="Preguntar..." maxlength="500"></textarea>
+                    <div class="d-flex justify-content-end">
+                        <button class="faqs-btn-submit" type="button" onClick="sendQuestion()">Enviar pregunta</button>
+                    </div>
+                </div>
+                <% } else {%>
+                    <h4 class="make-questions">¿Tenés preguntas para estudiantes? <a href="/user/login">Inicia Sesión </a> o <a href="/user/register">Registrate</a> para hacerlas</h4>
+                <% } %> 
             </div>
         </div>
+        <!-- /PREGUNTAS -->
    
-
+        <!-- GENERAL -->
         <div class="row generalFlap">
-
-            <div class="chartJS col-12 col-md-4">
-                <canvas id="myChart"></canvas>
+            <h3 class="text-center col-12 data-posta-container">Buscá para obtener información</h3>
+            
+            <div class="regionsResults col-10">
+            </div>
+            <div class="chartJS "><!--col-12 col-md-3-->
+                
             </div>
             
-            <div class="opinions col-12 col-md-6">
-                <h4>Opiniones Estudiantiles</h4>
-                <section>
-                    <article>
-                        <h6><img src="/images/otros/avatar.png" alt=""> Julia</h6>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, eligendi!</p>
-                    </article>
-                    <article>
-                        <h6><img src="/images/otros/avatar.png" alt="">Guido</h6>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, eligendi!</p>
-                    </article>
-                    <article>
-                        <h6><img src="/images/otros/avatar.png" alt="">Andy</h6>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, eligendi!</p>
-                    </article>
-                </section>
+            <div class="opinions col-12 col-md-7">
+                
             </div>
             
             
             <div class="information-container col-12 col-md-2">
-                <h3>Informacion útil</h3>
-                <ul>
-                    <li><a href="">Pagina web</a></li>
-                    <li><a href="">Plan de estudios</a></li>
-                    <li><a href="">Mapa</a></li>
-                </ul>
+                
+                
+            </div>
+            <div class="container">
+                <div class="col-12 carreers-container">
+                    
+                    
+                </div>
             </div>
         </div> 
-
-        <div class="row lessons-container d-none">
-            <div class="col-12 col-md-2 ml-2 materias-container">
-                <h5>Materias</h5>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <p>Comprension de Textos</p>
-                <p>Historia Moderna</p>
-                <p>Economia I</p>
-                <p>Introduccion a Politicas de Gobierno</p>
-            </div>
-
-
-            <div class="faqs col-12 col-md-6">
-                <h3>Preguntas</h3>
-                <input id="searchFAQSInput" type="text" placeholder="Buscar...">
-                <div class="question-container">
-                    <h5><img src="/images/otros/avatar.png" alt=""><b>Julia Capa:</b>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde, consectetur.(PREGUNTA)</h5>
-                    <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eum obcaecati ab laudantium quaerat magnam suscipit voluptas repudiandae sunt impedit. Hic autem deserunt nostrum quisquam, voluptate veritatis quae non unde! (RESPUESTA)</h6>
-                </div>
-
-                <div class="question-container">
-                    <h5><img src="/images/otros/avatar.png" alt=""><b>Julia Capa:</b>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde, consectetur.(PREGUNTA)</h5>
-                    <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eum obcaecati ab laudantium quaerat magnam suscipit voluptas repudiandae sunt impedit. Hic autem deserunt nostrum quisquam, voluptate veritatis quae non unde! (RESPUESTA)</h6>
-                </div>
-                <div class= "d-flex justify-content-center">
-                    <button class="more-info-btn">Ver más</button>
-                </div>
-                <form action="" >
-                    <h4 class="mt-4">Si no encontraste la respuesta que estabas buscando, dejá tu pregunta.</h4>
-                    <textarea name="textarea" rows="3" cols="45">Preguntar...</textarea>
-                    <div class="d-flex justify-content-end">
-                        <button class="faqs-btn-submit" type="submit">Enviar pregunta</button>
-                    </div>
-                </form>
-            </div>
-
-            <button class="tipsPhoneBtn">
-                <P>TIPS</P>
-            </button>
-            
-            <div class="mobileTips">
-                <button class="mobileTipsCross"><i class="far fa-times-circle fa-2x"></i></button>
-                <h3>Tips</h3>
-                <input type="text" placeholder="Buscar...">
-                <p><img src="/images/otros/avatar.png" alt=""><b>Julia Capa:</b></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis optio amet accusantium, recusandae minus at?</p>
-            </div>
-
-            <div class="tips-container col-md-3">
-                <h3>Tips</h3>
-                <input type="text" placeholder="Buscar...">
-                <p><img src="/images/otros/avatar.png" alt=""><b>Julia Capa:</b></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis optio amet accusantium, recusandae minus at?</p>
-            </div>
-
-            
+        <!-- /GENERAL -->
+        <!-- REGION TIPS    -->
+        <div class="tips-container col-md-10 d-none">
         </div>
+        <!-- /REGION TIPS -->
     </div>
     <%- include('./partials/footer') %>
     <%- include('./partials/scripts.ejs') %>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="/js/chartJS.js"></script>
-    <script src="/js/posta.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.0"></script>
     
+    
+    <script src="/js/posta.js"></script>
+    <!--<script src="/js/googleMaps.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLPIr-4QJtDR-Fw8p3rTarMax1R_bfsBw&callback=initMap"
+    type="text/javascript"></script>-->
+    <script src="/js/posta/postaNav.js"></script>
 </body>
 </html>

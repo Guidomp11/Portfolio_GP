@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+
+    <body>
+        <%- include('./partials/header') %>
+
+        <h4 class="statInfo">Aca podes encontrar distintas preguntas o inquitudes que han dejado futuros estudiantes... ¡Ayudalxs a elegir!</h4>
+
+        <form action="/user/answerQuestion/<%= user.id %>" method="POST" class="ansForm ml-5 mt-5 d-flex flex-column justify-content-center form-stat">
+           
+            <div id="stat">
+                <select class="select-answer ansSelect" name="question" id="">
+                <option value="" hidden>Seleccione una pregunta para responder</option>
+                <% for(let i = 0; i < questions.length; i++) { %>
+                    <option value="<%=questions[i].id%>">
+                        <%=questions[i].text%>
+                        <%= (questions[i].Career != undefined) ? '('+questions[i].Career.name+')' : '' %>
+                        <%= (questions[i].Univeristy != undefined) ? '('+questions[i].Univeristy.name+')' : '' %>
+                        <%= (questions[i].Institute != undefined) ? '('+questions[i].Institute.name+')' : '' %>
+                        <%= (questions[i].Course != undefined) ? '('+questions[i].Course.name+')' : '' %>
+                    </option>
+                <% } %>
+                </select>
+                <small class="text-danger erSel"></small>
+
+            </div>
+
+            <div id="stat">
+                <span style="font-size: small;">(maximo 600 caracteres)</span><br>
+                <textarea name="answer" id="answer" cols="30" rows="10" maxlength="600" class="ansText"></textarea>
+                <small class="text-danger erAns"></small>
+
+            </div>
+            
+            <div>
+                <button class="my-5 stat-btn-submit ansBtn" type="submit">Enviar respuesta</button>
+            </div>
+
+        </form>
+        <script src="/js/answer.js"></script>
+        <%- include('./partials/scripts.ejs') %>
+    </body>
+</html>

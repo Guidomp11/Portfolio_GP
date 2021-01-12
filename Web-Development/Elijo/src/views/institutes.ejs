@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="container">
+            <h1>Institutos y cursos</h1>
+
+            <a href="/population/institute"><button id="addButton"><i class="fas fa-plus fa-2x"></i></button></a>
+
+            <% if(typeof institutes != 'undefined'){ %>
+                <div class="accordion mt-5" id="accordionExample">
+                    <% for(let i = 0; i < institutes.length; i++){ %>
+                        <div class="card">
+                            <div class="card-header w-100" id="heading<%=i%>">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left w-100 text-uppercase" type="button" data-toggle="collapse" data-target="#collapse<%=i%>" aria-expanded="true" aria-controls="collapseOne">
+                                        <%=institutes[i].name%>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                  </h2>
+                            </div>
+                            <% for(let j = 0; j < institutes[i].Courses.length; j++){ %>
+                                <div id="collapse<%=i%>" class="collapse" aria-labelledby="heading<%=i%>" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <%=institutes[i].Courses[j].name%>
+                                    </div>
+                                </div>
+                            <% } %> 
+                            <a href="/population/addCourse/<%=institutes[i].id%>"><button id="addToInstitution">Agregar nuevo curso</button></a>
+                        </div>
+                    <% } %> 
+                </div>
+
+
+                
+            <% } %>
+        </div>
+        <%- include('./partials/scripts.ejs') %>
+    </body>
+</html>

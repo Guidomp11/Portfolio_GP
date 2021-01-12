@@ -117,7 +117,9 @@
 
 /*----------------INSTITUTE CAROUSEL----------------*/
 div.instituteCarousel{
-    margin-top: 100px;
-    padding-top: 25px;
+    margin: 0;
+    margin-top: 25px;
+    padding: 0;
+    width: 100% !important;
 }
 /*----------------FIN INSTITUTE CAROUSEL----------------*/

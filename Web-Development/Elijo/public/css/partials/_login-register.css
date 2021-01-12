@@ -11,10 +11,95 @@
             REGISTER
 ===============================*/
 
+small.text-danger{
+  width: 100%;
+}
+
+p.register-title {
+    margin-bottom: 5px!important;
+}
+
+div #my-signin2 {
+    margin-bottom: 15px;
+}
+
 .register-container, .login-container  {
     max-width: 600px;
     background-color: aliceblue;
 }
+
+/* rol  */
+
+
+.radio {
+    position: relative;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 14px;
+    margin: 15px;
+  }
+  .radio .label {
+    position: relative;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c8ccd4;
+    border-radius: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .radio .label:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #225cff;
+    transform: scale(0);
+    transition: all 0.2s ease;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  .radio:hover .label:after {
+    transform: scale(3.6);
+  }
+  input[type="radio"]:checked + .label {
+    border-color: #225cff;
+  }
+  input[type="radio"]:checked + .label:after {
+    transform: scale(1);
+    transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9);
+    opacity: 1;
+  }
+  .cntr {
+    position: relative;
+    top: calc(50% - 10px);
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .hidden {
+    display: none;
+  }
+  .credit {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.2s ease;
+    -webkit-user-select: none;
+    user-select: none;
+    opacity: 0.6;
+  }
+  .credit img {
+    width: 72px;
+  }
+  .credit:hover {
+    transform: scale(0.95);
+  }
+  
 
 
 /*===============================

@@ -1,0 +1,17 @@
+h2, h3, h6, p{
+    text-align: center;    
+}
+
+.coming-soon-container{
+    margin-top: 17%;
+}
+
+@keyframes slide {
+    0%   { transform: translate(0px,0px); }
+    100% { transform: translate(0px,15px); }
+  }
+.coming-soon-container{
+   animation-name: slide;
+   animation-duration: 3s; 
+   animation-fill-mode: forwards;   
+}

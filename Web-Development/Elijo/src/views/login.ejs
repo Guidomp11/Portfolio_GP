@@ -1,27 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head') %>
+<!-- GOOGLE META-->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="766227939545-9nbdf2c7dth14uvafhsppf9oj46ok5l1.apps.googleusercontent.com">
+<!-- /GOOGLE META-->
 <body>
     <%- include('./partials/header') %>
     <!-- Default form login -->
     <div class="login-container">
-    <form class="text-center justify-content-center border border-light p-5" action="#!">
+    <% if(typeof confirmMsg != 'undefined'){ %> 
+        <div class="alert alert-success" role="alert">
+            <%=confirmMsg.msg%>
+          </div>
+    <% } %> 
+    <div class="alert alert-danger d-none" role="alert" id="google-error">
+        Error en el ingreso!
+    </div>
+
+    <form class="text-center justify-content-center border border-light p-5 loginForm" action="/user/login" method="POST">
         
-        <p class="h4 mb-4">Ingresar</p>
+        <p class="h4 mb-4 register-title">Ingresar</p>
+
+        <!-- GOOGLE DIV-->
+        <div class="g-signin2 mb-4 mt-3" data-onsuccess="onSignIn"></div>        
+        <!-- /GOOGLE DIV-->
         
         <div id="btn-max-width">
         <!-- Email -->
-        <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" id="btn-max-width">
+        <input type="email" id="defaultLoginFormEmail" class="form-control mb-4 inputEmail" placeholder="E-mail" id="btn-max-width" name="email">
         
         <!-- Password -->
-        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Contraseña" id="btn-max-width">
+        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4 inputPassword" placeholder="Contraseña" id="btn-max-width" name="password">
+        <small class="text-danger erEmail"></small>
+        <% if(typeof errors != 'undefined'){ %> 
+            <small class="text-danger"><%= errors[0].msg %> </small>
+            <% } %> 
         </div>
 
         <div class="d-flex justify-content-around" id="btn-max-width">
             <div>
                 <!-- Remember me -->
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                    <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember" name="remember">
                     <label class="custom-control-label" for="defaultLoginFormRemember">Recordarme</label>
                 </div>
             </div>
@@ -33,22 +54,75 @@
         
         <div id="btn-max-width">
         <!-- Sign in button -->
-        <button class="btn btn-info btn-block my-4 btn-log-reg" type="submit" id="btn-max-width">Ingresar</button>
+        <button class="btn btn-info btn-block my-4 btn-log-reg submitBtn" type="submit" id="btn-max-width">Ingresar</button>
         </div>
 
         <!-- Register -->
         <p>No estas registrado?
-            <a href="">Registrate aca</a>
+            <a href="/user/register">Registrate aca</a>
         </p>
         
-        <!-- Social login -->
-        <p>o ingresa con:</p>
-        
-        <a href="#" class="mx-2" role="button"><i class="fab fa-google light-blue-text"></i></a>
-        
     </form>
+    
+
     </div>
     <!-- Default form login -->
+
+    <!-- GOOGLE SCRIPTS -->
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var id_token = googleUser.getAuthResponse().id_token;
+            
+            let loginData = {
+                user_id: id_token,
+                name: profile.getName(),
+                photo: profile.getImageUrl(),
+                email: profile.getEmail()
+            }
+
+            fetch('/user/googleVerification',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({loginData})
+            })
+            .then(response => {
+                return response.json();
+            })
+            .then(serverResponse => {
+                if(serverResponse == null){
+                    signOut();
+                    let googleError = document.querySelector('#google-error');
+                    googleError.classList.remove('d-none');
+                    return;
+                }
+                signOut();
+                window.location.href= '/';
+            })
+            .catch(err => {
+                signOut();
+                let googleError = document.querySelector('#google-error');
+                googleError.classList.remove('d-none');
+                return;
+            })
+
+        }
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+              console.log('User signed out.');
+            });
+        }
+    </script>  
+
+    <!-- /GOOGLE SCRIPTS -->
+
+    <!-- JS SCRIPTS -->
+    <script src="/js/login.js"></script>
+
     <%- include('./partials/scripts.ejs') %>
     <%- include('./partials/footer') %>  
 </body>

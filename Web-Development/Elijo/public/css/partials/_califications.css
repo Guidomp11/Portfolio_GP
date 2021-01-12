@@ -1,0 +1,43 @@
+.statInfo{
+    margin: 30px;
+    text-align: center;
+}
+
+.form-stat select {
+    width: 60%;
+}
+
+.form-stat textarea{
+    width: 60%;
+}
+
+#stat{
+    margin: 0px;
+    padding-left: 20%;
+}
+
+.select-answer{
+    margin-bottom: 25px;
+}
+
+.stat-btn-submit{
+    margin: 20px;
+    padding: 5px;
+    background-color: var(--btn-bg-color);
+    border: var(--btn-border);
+    border-radius: var(--btn-border-radius);
+}
+
+.stat-btn-submit:hover{
+    background-color: var(--btn-bg-color-hover);
+    border: var(--btn-border-hover);
+}
+
+.stat-btn-submit:focus{
+    background-color: var(--btn-bg-color-focus);
+    border: var(--btn-border-focus);
+}
+
+small{
+    display: block
+}

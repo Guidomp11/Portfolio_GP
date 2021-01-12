@@ -3,9 +3,6 @@
     <div class="container-fluid">
         <div class="row">
             <h1 class="col-8" hidden>ELIJO</h1>
-            <div class="logoContainer">
-                <img class="logo" src="/images/logo.png">
-            </div>
 
             <div class="phoneMenu">
                 <button class="btnMenu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
@@ -21,17 +18,37 @@
                         Menu
                     </div>
                     <ul>
-                        <li><a href="/">Inicio</a></li>                 
+                        <li><a href="/">ELIJO</a></li>               
                         <li><a href="/posta">La posta</a></li>
                         <li><a href="/meet">Conocer estudiantes</a></li>
-                        <li><a href="/why">Por qué</a></li>
-                        <li><a href="/about">Quienes somos</a></li>
+                        <!-- <li><a href="/why">Por qué</a></li> -->
+                        <% if(typeof userLoggedIn != 'undefined' && (userLoggedIn.rol == 1 || userLoggedIn.rol == "1")){ %>
+                            <li><a href="/population/formsDb">Formularios DB</a></li>
+                        <% } %>
                         <div class="userOptions">
-                            <li><a href="/user/register">Sing up</a></li>
-                            <li><a href="/user/login">Log In</a></li>
-                            <li><a href="/user/account">Cuenta</a></li>
+                            <% if(typeof userLoggedIn == 'undefined') { %>
+                                <li><a href="/user/register">Sign up</a></li>
+                                <li><a href="/user/login">Log In</a></li>
+                            <% }else{ %>
+                                
+                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseAccount" role="button" aria-expanded="false" aria-controls="collapseAccount">
+                                        Cuenta <i class="fas fa-caret-down 2x"></i>
+                                    </a>
+                                    <div id="collapseAccount" class="collapse" >
+                                        <div class="card card-body w-100 p-0 dropMobileAccount">
+                                            <a class="dropdown-item text-center w-100 p-0 pt-3" href="/user/account/<%=userLoggedIn.id%>">Perfil</a>
+                                            <% if(userLoggedIn.rol == '2' || userLoggedIn.rol == 2){ %> 
+                                                <a class="dropdown-item text-center w-100 p-0 pt-3" href="/user/createStats/<%=userLoggedIn.id%>">Aporta Datos</a>
+                                                <a class="dropdown-item text-center w-100 p-0 pt-3" href="/user/createQualification/<%=userLoggedIn.id%>">Calificar</a>
+                                                <a class="dropdown-item text-center w-100 p-0 pt-3" href="/user/createTip/<%=userLoggedIn.id%>">Escribir Tip</a>
+                                                <a class="dropdown-item text-center w-100 p-0 pt-3" href="/user/answerQuestion/<%=userLoggedIn.id%>">Responder Pregunta</a> 
+                                            <% } %> 
+                                        </div>
+                                    </div>
+                                
+                                <li><a href="/user/logout">Log out</a></li>
+                            <% } %>
                         </div>
-                        
                     </ul>
                 </nav>
             </div>
@@ -41,25 +58,47 @@
     </div>
     <div class="pcMenu">
         <div id="la-posta-reminder" class="text-container d-none">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, minus.</p>
+            <p>¡Mira reseñas, comentarios y consejos de universidades, carreras, cursos e inclusive materias!</p>
         </div>
         <div id="meet-students-reminder" class="text-container d-none">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, minus.</p>
+            <p>¡Preguntale lo que quieras a un estudiante actual de la universidad y carrera que quieras!</p>
         </div>
         <nav>
+            
             <ul>
-                <li><a href="/">Inicio</a></li>
+                <li><a href="/">ELIJO</a></li>
                 <li id="box" class="posta"><a href="/posta">La posta</a></li>
                 <li id="box" class="meet"><a href="/meet">Conocer estudiantes</a></li>
-                <li><a href="/why">Por qué</a></li>
-                <li><a href="">Quienes somos</a></li>
+                
+                <li><a href=""></a></li>
+                <%if(typeof userLoggedIn != 'undefined' && (userLoggedIn.rol == 1 || userLoggedIn.rol == "1")){%>
+                    <li><a href="/population/formsDb">Formularios DB</a></li>
+                <% } %>
                 <div>
-                    <li><a href="/user/register">Sing up</a></li>
-                    <li><a href="/user/login">Log In</a></li>
-                    <li><a href="/user/account">Cuenta</a></li>
+                    <% if(typeof userLoggedIn == 'undefined') { %>
+                        <li><a href="/user/register">Sign up</a></li>
+                        <li><a href="/user/login">Log In</a></li>
+                    <% }else{ %>
+                        <li>
+                            <div class="dropmenuAccountContainer dropdown">
+                                <a class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Cuenta <i class="fas fa-caret-down 2x"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right headerCuenta dropmenuAccount" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="/user/account/<%=userLoggedIn.id%>">Perfil</a>
+                                    <% if(userLoggedIn.rol == '2' || userLoggedIn.rol == 2){ %> 
+                                        <a class="dropdown-item" href="/user/createStats/<%=userLoggedIn.id%>">Aporta Datos</a>
+                                        <a class="dropdown-item" href="/user/createQualification/<%=userLoggedIn.id%>">Calificar</a>
+                                        <a class="dropdown-item" href="/user/createTip/<%=userLoggedIn.id%>">Escribir Tip</a>
+                                        <a class="dropdown-item" href="/user/answerQuestion/<%=userLoggedIn.id%>">Responder Pregunta</a> 
+                                    <% } %>
+                                    <a class="dropdown-item" href="/user/logout">Log out</a>
+                                </div>
+                            </div>
+                        </li>
+                    <% } %>
                 </div>
             </ul>
         </nav>
     </div>
-    
 </header>

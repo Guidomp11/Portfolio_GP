@@ -2,127 +2,108 @@
 <html lang="en">
     <%- include('./partials/head') %>
     <body class="">
-        <%- include('./partials/header') %> 
+        <%- include('./partials/header') %>
         <div class="container-fluid">
             
-            <div class="pop-up-background open">
+            <div class="pop-up-background close-pop-up">
                 
                 <div class="pop-up help">
                     <div class="quit-btn-container pop-up-child d-none">
-                        <button class="quit-btn"><i class="far fa-times-circle fa-3x"></i></button>
+                        <button class="quit-btn"><i class="far fa-times-circle fa-2x"></i></button>
+                        <h3 class="pop-up-child d-none">¿En que te puedo ayudar?</h3>
                     </div>
                     
-                    <h3 class="pop-up-child d-none">¿En que te puedo ayudar?</h3>
                     <div class="optionsContainer pop-up-child d-none">
-                        <button id="helpBtn1v2">Qué carrera elijo</button>
-                        <button id="helpBtn2v2">Dónde estudiar</button>
-                        <button id="helpBtn3v2">Hablar con un estudiante</button>
-                        <button id="helpBtn4v2">¿Qué cursos hacer?</button>
+                        <a href="comingSoon"><button class="help-btn-anchor">Qué carrera elijo</button></a>
+                        <a href="comingSoon"><button class="help-btn-anchor">Dónde estudio</button></a>
+                        <a href="meet"><button class="help-btn-anchor">Hablar con un estudiante</button></a>
+                        <a href="comingSoon"><button class="help-btn-anchor">¿Qué cursos hacer?</button></a>  
                     </div>
                 
                     <div class="orderListv2 pop-up-child d-none">
                     </div>
-
-                    <div class="pop-up-child d-none">
-                        <h6>¿Tenés alguna otra pregunta que pensas que nosotros te podemos ayudar?</h6>
-                        <textarea name="opinion" id="opinion" cols="60" rows="5"></textarea>
-                        <div class="sendBtnContainer">
-                            <button class="pop-up-send-btn">Enviar</button>
+                    <div class="alert alert-success d-none" role="alert" id="thank-you">
+                        Muchas gracias! Tu opinion nos importa!
+                    </div>
+                    <form action="" class="extraInfo" id="pop-up-form">
+                        <div class="pop-up-child d-none">
+                            <h6>¿En que más te podemos ayudar?</h6>
+                        </div>
+                        <div class="pop-up-child d-none">
+                            <textarea required name="opinion" id="pop-up-opinion" cols="60" rows="2"></textarea>
+                            <button type="submit" class="pop-up-send-btn"><i class="far fa-paper-plane fa-2x"></i></button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            <div class="blur-background">
+                <div class="row mainHomeContainer">
+                    <div class="vidContainer homeMedia">
+                        <!-- <img src="/images/elijo-fondo.jpeg" alt=""> -->
+                        <video autoplay muted loop>
+                            <source src="/videos/videoHome.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="presentation">
+                        <h2>ELIJO</h2>
+                        <p>LA PLATAFORMA HECHA POR Y PARA ESTUDIANTES</p>
+                        <div class="btn-container">
+                            <a href="/posta"><button class="">La Posta</button></a>
+                            <a href="/meet"><button class="">Conocer Estudiantes</button></a>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="row mainHomeContainer">
-                <div class="col-12 vidContainer homeMedia">
-                    <video autoplay muted loop>
-                        <source src="/videos/Elijo-video.mp4" type="video/mp4">
-                    </video>
-                </div>
-
-                <div class="col-12 col-sm-6 homeImg homeMedia">
-                    <!-- <img class="" src="/images/home/home-meet.jpg" alt=""> -->
-                    <h3>Conocer Estudiantes</h3>
-                    <a href="/meet">
-                        <button class="arrowBtn">
-                            <div class="arrow">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </button>
-                    </a>
-                </div>
-                <div class="col-12 col-sm-6 homeImg homeMedia">
-                    <!-- <img class="" src="/images/home/home-posta.jpg" alt=""> -->
-                    <h3>La Posta</h3>
-                    <a href="/posta">
-                        <button class="arrowBtn">
-                            <div class="arrow">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </button>
-                    </a>
-                </div>
-            </div>
-
-            <div class="instituteCarousel">
-                <section class="customer-logos slider">
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                  <div class="slide"><a href=""><img src="images/otros/uba_logo.png"></a></div>
-                </section>
-            </div>
-
-            <div class="help">
-                <h3>¿En que te puedo ayudar?</h3>
-                <div class="optionsContainer">
-                    <button id="helpBtn1">Qué carrera elijo</button>
-                    <button id="helpBtn2">Dónde estudiar</button>
-                    <button id="helpBtn3">Hablar con un estudiante</button>
-                    <button id="helpBtn4">¿Qué cursos hacer?</button>
-                </div>
-                
-                <div class="orderList">
-                </div>
-
-                <div>
-                    <h6>¿Tenés alguna otra pregunta que pensas que nosotros te podemos ayudar?</h6>
-                    <textarea name="opinion" id="opinion" cols="60" rows="5"></textarea>
-                    <div class="sendBtnContainer">
-                        <button class="sendBtn">Enviar</button>
+                <div class="mission row">
+                    <div class="col-12 col-md-5">
+                        <h2>QUE HACEMOS:</h2>
+                        <p class="mission-l-text">Te ayudamos a elegir QUÉ y DÓNDE estudiar.</p>
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <p class="second-text">Conectate con alumnos que estén cursando o ya hayan vivido la experiencia educativa que te interesa. Además podes leer reseñas, hacer preguntas y escribir comentarios sobre tus experiencias!</p>
                     </div>
                 </div>
+
+                <!--
+                <div class="instituteCarousel">
+                    <section class="customer-logos slider">
+                        <% for(let i=0; i<institutes.length; i++) { %>
+                            <div class="slide"><a href="<%= institutes[i].link %>"><img src="images/logos/<%= institutes[i].logo %>"></a></div>
+                        <% } %>
+                        <% for(let i=0; i<universities.length; i++) { %>
+                            <div class="slide"><a href="<%= universities[i].link %>"><img src="images/logos/<%= universities[i].logo %>"></a></div>
+                        <% } %>
+                    </section>
+                </div>
                 
-                
+                <div class="help">
+                    <h3>¿En que te puedo ayudar?</h3>
+                    <div class="optionsContainer pop-up-child">
+                        <a href="comingSoon"><button class="help-btn-anchor">Qué carrera elijo</button></a>
+                        <a href="comingSoon"><button class="help-btn-anchor">Dónde estudio</button></a>
+                        <a href="meet"><button class="help-btn-anchor">Hablar con un estudiante</button></a>
+                        <a href="comingSoon"><button class="help-btn-anchor">¿Qué cursos hacer?</button></a>  
+                    </div>
+                    
+                    <form action="" id="ordinary-form">
+                        <h6>¿Tenés alguna otra pregunta que pensas que nosotros te podemos ayudar?</h6>
+                        <textarea required name="opinion" id="ordinary-opinion" cols="60" rows="5"></textarea>
+                        <div class="sendBtnContainer d-flex justify-content-end">
+                            <button type="submit" class="sendBtn"><i class="far fa-paper-plane fa-2x"></i></button>
+                        </div>
+                    </form>
+                </div>  -->
             </div>
+
             
         </div>
+        <footer class="myFooter">
+            <ul>
+                <li><a href="https://www.linkedin.com/company/elijo-experiencias-educativas"><i class="fab fa-linkedin fa-3x"></i></a></li>
+                <li><a href="https://www.instagram.com/elijo_org"><i class="fab fa-instagram fa-3x"></i></a></li>
+            </ul>
+        </footer>
         <%- include('./partials/scripts.ejs') %> 
-        <script src="/js/instituteCarousel.js"></script>
-        <script src="/js/help.js"></script>
-        <script src="/js/home.js"></script>
-        <script src="/js/welcome.js"></script>
-        <script src="/js/helpPopUp.js"></script>
-        <%- include('./partials/footer') %>
+        <!--<script src="/js/home.js"></script>-->
     </body>
 </html>

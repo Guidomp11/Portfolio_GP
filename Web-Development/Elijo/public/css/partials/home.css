@@ -1,21 +1,47 @@
 /*----------HOME--------------*/
 
+.mainHomeContainer{
+    height: 100vh;
+    /*position: relative;*/
+}
+
 .vidContainer{
-    width: 100%;
+    width: 100%!important;
+    height: 100vh;
     margin-bottom: 0;
+    position: relative;
+    z-index: -100;
 }
 
 video{
-    width: 100%;
-    height: 200px;/*pc 400*/
+    width: 100%!important;
+    height: 100%;
     object-fit: cover;
 }
 
-div.homeMedia{
-    margin-top: 0;
-    width: 100%;
-    height: 200px;/*pc 400*/
-    padding: 0 0;
+.homeMedia img{
+    width: 100%!important;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 25%;
+} */
+
+.button-container {
+    position: absolute;
+    bottom: 2%;
+    text-align: center;
+}
+
+.home-primary-button {
+    border-radius: 15px;
+    background-color: var(--color-3);
+    height: 80px;
+    width: 90%;
+    margin-bottom: 15px;
+}
+
+.home-primary-button h2 {
+    margin: 0;
 }
 
 div.homeImg img{
@@ -26,10 +52,11 @@ div.homeImg img{
     opacity: 0.7;
 }
 
-div.homeMedia h3{
+a div.homeMedia h2{
     text-align: center;
     margin: 145px;
     z-index: 10;
+    font-size: 5rem;
 }
 /*----------FIN HOME--------------*/
 
@@ -112,15 +139,31 @@ div.help h3{
     margin-bottom: 15px;
 }
 
+.optionsContainer a {
+    margin: 0px;
+}
+
 div.help button{
-    background-color: var(--btn-bg-color);
-    border: var(--btn-border);
-    height: 40px;
+    height: fit-content;
     padding: 5px 5px;
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 3px;
     margin-bottom: 3px;
+    background-color: var(--btn-bg-color);
+    border: var(--btn-border);
+    border-radius: 8px;
+    
+}
+
+div.help button:hover{
+    background-color: var(--btn-bg-color-hover);
+    border: var(--btn-border-hover)
+}
+
+div.help button:focus{
+    background-color: var(--btn-bg-color-focus);
+    border: var(--btn-border-focus)
 }
 
 div.help button i{
@@ -135,6 +178,16 @@ div.help .optionsContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+div.help .optionsContainer button.help-btn-anchor {
+    border-radius: 10px;
+    padding: 3px;
+    background-color: var(--color-3);
+    height: fit-content;
+    margin-bottom: 5px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 div.help .orderList{
@@ -187,11 +240,15 @@ div.help h6{
     margin-bottom: 8px;
 }
 
-
 textarea{
     width: 100%;
 }
 
+.close-pop-up > *{
+    display: none!important;
+    visibility: hidden!important;
+    background-color: yellow;
+}
 /*---------FIN DIV DE AYUDA----------------*/
 
 
@@ -199,15 +256,15 @@ textarea{
 .pop-up-background{
     display: flex;
     justify-content: center;
+    transition: width 1s ease;
+}
 
-    
-    height: 0%;
-    width: 0%;
+.pop-up-background-open{
     transition: width 1s ease;
 }
 
 .pop-up-background .pop-up{
-    background-color: var(--body-bg-color);
+    background-color: white;
     position: fixed;
     top: 80px;
 
@@ -216,7 +273,7 @@ textarea{
     transition: max-height 1s ease;
 
     z-index: 500;
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
 
     display: flex;
@@ -232,7 +289,7 @@ textarea{
     transition: width 1s ease;
 }
 .pop-up-background .pop-up.show.showHeight{
-    height: 80vh;/*a 90*/
+    height: 40vh;/*a 90*/
     transition: height 1s ease;
 }
 
@@ -252,19 +309,14 @@ textarea{
 div.pop-up h3{
     text-align: center;
     width: 100%;
-    margin-top: 15px;
-    margin-bottom: 0px;
+    margin: 0;
 }
 
 div.pop-up button{
-    background-color: var(--btn-bg-color);
-    border: var(--btn-border);
     height: 40px;
-    padding: 5px 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    padding: 0;
+    margin: 0;
+    border: none;
 }
 
 div.pop-up button i{
@@ -274,22 +326,20 @@ div.pop-up button i{
 
 div.pop-up .optionsContainer{
     width: 100%;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin: 0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
 }
 
 div.pop-up .orderListv2{
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin: 0;
     width: 75%;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 
-    height: 0;
+    height: fit-content;
     transition: height 0.4s ease;
     border-top: 2px solid black;
 }
@@ -314,7 +364,7 @@ div.pop-up .orderListOpen{
 div.pop-up h6{
     text-align: center;
     width: 100%;
-    margin-top: 25px;
+    margin: 0;
 }
 
 .pop-up .sendBtnContainer{
@@ -324,17 +374,130 @@ div.pop-up h6{
     justify-content: right;
 }
 
-div.pop-up button.quit-btn{
-    padding: 0;
-    width: 60px;
-    height: 60px;
-}
-
-.quit-btn-container{
-    width: 100%;
+div.pop-up div.quit-btn-container{
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
+div.pop-up div.quit-btn-container button.quit-btn{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    background: inherit;
+}
+
+div.pop-up-child {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.pop-up-child button.pop-up-send-btn {
+    background: inherit;
+    margin-left: 5px;
+}
+
+#opinion {
+    border-radius: 4px;
+}
+
+textarea:focus, #opinion:focus{
+    outline: var(--color-6) solid 2px;
+}
 
 /*FIN POP UP AYUDA*/
+
+
+.presentation{
+    width: 100%;/*px 50*/
+    position: absolute;
+    bottom: 15vh;/*45%*//*antes 20%*/
+    left: 0;/*left 25*/
+}
+.presentation > *{
+    text-align: center;
+    color: white;
+}
+.presentation h2{
+    font-size: 3.5rem;
+}
+.presentation p{
+    margin-bottom: 50px;
+}
+
+.btn-container{
+    margin-top: 70px;
+    padding-top: 5px;
+}
+.btn-container button{
+    padding: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
+    background-color:  rgb(14,155,218);
+    border: none;
+    color: white;
+}
+
+.btn-container button:hover{
+    background-color: var(--btn-bg-color)
+}
+
+.mission{
+    padding: 20px;
+    padding-top: calc(300px / 4);
+    min-height: 300px;
+}
+
+.mission h2{
+    font-size: 2.5rem;
+}
+
+.mission-l-text{
+    color: #bdbdbd;
+    font-size: 1.2rem;
+}
+
+.mission .second-text{
+    line-height: 2rem;
+}
+
+
+/*FOOTER*/
+.myFooter{
+    background-color: #dddddd;
+    margin: 0;
+    width: 100%;
+    /* height: 100px; */
+    padding: 30px;
+}
+
+footer ul{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+footer ul li{
+    list-style: none;
+    display: inline;
+    color: #777777;
+}
+
+footer ul li a{
+    width: fit-content;
+    height: fit-content;
+    margin: 10px;
+    margin-top:calc((300px - 126px) / 3);
+    color: #777777;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="container">
+
+            <% if(typeof success != 'undefined'){ %>
+                <% if(success){ %>
+                    <div class="alert alert-success" role="alert">
+                        Muchas gracias por aportar tu Tip!
+                    </div>
+                <% }else{ %>
+                    <div class="alert alert-danger" role="alert">
+                        Opss! Hubo un error... Vuelve a intentarlo más tarde
+                    </div>
+                <% } %>
+            <% } %>
+
+            <h4 class="statInfo">A través de este formulario podes dejar tips o recomendaciones sobre las distintas instituciones académicas que transitaste para que podamos construir en base a las opiniones estudiantiles, una fuente de información confiable para futuros estudiantes...</h4>
+
+            <form class="mt-5 d-flex flex-column justify-content-center form-stat tipForm" action="/user/createTip/<%=user.id%>" method="POST">
+
+                <div id="stat">
+                    <h5>¿Acerca de que queres dar un tip?</h5>
+                    <select class="toQualify" name="toQualify" required>
+                        <% for(let i = 0; i < user.User_careers.length; i++){ %>
+                            <option value="<%= user.User_careers[i].Universities.id %>,University"><%= user.User_careers[i].Universities.name %></option>
+                            <option value="<%= user.User_careers[i].id %>,Career"><%= user.User_careers[i].name %></option>
+                        <% } %>
+                        <% for(let j = 0; j < user.User_courses.length; j++){ %>
+                            <option value="<%= user.User_courses[j].Institutes.id %>,Institute"><%= user.User_courses[j].Institutes.name %></option>
+                            <option value="<%= user.User_courses[j].id %>,Course"><%= user.User_courses[j].name %></option>
+                        <% } %>
+                    </select>
+                    <small class="text-danger erSelect"></small>
+                </div>
+                
+                <div id="stat">
+                    <h5 class="mt-3">Tip <span style="font-size: small;">(maximo 600 caracteres)</span></h5>
+                    <textarea name="tip" id="tip" cols="30" rows="10" maxlength="600" class="tipText"></textarea>
+                    <small class="text-danger erText"></small>
+                </div>
+
+                <div>
+                <button class="stat-btn-submit tipBtn" type="submit">Subir Tip</button>
+                </div>
+            </form>
+            
+        </div>
+        
+        <script src="/js/tip.js"></script>
+        <%- include('./partials/scripts.ejs') %>
+        <%- include('./partials/footer') %>  
+    </body>
+</html>

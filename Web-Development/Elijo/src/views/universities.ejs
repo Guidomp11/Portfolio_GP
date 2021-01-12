@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/header') %>
+        <div class="container">
+            <h1>Universidades y carreras</h1>
+
+            <a href="/population/university"><button id="addButton"><i class="fas fa-plus fa-2x"></i></button></a>
+            
+            <% if(typeof universities != 'undefined'){ %>
+                <div class="accordion mt-5" id="accordionExample">
+                    <% for(let i = 0; i < universities.length; i++){ %>
+                        <div class="card">
+                            <div class="card-header w-100" id="heading<%=i%>">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left w-100 text-uppercase" type="button" data-toggle="collapse" data-target="#collapse<%=i%>" aria-expanded="true" aria-controls="collapseOne">
+                                        <%=universities[i].name%>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                  </h2>
+                            </div>
+                            <% for(let j = 0; j < universities[i].Careers.length; j++){ %>
+                                <div id="collapse<%=i%>" class="collapse" aria-labelledby="heading<%=i%>" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <%=universities[i].Careers[j].name%>
+                                    </div>
+                                </div>
+                            <% } %> 
+
+                            <a href="/population/addCareerAsignature/<%=universities[i].id%>"><button id="addToInstitution">Agregar nueva carrera</button></a>
+                            <a class="mt-2" href="/population/addUniversityLocation/<%=universities[i].id%>"><button id="addToInstitution">Agregar nueva locacion de universidad</button></a>
+                        </div>
+                    <% } %> 
+                </div>
+
+
+
+            <% } %>
+        </div>
+        <%- include('./partials/scripts.ejs') %>
+    </body>
+</html>

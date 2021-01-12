@@ -10,6 +10,11 @@
 @import 'partials/posta.css';
 @import 'partials/_detail.css';
 @import 'partials/account.css';
+@import 'partials/population.css';
+@import 'partials/_califications.css';
+@import 'partials/test.css';
+
+
 
 
 *{
@@ -20,29 +25,29 @@
 }
 
 body{
-    background-color: var(--body-bg-color);
+    background-color: var(--color-2);
 }
 
 .guide-div{
     opacity: 0.3;
-    background-color: rgb(131, 131, 131);
+    background-color: rgb(148, 148, 148);
 }
 
 /*ESTE IMPORT VA AL FINAL*/
 @media (min-width: 768px) {
     header{
-        height: 120px; 
         transition: height 0.4s ease;
+        height: 50px;
     }
     video{
-        width: 100%;
-        height: 400px;/*pc 400*/
+        width: 100%!important;
+        height: 100%;/*pc 400*/
         object-fit: cover;
     }
     div.homeMedia{
         margin-top: 0;
-        width: 100%;
-        height: 400px;/*pc 400*/
+        width: 100vw;
+        height: 100vh;/*pc 400*/
         padding: 0 0;
     }
     div.homeImg img{
@@ -65,7 +70,10 @@ body{
         border-radius: 360px;
     }
     .pcMenu{
-        display: initial;
+        display: inherit;
+        height: 50px;
+        position: relative;
+        z-index: 800;
     }
     .phoneMenu{
         display: none;
@@ -75,14 +83,55 @@ body{
         height: 100px;
         transition: height 0.4s ease;
     }
-    .pcDropDown{
-        width: 50%;
-    }
     .tips-container{
         display: initial;
     }
-    .tipsPhoneBtn {
+    /* .tipsPhoneBtn {
         display: none;
+    } */
+    .pop-up-background .pop-up.show{
+        width: 50%;
+    }
+
+    .button-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .button-container a:first-child {
+        margin-right: 30px;
+    }
+
+    .button-container a {
+        height: 100%;
+        width: 100%;
+    }
+
+    .home-primary-button {
+        border-radius: 15px;
+        background-color: var(--color-3);
+        width: 300px;
+        height: 80px;
+    }
+
+    .main-info div.img-container .edit-photo-btn{/*DESKTOP*/
+        position: absolute;
+        bottom: 5%;
+        right: 4%;
+    }
+    .presentation{
+        width: 50%;
+        position: absolute;
+        bottom: 45%;
+        left: 25%;
+    }
+  
+}
+
+@media (min-height: 580px) {
+    .presentation{
+        bottom: 25vh;
     }
 }
 
@@ -95,6 +144,17 @@ body{
         margin-top: 3px;
         margin-bottom: 3px;
     }
+
+    #stat{
+        padding-left: 27%;
+    }
+
+    #slider{
+        width: 30% !important
+    }
     
+    div.pop-up div.quit-btn-container button.quit-btn{
+        right: 1% !important;
+    }    
 }
 @import 'partials/mediaQuerys.css';

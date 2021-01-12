@@ -5,75 +5,438 @@
         <%- include('./partials/header') %> 
 
         <div class="container">
-            <h1>Hola, <b>Juan</b></h1>
-            
+            <div class="confirm-div d-none">
+                <h5>¿Estas seguro que queres cambiar tu perfil?</h5>
+                <h5>Este cambio no tendra vuelta atras</h5>
+                <button id="positive">Si</button>
+                <button id="negative">No</button>
+            </div>
+            <h1>Hola <b><%= user.name %> </b></h1>
+            <% if(user.rol == '2' || user.rol == 2){ %> 
+                <div class="notifications dropdown">
+                    <button class="btn btn-secondary action-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ACCIONES <i class="fas fa-exclamation-circle "></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/user/createQualification/<%=user.id%>">CALIFICAR</a>
+                        <a class="dropdown-item" href="/user/createTip/<%=user.id%>">ESCRIBIR TIP</a>
+                        <a class="dropdown-item" href="/user/createStats/<%=user.id%>">APORTA DATOS</a>
+                        <a class="dropdown-item" href="/user/answerQuestion/<%=user.id%>">RESPONDER PREGUNTA</a>
+                    </div>
+                </div>
+            <% } %> 
+
             <div class="main-info row">
+                <% if(user.rol == '2' || user.rol == 2){ %> 
                 <div class="img-container col-6 col-md-4">
-                    <img class="" src="/images/otros/avatar.png" alt="Avatar">
-                    <button class="edit-photo-btn"><i class="fas fa-camera fa-3x"></i></button>
-                </div>
-                
-                
-                <div class="col-12 col-md-8">
-                    <h4>Nombre: Juan</h4>
-                    <h4>Apellido: Kotlin</h4>
-                    <h5>Whatsapp: +54 11 4578-1231</h5>
-                    <h5>E-mail: mi@mail.com</h5>
-                </div>
-            </div>
-
-            <div class="extra-info">
-                <form class="row" action="">
-                    <div class="col-12">
-                        <label class="col-12" for="">Genero:</label>
-                        <select name="genero" id="genero">
-                            <option value="female">Femenino</option>
-                            <option value="male">Masculino</option>
-                            <option value="other">Otro</option>
-                        </select>
-                    </div>
-                    <div class="col-12">
-                        <label class="col-12" for="age">Edad:</label>
-                        <input id="age" name="age" type="text">
-                    </div>
-
-                    <div class="col-12 col-md-4">
-                        <label class="col-12" for="university">Universidad:</label>
-                        <input id="university" type="text">
-                    </div>
-
-                    <div class="col-12 col-md-4">
-                        <label class="col-12" for="carrer">Carrera:</label>
-                        <input id="carrer" type="text">
-                    </div>
-
-                    <div class="col-12 col-md-4">
-                        <label class="col-12" for="startDate">Año de inicio:</label>
-                        <input type="text" name="startDate" id="startDate">
-                    </div>
-
-                    <div class="col-12">
-                        <label class="col-12" for="courseDate">Curso (fechas):</label>
-                        <input type="text" name="courseDate" id="courseDate">
-                    </div>
-
-
-                    <div class="col-12">
-                        <label class="col-12" for="interests">Intereses:</label>
-                        <textarea name="interests" id="interests" cols="40" rows="5"></textarea>
-                    </div>
-
-                    <div class="col-12">
-                        <label class="col-12" for="experiences">Experiencias:</label>
-                        <textarea name="experiences" id="experiences" cols="40" rows="5"></textarea>
-                    </div>
-                    <div class="btn-container col-12">
-                        <button type="submit">Guardar información</button>
-                    </div>
+                    <img class="image-preview" src="/images/users/<%=user.photo%>" alt="Avatar">
                     
-                </form>
+                    <button id="visualBtn" class="edit-photo-btn"><i class="fas fa-camera fa-3x"></i></button>
+                    
+                </div>
+                <% } %> 
+                
+                
+                <div class="col-12 <%= (user.rol == 3 || user.rol == '3') ? '' : 'col-md-8' %>">
+                    <h4><%=(user.name != null) ? user.name : ''%> <%=(user.last_name != null && user.last_name != '') ? user.last_name : ''%></h4>
+                    <h5><i class="fab fa-whatsapp"></i> <%= user.telephone %></h5>
+                    <h5><i class="fas fa-at"></i> <%= user.email %>  </h5>
+                    <% if(user.rol == '3' || user.rol == 3){ %> 
+                        <div class="btn-container mt-2 mb-3">
+                            <button id="changeUserType">Cambiar perfil a universitario</button>
+                        </div>  
+                    <% } %>
+                    
+
+                    <% if(user.rol == '2' || user.rol == 2){ %> 
+                        <h4> <u> Estudios </u></h4>
+                        <% for(let i = 0 ; i < universities.length ; i ++){ %> 
+                            <% for(let j = 0 ; j < user.User_careers.length ; j ++){ %> 
+                                <% if(universities[i].id == user.User_careers[j].university_id){ %> 
+                                    <h5><%= universities[i].name %> </h5>
+                                    <h5><i class="fas fa-book-open pr-2"></i><%= user.User_careers[j].name %> </h5>
+                                <% } %> 
+                            <% } %> 
+                        <% } %> 
+                    <% } %> 
+
+                    <% for(let i = 0 ; i < institutes.length ; i ++){ %> 
+                        <% for(let j = 0 ; j < user.User_courses.length ; j ++){ %> 
+                            <% if(institutes[i].id == user.User_courses[j].institute_id){ %> 
+                                <h5><%= institutes[i].name %> </h5>
+                                <h5><i class="fas fa-book-open pr-2"></i><%= user.User_courses[j].name %> </h5>
+                            <% } %> 
+                        <% } %> 
+                    <% } %> 
+                    <% if(user.rol == '2' || user.rol == 2){ %> 
+                        <h4> <u> Intereses </u></h4>
+                        <ul class="interests">
+                            <% for(let i = 0; i < user.Interest.length; i++){ %>
+                                <li><%= user.Interest[i].interest_name%></li>
+                            <% } %> 
+                        </ul>
+                    <% } %> 
+                        
+                </div>
             </div>
+
+            
+            <div class="extra-info">
+
+                <form autocomplete="off" id="userForm" class="row" action="/user/account/1" method="POST" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <label class="col-12" for="name">Nombre:</label>
+                                    <input class="ml-3 an-account-input" name="name" type="text" value="<%=(user.name != null) ? user.name : ''%>">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <label class="col-12" for="name">Apellido:</label>
+                                    <input class="ml-3 an-account-input" name="last_name" type="text" value="<%=(user.last_name != null && user.last_name != '') ? user.last_name : ''%>">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <label class="col-12" for="email">E-mail:</label>
+                                    <input class="ml-3 an-account-input email-input" name="email" type="text" value="<%=(user.email != null && user.email != '') ? user.email : ''%>">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-12 personalInfo">
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <label class="col-12" for="genre">Genero:</label>
+                                    <select class="ml-3 an-account-select" name="genre" id="genre">
+                                        <% for(let i = 0; i < genres.length; i++){ %> 
+                                            <option value="<%=genres[i].id%>" <%=(genres[i].id == user.genre_id) ? 'selected' : ''%>> <%=genres[i].genre_name%> </option>
+                                        <% } %> 
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <label class="col-12" for="age">Edad:</label>
+                                    <select class="ml-3 an-account-select" name="age" id="age">
+                                        <option value="" hidden>Seleccionar</option>
+                                        <% for(let i = 16; i < 50; i++){ %>
+                                            <option value="<%= i %>" <%=(i == user.age) ? 'selected' : '' %>><%= i %> </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <label class="col-12" for="age">Provincia:</label>
+                                    <select class="ml-3 an-account-select" name="province" id="province">
+                                        <option value="" hidden>Selecciona una Provincia</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="col-12" for="age">Telefono:</label>
+                                <input name="telephone" class="an-account-input" type="text" value="<%=(user.telephone != null && user.telephone != '') ? user.telephone : ''%>">
+                            </div>
+                        </div>
+                    </div>
+                    <% if(user.rol == '2' || user.rol == 2){ %> 
+                        <div class="row">
+                            <div class="col-12">
+
+                                <div class="row university">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-12 col-md-4" id="universitySelect">
+                                                <label class="col-12" for="university">Universidad:</label>
+                                                <select class="ml-3 an-account-select" name="university" id="universitySelector"> 
+                                                    <option value="" hidden>Selecciona una Universidad</option>
+                                                    <% for(let i = 0; i < universities.length; i++){ %>   
+                                                        <option value="<%=universities[i].id%>"
+                                                            <% if(user.User_careers.length > 0){ %> 
+                                                                <%= (user.User_careers[0].university_id == universities[i].id) ? 'selected' : '' %>
+                                                            <% } %>      
+                                                        ><%=universities[i].name%></option>
+                                                    <% } %>
+                                                </select>
+
+                                            </div>
+                                            <div class="col-12 col-md-4" id="careerSelect">
+                                                <label class="col-12" for="career">Carrera:</label>
+                                                <select class="ml-3 an-account-select" name="career" id="career"> 
+                                                    <option value="" hidden>Selecciona una Carrera</option>
+                                                    <% if(user.User_careers.length > 0){ %>
+                                                        <option value="<%=user.User_careers[0].id%>" selected><%=user.User_careers[0].name%></option>
+                                                    <% } %> 
+                                                </select>
+
+                                            </div>
+                                        
+                                            <div class="col-12 col-md-4" id="careerStartDiv">
+                                                <label class="col-12" for="startDate">Año de carrera:</label>
+                                                <select class="ml-3 an-account-select" name="startDate" id="">
+                                                    <option value="" hidden>Selecciona un año</option>
+                                                    <option <%=(typeof user_careers[0] != 'undefined' && user_careers[0].start_year == '1') ? 'selected' : '' %> value="1">1°</option>
+                                                    <option <%=(typeof user_careers[0] != 'undefined' && user_careers[0].start_year == '2') ? 'selected' : '' %> value="2">2°</option>
+                                                    <option <%=(typeof user_careers[0] != 'undefined' && user_careers[0].start_year == '3') ? 'selected' : '' %> value="3">3°</option>
+                                                    <option <%=(typeof user_careers[0] != 'undefined' && user_careers[0].start_year == '4') ? 'selected' : '' %> value="4">4°</option>
+                                                    <option <%=(typeof user_careers[0] != 'undefined' && user_careers[0].start_year == '5') ? 'selected' : '' %> value="5">5°</option>
+                                                    <option <%=(typeof user_careers[0] != 'undefined' && user_careers[0].start_year == '6') ? 'selected' : '' %> value="6">6°</option>
+                                                    <option <%=(typeof user_careers[0] != 'undefined' && user_careers[0].start_year == 'terminado') ? 'selected' : '' %> value="terminado">terminado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-none" id="new-university">
+                                        <div class="row">
+                                            <div class="col-12 col-md-4" id="universitySelect">
+                                                <label class="col-12" for="university">Universidad:</label>
+                                                <select class="ml-3 an-account-select" name="university" id="universitySelector"> 
+                                                    <option value="" hidden>Selecciona una Universidad</option>
+                                                    <% for(let i = 0; i < universities.length; i++){ %>   
+                                                        <option value="<%=universities[i].id%>"
+                                                            <% if(user.User_careers.length > 1){ %> 
+                                                                <%= (user.User_careers[1].university_id == universities[i].id) ? 'selected' : '' %>
+                                                            <% } %>     
+                                                        ><%=universities[i].name%></option>
+                                                    <% } %>
+                                                </select>
+
+                                            </div>
+                                            <div class="col-12 col-md-4" id="careerSelect">
+                                                <label class="col-12" for="career">Carrera:</label>
+                                                <select class="ml-3 an-account-select" name="career" id="career"> 
+                                                    <option value="" hidden>Selecciona una Carrera</option>
+                                                    <% if(user.User_careers.length > 1){ %>
+                                                        <option value="<%=user.User_careers[1].id%>" selected><%=user.User_careers[1].name%></option>
+                                                    <% } %> 
+                                                </select>
+
+                                            </div>
+                                        
+                                            <div class="col-12 col-md-4" id="careerStartDiv">
+                                                <label class="col-12" for="startDate">Año de carrera:</label>
+                                                <select class="ml-3 an-account-select" name="startDate" id="">
+                                                    <option value="" hidden>Selecciona un año</option>
+                                                    <option <%=(typeof user_careers[1] != 'undefined' && user_careers[1].start_year == '1') ? 'selected' : '' %> value="1">1°</option>
+                                                    <option <%=(typeof user_careers[1] != 'undefined' && user_careers[1].start_year == '2') ? 'selected' : '' %> value="2">2°</option>
+                                                    <option <%=(typeof user_careers[1] != 'undefined' && user_careers[1].start_year == '3') ? 'selected' : '' %> value="3">3°</option>
+                                                    <option <%=(typeof user_careers[1] != 'undefined' && user_careers[1].start_year == '4') ? 'selected' : '' %> value="4">4°</option>
+                                                    <option <%=(typeof user_careers[1] != 'undefined' && user_careers[1].start_year == '5') ? 'selected' : '' %> value="5">5°</option>
+                                                    <option <%=(typeof user_careers[1] != 'undefined' && user_careers[1].start_year == '6') ? 'selected' : '' %> value="6">6°</option>
+                                                    <option <%=(typeof user_careers[1] != 'undefined' && user_careers[1].start_year == 'terminado') ? 'selected' : '' %> value="terminado">terminado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="add-btn-container">
+                                        <button class="add-btn" id="university-add-btn"><i class="fas fa-plus fa-2x"></i></button>
+                                    </div>
+                                    <a class="ml-3 col-12" href="/user/requestInstitution">¿No encontras la universidad o la carrera que hiciste? haz click aqui</a>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="row institute">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-12 col-md-4" id="instituteSelect">
+                                                <label class="col-12" for="institute">Instituto del curso:</label>
+                                                <select class="ml-3 an-account-select" name="institute" id="instituteSelector"> 
+                                                    <option value="" hidden>Selecciona una institucion</option> 
+                                                    <% for(let i = 0; i < institutes.length; i++){ %>   
+                                                        <option value="<%=institutes[i].id%>"
+                                                            <% if(user.User_courses.length > 0){ %> 
+                                                                <%= (user.User_courses[0].course_id == institutes[i].id) ? 'selected' : '' %>
+                                                            <% } %>     
+                                                        ><%=institutes[i].name%></option>
+                                                    <% } %> 
+                                                </select>
+                                            </div>
+                                        
+                                            <div class="col-12 col-md-4" id="courseSelect">
+                                                <label class="col-12" for="course">Curso:</label> 
+                                                <select class="ml-3 an-account-select" name="course" id="course"> 
+                                                    <option value="" hidden>Selecciona un Curso</option> 
+                                                    <% if(user.User_courses.length > 0){ %>
+                                                        <option value="<%=user.User_courses[0].id%>" selected><%=user.User_courses[0].name%></option>
+                                                    <% } %>  
+                                                </select>
+                                            </div>
+                                        
+                                            <div class="col-12 col-md-4" id="courseStartDiv">
+                                                <label class="col-12" for="courseStartDate">Estado del curso:</label>
+                                                <select name="courseStartDate" class="ml-3 an-account-select" id="">
+                                                    <option value="" hidden>Selecciona un estado</option>
+                                                    <option value="en proceso" <%=(typeof user_courses[0] != 'undefined' && user_courses[0].start_year == 'en proceso') ? 'selected' : ''%>>En proceso</option>
+                                                    <option value="terminado" <%=(typeof user_courses[0] != 'undefined' && user_courses[0].start_year == 'terminado') ? 'selected' : ''%>>Terminado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-none" id="new-institute">
+                                        <div class="row">
+                                            <div class="col-12 col-md-4" id="instituteSelect">
+                                                <label class="col-12" for="institute">Instituto del curso:</label>
+                                                <select class="ml-3 an-account-select" name="institute" id="instituteSelector"> 
+                                                    <option value="" hidden>Selecciona una institucion</option>  
+                                                    <% for(let i = 0; i < institutes.length; i++){ %>   
+                                                        <option value="<%=institutes[i].id%>"
+                                                            <% if(user.User_courses.length > 1){ %> 
+                                                                <%= (user.User_courses[1].course_id == institutes[i].id) ? 'selected' : '' %>
+                                                            <% } %>     
+                                                        ><%=institutes[i].name%></option>
+                                                    <% } %> 
+                                                </select>
+                                            </div>
+                                        
+                                            <div class="col-12 col-md-4" id="courseSelect">
+                                                <label class="col-12" for="course">Curso:</label> 
+                                                <select class="ml-3 an-account-select" name="course" id="course"> 
+                                                    <option value="" hidden>Selecciona un Curso</option>  
+                                                    <% if(user.User_courses.length > 1){ %>
+                                                        <option value="<%=user.User_courses[1].id%>" selected><%=user.User_courses[1].name%></option>
+                                                    <% } %>  
+                                                </select>
+                                            </div>
+                                        
+                                            <div class="col-12 col-md-4" id="courseStartDiv">
+                                                <label class="col-12" for="courseStartDate">Estado del curso:</label>
+                                                <select name="courseStartDate" class="ml-3 an-account-select" id="">
+                                                    <option value="" hidden>Selecciona un estado</option>
+                                                    <option value="en proceso" <%=(typeof user_courses[1] != 'undefined' && user_courses[1].start_year == 'en proceso') ? 'selected' : ''%>>En proceso</option>
+                                                    <option value="terminado" <%=(typeof user_courses[1] != 'undefined' && user_courses[1].start_year == 'terminado') ? 'selected' : ''%>>Terminado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-none" id="new-institute">
+                                        <div class="row">
+                                            <div class="col-12 col-md-4" id="instituteSelect">
+                                                <label class="col-12" for="institute">Instituto del curso:</label>
+                                                <select class="ml-3 an-account-select" name="institute" id="instituteSelector"> 
+                                                    <option value="" hidden>Selecciona una institucion</option>  
+                                                    <% for(let i = 0; i < institutes.length; i++){ %>   
+                                                        <option value="<%=institutes[i].id%>"
+                                                            <% if(user.User_courses.length > 2){ %> 
+                                                                <%= (user.User_courses[2].course_id == institutes[i].id) ? 'selected' : '' %>
+                                                            <% } %>     
+                                                        ><%=institutes[i].name%></option>
+                                                    <% } %> 
+                                                </select>
+                                            </div>
+                                        
+                                            <div class="col-12 col-md-4" id="courseSelect">
+                                                <label class="col-12" for="course">Curso:</label> 
+                                                <select class="ml-3 an-account-select" name="course" id="course"> 
+                                                    <option value="" hidden>Selecciona un Curso</option> 
+                                                    <% if(user.User_courses.length > 2){ %>
+                                                        <option value="<%=user.User_courses[2].id%>" selected><%=user.User_courses[2].name%></option>
+                                                    <% } %>   
+                                                </select>
+                                            </div>
+                                        
+                                            <div class="col-12 col-md-4" id="courseStartDiv">
+                                                <label class="col-12" for="courseStartDate">Estado del curso:</label>
+                                                <select name="courseStartDate" class="ml-3 an-account-select" id="">
+                                                    <option value="" hidden>Selecciona un estado</option>
+                                                    <option value="en proceso" <%=(typeof user_courses[2] != 'undefined' && user_courses[2].start_year == 'en proceso') ? 'selected' : ''%>>En proceso</option>
+                                                    <option value="terminado" <%=(typeof user_courses[2] != 'undefined' && user_courses[2].start_year == 'terminado') ? 'selected' : ''%>>Terminado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-none" id="new-institute">
+                                        <div class="row">
+                                            <div class="col-12 col-md-4" id="instituteSelect">
+                                                <label class="col-12" for="institute">Instituto del curso:</label>
+                                                <select class="ml-3 an-account-select" name="institute" id="instituteSelector"> 
+                                                    <option value="" hidden>Selecciona una institucion</option>  
+                                                    <% for(let i = 0; i < institutes.length; i++){ %>   
+                                                        <option value="<%=institutes[i].id%>"
+                                                            <% if(user.User_courses.length > 3){ %> 
+                                                                <%= (user.User_courses[3].course_id == institutes[i].id) ? 'selected' : '' %>
+                                                            <% } %>     
+                                                        ><%=institutes[i].name%></option>
+                                                    <% } %> 
+                                                </select>
+                                            </div>
+                                        
+                                            <div class="col-12 col-md-4" id="courseSelect">
+                                                <label class="col-12" for="course">Curso:</label> 
+                                                <select class="ml-3 an-account-select" name="course" id="course"> 
+                                                    <option value="" hidden>Selecciona un Curso</option>  
+                                                    <% if(user.User_courses.length > 3){ %>
+                                                        <option value="<%=user.User_courses[3].id%>" selected><%=user.User_courses[3].name%></option>
+                                                    <% } %>  
+                                                </select>
+                                            </div>
+                                        
+                                            <div class="col-12 col-md-4" id="courseStartDiv">
+                                                <label class="col-12" for="courseStartDate">Estado del curso:</label>
+                                                <select name="courseStartDate" class="ml-3 an-account-select" id="">
+                                                    <option value="" hidden>Selecciona un estado</option>
+                                                    <option value="en proceso" <%=(typeof user_courses[3] != 'undefined' && user_courses[3].start_year == 'en proceso') ? 'selected' : ''%>>En proceso</option>
+                                                    <option value="terminado" <%=(typeof user_courses[3] != 'undefined' && user_courses[3].start_year == 'terminado') ? 'selected' : ''%>>Terminado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="add-btn-container">
+                                        <button class="add-btn" id="institute-add-btn"><i class="fas fa-plus fa-2x"></i></button>
+                                    </div>
+                                    <a class="ml-3 col-12" href="/user/requestInstitution">¿No encontras el instituto o el curso que hiciste? haz click aqui</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="col-12" for="interests">Intereses: (Introducir de a un interés)</label>
+                                <div class="row">
+                                    <div class="col-12 autocomplete">
+                                        <input class="ml-3 an-account-input" id="interests" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="searchFilter">
+                                        </div>
+
+                                        <button id="interestButton">Agregar</button>
+                                    </div>
+                                </div>
+
+                                <div id="interestsContainer" class="container">
+                                    <% for(let i = 0; i < user.Interest.length; i++){ %> 
+                                        <button class="interest-btn" name="interests" value="<%= user.Interest[i].interest_name %>" id="oldInterests"><%= user.Interest[i].interest_name %></button>
+                                    <% } %> 
+                                </div>
+                            </div>
+                            <div class="col-12 mt-1">
+                                <label class="col-12" for="experiences">Experiencias:</label>
+                                <textarea class="ml-3" name="experiences" id="experiences" cols="40" rows="5" value=""><%=(user.experiences != null && user.experiences != '') ? user.experiences : ''%></textarea>
+                            </div>
+
+                        </div>
+                    <% } %> 
+                    <input class="inputSeleccionarArchivo an-account-input" type="file" name="userImg" hidden>             
+                </form>
+                <div class="btn-container mt-2">
+                    <button id="submitBtn" type="submit">Guardar información</button>
+                </div>  
+            </div>
+        
         </div>
         <%- include('./partials/footer') %>
+        <script src="/js/account.js"></script>
+        <script src="/js/interests.js"></script>
+        <%- include('./partials/scripts') %>
     </body>
 </html>

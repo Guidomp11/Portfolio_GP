@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <style>
+        input{
+            width: 400px;
+            height: 40px;
+            padding: 3px;
+            margin-left: 10px;
+        }
+        button{
+            width: 200px;
+            height: 100px;
+            background-color: green;
+        }
+        .new_asignature{
+            background-color: indianred;
+        }
+        .division{
+            text-align: center;
+            background-color: lawngreen;
+        }
+        #asignature:nth-child(even){
+            padding: 5px;
+            background-color: grey;
+        }
+    </style>
+    <body>
+        <form action="/population/addCareerAsignature/<%=universityId%>" method="POST">
+            <h4 class="mt-3 ">Nombre:</h4>
+            <input required class="" name="career_name" type="text" placeholder="Diseño Grafico">
+
+            <h4 class="mt-3 ">Link del plan:</h4>
+            <input required class="" name="career_plan_link" type="text" placeholder="diseñografico.com">
+
+            <h4 class="mt-3 ">Precio:</h4>
+            <input required class="" name="career_price" type="text" placeholder="0000">
+
+            <h4 class="mt-3 ">Calificacion:</h4>
+            <input required class="" name="career_calification" type="text" placeholder="0">
+
+            <h4 class="mt-3 ">Duración:</h4>
+            <input required class="" name="career_duration" type="text" placeholder="0">
+
+            <h4 class="mt-3 ">Dificultad:</h4>
+            <input required class="" name="career_difficulty" type="text" placeholder="0">
+
+            <h4 class="mt-3 ">Salida laboral:</h4>
+            <input required class="" name="career_job_exit" type="text" placeholder="0">
+
+            <h4 class="mt-3 ">Horas de estudio:</h4>
+            <input required class="" name="career_study_hours" type="text" placeholder="0">
+        
+            <input id="newCareer" name="newCareer" type="input" hidden>
+
+            <br>
+            <button id="BtnSubmitCareer" type="submit">Siguiente</button>
+        </form>
+
+
+        <script src="/js/population/careerSubmit.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
+    </body>
+</html>

@@ -4,180 +4,144 @@
 <link rel="stylesheet" href="/css/partials/meet.css">
 <body>
     <%- include('./partials/header') %>  
-
+                <!-- filter mobile -->
                 <div class="div-filter" id="slider">
                     <span class="arrow arrow-left"></span>
-
-                    <a href="#universidad" data-toggle="collapse" ><p class="universidad">Universidad</p></a>
+                    <form action="/meet/filters?" method="GET" class="filter-form" name="filter">
+                        <a href="#universidad" data-toggle="collapse" ><p class="universidad">Universidad</p></a>
                         <div class="collapse" id="universidad">
-                            <div class="card">
-                                <label for=""><input type="checkbox" name="" id="">Ditella</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">UBA</label>
-                                
+                            <div class="card" id="universitiesParent">
+                                <% if(typeof universities != 'undefined'){ %>
+                                    <% for(let i = 0; i < universities.length; i++){ %>
+                                        <label for="<%=universities[i].name%>"><input onclick="handleUniversityInput('<%= universities[i].id %>')" type="checkbox" name="university" id="university" value="<%=universities[i].id%>"><%=universities[i].name%></label>
+                                    <% } %>                                
+                                <% } %>
                             </div>
                         </div>
 
                     <a href="#carrera" data-toggle="collapse" ><p>Carrera</p></a>
                         <div class="collapse" id="carrera">
-                            <div class="card">
-                                <label for=""><input type="checkbox" name="" id="">Ciencias Sociales</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">Economia</label>
+                            <div class="card" id="careerDiv">
+                                <% if(typeof careers != 'undefined'){ %>
+                                    <% for(let i = 0; i < careers.length; i++){ %>
+
+                                        <label for="<%=careers[i].name%>"><input onclick="handleCareerInput('<%=careers[i].name%>')" type="checkbox" name="career" id="career" value="<%=careers[i].name%>"><%=careers[i].name%></label>    
+                                        
+                                    <% } %>                                
+                                <% } %>
+                            </div>
+                        </div>
+
+                    <a href="#institutos" data-toggle="collapse" ><p>Institutos</p></a>
+                        <div class="collapse" id="institutos">
+                            <div class="card" id="institutesDiv">
+                                <% if(typeof institutes != 'undefined'){ %>
+                                    <% for(let i = 0; i < institutes.length; i++){ %>
+                                        <label for="<%=institutes[i].name%>"><input onclick="handleInstituteInput('<%=institutes[i].id%>')" type="checkbox" name="institute" id="institutes" value="<%=institutes[i].id%>"><%=institutes[i].name%></label>    
+                                    <% } %>                                
+                                <% } %>
                                 
                             </div>
                         </div>
 
                     <a href="#cursos" data-toggle="collapse" ><p>Cursos</p></a>
                         <div class="collapse" id="cursos">
-                            <div class="card">
-                                <label for=""><input type="checkbox" name="" id="">Programacion</label>
-                                                                
-                                <label for=""><input type="checkbox" name="" id="">Fotografia</label>
-
+                            <div class="card" id="courseDiv">
+                                <% if(typeof courses != 'undefined'){ %> 
+                                    <% for (let i=0; i<courses.length; i++){ %>
+                                    <label for="<%=courses[i].name%>"><input onclick="handleCourseInput('<%=courses[i].name%>')" type="checkbox" name="course" id="courses" value="<%=courses[i].name%>"><%=courses[i].name%></label> 
+                                    <% } %> 
+                                <% } %>
+                                
                             </div>
                         </div>
                     
                     
                     <a href="#intereses" data-toggle="collapse" ><p>Intereses</p></a>
                         <div class="collapse" id="intereses">
-                            <div class="card">
-                                <label for=""><input type="checkbox" name="" id="">Futbol</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">Cine</label>
-                                
+                            <div class="card" id="interestDiv">
+                                <% if(typeof interests != 'undefined'){ %>
+                                    <% for(let i = 0; i < interests.length; i++){ %>
+                                        <label for="<%=interests[i].interest_name%>"><input onclick="handleInterestInput('<%= interests[i].interest_name %>')" type="checkbox" name="interest" id="interest" value="<%= interests[i].interest_name %>" ><%=interests[i].interest_name%></label>    
+                                    <% } %>    
+                                <% } %>  
                             </div>
                         </div>
 
                     <a href="#region" data-toggle="collapse" ><p>Region</p></a>
                         <div class="collapse" id="region">
-                            <div class="card">
-                                <label for=""><input type="checkbox" name="" id="">Buenos Aires</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">Cordoba</label>
+                            <div class="card" id="regionCard">
                                 
                             </div>
                         </div>
 
                     <a href="#anio" data-toggle="collapse" ><p>Año de Universidad</p></a>
                         <div class="collapse" id="anio">
-                            <div class="card">
-                                <label for=""><input type="checkbox" name="" id="">1</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">2</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">3</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">4</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">5</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">6</label>
-                                
+                            <div class="card" id="yearDiv">
+                                <label for=""><input onclick="handleYearInput('1')" type="checkbox" name="year" value="1" id="year">1</label>
+                                <!-- addInputChecked('year,1') -->
+                                <label for=""><input onclick="handleYearInput('2')" type="checkbox" name="year" value="2" id="year">2</label>
+                                <!-- addInputChecked('year,2') -->
+                                <label for=""><input onclick="handleYearInput('3')" type="checkbox" name="year" value="3" id="year">3</label>
+                                <!-- addInputChecked('year,3') -->
+                                <label for=""><input onclick="handleYearInput('4')" type="checkbox" name="year" value="4" id="year">4</label>
+                                <!-- addInputChecked('year,4') -->
+                                <label for=""><input onclick="handleYearInput('5')" type="checkbox" name="year" value="5" id="year">5</label>
+                                <!-- addInputChecked('year,5') -->
+                                <label for=""><input onclick="handleYearInput('6')" type="checkbox" name="year" value="6" id="year">6</label>
+                                <!-- addInputChecked('year,6') -->
+                                <label for=""><input onclick="handleYearInput('terminado')" type="checkbox" name="year" value="terminado" id="year">Terminado</label>
                             </div>
                         </div>
                     <a href="#genero" data-toggle="collapse" ><p>Genero</p></a>
                         <div class="collapse" id="genero">
-                            <div class="card">
-                                <label for=""><input type="checkbox" name="" id="">Femenino</label>
+                            <div class="card" id="genreDiv">
                                 
-                                <label for=""><input type="checkbox" name="" id="">Masculino</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">Otro</label>
-                                
+                                <label for="genre"><input onclick="handleGenreInput('1')" type="checkbox" name="genre" value="1" id="genre">Femenino</label>
+                                <!-- addInputChecked('genre,1') -->
+                                <label for="genre"><input onclick="handleGenreInput('2')" type="checkbox" name="genre" value="2" id="genre">Masculino</label>
+                                <!-- addInputChecked('genre,2') -->
+                                <label for="genre"><input onclick="handleGenreInput('3')" type="checkbox" name="genre" value="3" id="genre">Otro</label>
+                                <!-- addInputChecked('genre,3') -->
                             </div>
                         </div>
                     <a href="#edad" data-toggle="collapse" ><p>Edad</p></a>
                         <div class="collapse" id="edad">
-                            <div class="card">
-                                <label for=""><input type="checkbox" name="" id="">18-23</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">24-29</label>
-                                
-                                <label for=""><input type="checkbox" name="" id="">30-35</label>
-
-                                <label for=""><input type="checkbox" name="" id="">35+</label>
+                            <div class="card" id="ageDiv">
+                                <label for="age"><input onclick="handleAgeInput('18-23')" type="checkbox" name="age" value="18-23" id="age">18-23</label>
+                                <!-- addInputChecked('age,18-23') -->
+                                <label for="age"><input onclick="handleAgeInput('24-29')" type="checkbox" name="age" value="24-29" id="age">24-29</label>
+                                <!-- addInputChecked('age,24-29') -->
+                                <label for="age"><input onclick="handleAgeInput('30-35')" type="checkbox" name="age" value="30-35" id="age">30-35</label>
+                                <!-- addInputChecked('age,30-35') -->
+                                <label for="age"><input onclick="handleAgeInput('35')" type="checkbox" name="age" value="35" id="age">35+</label>
+                                <!-- addInputChecked('age,35') -->
                             </div>
                         </div>
-                    
-                
+                        <button type="submit" class="filter-btn">Filtrar</button>
+                    </form>
                 </div>
 
     <div class="sleep-background d-none">
-        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, iure.</h3>
+        <h3>¡Preguntenle a estudiantes actuales por Whatsapp!</h3>
         <img src="/images/meetGuide.jpeg" alt="">
     </div>
 
     
     
     <div class="container container-meet">
+        
         <h1 id="meet-title">¡Conocé más estudiantes! </h1>
+      
         <button class="btn-filter" id="toggle">Filtrar</button>
-            <div class="row d-flex justify-content-center">
-                <div class="col-5 col-md-3 estudiante">
-                    <img src="/images/otros/avatar.png" alt="">
-                    <h3>Julia</h3>
-                    <p>UTDT</p>
-                    <p>Ciencias Sociales</p>
-                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
-                </div>
-                <div class="col-5 col-md-3 estudiante">
-                    <img src="/images/otros/avatar.png" alt="">
-                    <h3>Felipe</h3>
-                    <p>UDESA</p>
-                    <p>Administracion</p>
-                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
-                </div>
-                <div class="col-5 col-md-3 estudiante">
-                    <img src="/images/otros/avatar.png" alt="">
-                    <h3>Micaela</h3>
-                    <p>UBA</p>
-                    <p>Comunicacion</p>
-                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
-                </div>
-                <div class="col-5 col-md-3 estudiante">
-                    <img src="/images/otros/avatar.png" alt="">
-                    <h3>Martin</h3>
-                    <p>ITBA</p>
-                    <p>Ingenieria</p>
-                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
-                </div>
-                <div class="col-5 col-md-3 estudiante">
-                    <img src="/images/otros/avatar.png" alt="">
-                    <h3>Cala</h3>
-                    <p>UTDT</p>
-                    <p>Arquitectura</p>
-                    <button> Ver Perfil</button>
-                </div>
-                <div class="col-5 col-md-3 estudiante">
-                    <img src="/images/otros/avatar.png" alt="">
-                    <h3>Felipe</h3>
-                    <p>UDESA</p>
-                    <p>Administracion</p>
-                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
-                </div>
-                <div class="col-5 col-md-3 estudiante">
-                    <img src="/images/otros/avatar.png" alt="">
-                    <h3>Micaela</h3>
-                    <p>UBA</p>
-                    <p>Comunicacion</p>
-                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
-                </div>
-                <div class="col-5 col-md-3 estudiante">
-                    <img src="/images/otros/avatar.png" alt="">
-                    <h3>Martin</h3>
-                    <p>ITBA</p>
-                    <p>Ingenieria</p>
-                    <a href="/meet/detail/1"><button> Ver Perfil</button></a>
-                </div>
-                
-            </div>
-
+        <div class="row d-flex justify-content-center" id="users-container">  
+                                        
+        </div>
+        <div class="meetPaginationContainer">
+        </div>
     </div>
 
     
-
-
 
     <%- include('./partials/scripts') %>
     <script src="/js/meet.js"></script>

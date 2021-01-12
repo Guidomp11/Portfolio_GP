@@ -1,27 +1,19 @@
+/*=================================
+            PHONE
+=================================*/
+
+
 header{
-    background: url('/images/home/fotonavPixel.jpg');
     background-color: rgb(179, 179, 179);
     background-size: cover;
     background-position: center;
-    height: 70px; 
+    height: 0px; 
     transition: height 0.4s ease;
 }
 
 header.move-up{
     height: 0px;
     transition: height 0.4s ease;
-}
-
-header img.logo{
-    height: 70px;
-    margin-left: 35px;
-}
-
-header div.logoContainer{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
 }
 
 header h1{
@@ -35,12 +27,11 @@ header div.phoneMenu nav.sidebar{
     height: 100%;
     width: 200px;
     background-color: transparent;
-    background-image: linear-gradient(180deg, #F7B801 0%, #F35B04 100%);
+    background-image: linear-gradient(180deg, var(--color-3) 0%, var(--color-4) 100%);
     opacity: 0.95;
     transition: background-color 0.5s, border-radius 0.3s, opacity 0.5s;    
     right: -200px;
     transition: right 0.4s ease;
-    
 }
 
 header div.phoneMenu nav.show{
@@ -57,7 +48,7 @@ header div.phoneMenu nav  ul {
 }
 header div.phoneMenu nav  ul div.userOptions {
     text-align: center;
-    margin-top: 100%;
+    margin-top: 30%;
 }
 
 
@@ -81,8 +72,12 @@ header div.phoneMenu nav  li a{
 header div.phoneMenu nav  li a:hover{
     text-decoration: none;
     color: black;
-    border-right-color: blue;
+    border-right-color: var(--btn-bg-color-hover);
     width: 100%;
+}
+
+header div.phoneMenu nav  li a img {
+    width: 100px;
 }
 
 header div.phoneMenu .sidebar .text{
@@ -110,6 +105,7 @@ header div.phoneMenu .btnMenu {
     border-radius: 5px;
     border: none;
     transition: right 0.4s ease;
+    background-color: rgba(1, 1, 1, 0.1);
 }
 
 header div.phoneMenu svg{
@@ -118,7 +114,7 @@ header div.phoneMenu svg{
 
 header div.phoneMenu .line {
     fill: none;
-    stroke: black;
+    stroke: white;
     stroke-width: 6;
     transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
     stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -151,12 +147,31 @@ header div.phoneMenu .opened .line3 {
     stroke-width: 6;
 }
 
+.dropMobileAccount{
+    border-radius: 5px;
+    background-color: var(--color-3);
+}
+
+.dropMobileAccount a:hover{
+    background-color: var(--color-4);
+}
 
 
 
+/*=================================
+            -PC-
+=================================*/
 
+.dropmenuAccount {
+    height: fit-content!important;
+    /* z-index: 4000!important; */
+    border-radius: 5px;
+    background-color: var(--color-3);
+}
 
-
+.dropmenuAccount a:focus {
+    background-color: var(--color-5);
+}
 
 .pcMenu{
     margin: 0 0;
@@ -166,9 +181,11 @@ header div.phoneMenu .opened .line3 {
 
 div.pcMenu nav{
     background-color: transparent;
-    background-image: linear-gradient(180deg, #F7B801 0%, #F35B04 100%);
+    background-image: linear-gradient(180deg, var(--color-3) 0%, var(--color-4) 100%);
     opacity: 0.85;
     transition: background-color 0.5s, border-radius 0.3s, opacity 0.5s;
+    border-bottom: 5px;
+    height: 50px;
 }
     
 
@@ -177,8 +194,6 @@ div.pcMenu nav ul{
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 50px;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -187,8 +202,12 @@ div.pcMenu nav ul{
 div.pcMenu nav ul li{
     position: relative;
     display:inline-block;
-    line-height: 60px;
+    line-height: 50px;
     height: 100%;
+}
+
+div.pcMenu nav ul div{
+    /*height: 50px;*/
 }
 
 div.pcMenu nav ul li a{
@@ -200,47 +219,30 @@ div.pcMenu nav ul li a{
     width: 100%;
     height: 100%;
     transition: 0.2s ease-in-out;
-    
+    height: 50px;
 }
 
 div.pcMenu nav ul li a:hover{
     text-decoration: none;
     color: black;
     padding-bottom: 5px;
-    border-bottom: 5px solid blue;
+    border-bottom: 5px solid var(--btn-bg-color-hover);
     transform: border-bottom 0.2s ease-in-out;
     width: 100%;
 }
 
-
+div.pcMenu nav ul li a img{
+    width: 90px;
+}
+/*
 div.pcMenu nav ul div{
     height: 100%;
-}
-
-
-div.pcMenu nav ul div li a{
-    display: inline-block;
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-    font-weight: 500;
-    width: 100%;
-    height: 100%;
-}
-
-div.pcMenu nav ul div li a:hover{
-    text-decoration: none;
-    color: black;
-    padding-bottom: 5px;
-    border-bottom: 5px solid blue;
-    transition: border-bottom 0.4 ease-in-out;
-    width: 100%;
-}
+}*/
 
 div.pcMenu nav div li{
     display:inline-block;
     margin-left: 5px;
-    line-height: 60px;
+    line-height: 50px;
     height: 100%;
 }
 
@@ -255,26 +257,27 @@ div.pcMenu nav div li{
     height: 50px;
     color: white;
 }
-  .gradient-border {
-    --borderWidth: 0px;
-    position: relative;
-    border-radius: 3px;
-  }
-  .gradient-border:after {
-    content: '';
-    position: absolute;
-    top: calc(-1 * var(--borderWidth));
-    left: calc(-1 * var(--borderWidth));
-    height: calc(100% + var(--borderWidth) * 2);
-    width: calc(100% + var(--borderWidth) * 2);
-    
-    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-    border-radius: calc(2 * var(--borderWidth));
-    z-index: -1;
-    animation: animatedgradient 3s ease alternate infinite;
-    background-size: 300% 300%;
-    
-  }
+.gradient-border {
+  --borderWidth: 5px;
+  position: relative;
+  border-radius: 3px;
+  border-bottom: 10px;
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  
+  background: linear-gradient(60deg, rgb(123,216,240),rgb(14,155,218), rgb(1,146,203), rgb(14,155,218), #5073b8, #1098ad, rgb(109,216,254), #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+  
+}
   
   
   @keyframes animatedgradient {
@@ -292,18 +295,14 @@ div.pcMenu nav div li{
 /*FIN DE ANIMACION*/
 
 
-
-.text-container{
-    
-}
-
 #la-posta-reminder{
     padding: 7px;
     position: absolute;
-    background-color: rgb(241, 191, 134);
-    top: 17% !important;
-    left: 12.5% !important;
-    height: 30px !important;
+    background-color: var(--color-4);
+    top: 9.5% !important;
+    left: 19% !important;
+    height: 155px !important;
+    width: 180px !important;
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
@@ -313,10 +312,11 @@ div.pcMenu nav div li{
 #meet-students-reminder{
     padding: 7px;
     position: absolute;
-    background-color:  rgb(241, 191, 134);
-    top: 17% !important;
-    left: 25.1% !important;
-    height: 30px !important;
+    background-color: var(--color-4);
+    top: 9.5% !important;
+    left: 41.5% !important;
+    height: 130px !important;
+    width: 180px !important;
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
@@ -326,4 +326,12 @@ div.pcMenu nav div li{
 
 .text-container p{
     height: 20px !important;
+    text-align: center;
 }
+
+.headerCuenta{
+    top: 0px !important;
+    left: 15px !important; 
+    z-index: 600!important;
+}
+

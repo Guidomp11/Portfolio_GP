@@ -1,0 +1,33 @@
+#addButton{
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    position: fixed;
+    left: 2%;
+    top: 20%;
+    background-color: var(--btn-bg-color);
+    border: none;
+}
+
+#addToInstitution{
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    background-color: var(--btn-bg-color);
+    border: none;
+}
+
+.populationMenu button{
+    background-color: var(--btn-bg-color-hover);
+    border: var(--btn-border-hover);
+    height: 40px;
+    padding: 0 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    color: white;
+    text-transform: uppercase;
+}
